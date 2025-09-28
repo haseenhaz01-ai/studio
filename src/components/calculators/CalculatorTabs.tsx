@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import EmiCalculator from './EmiCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -26,6 +26,7 @@ import LiquidNetWorthCalculator from './LiquidNetWorthCalculator';
 import ManHoursCalculator from './ManHoursCalculator';
 import CtrCalculator from './CtrCalculator';
 import AvmCalculator from './AvmCalculator';
+import EvmCalculator from './EvmCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'finance' },
@@ -43,6 +44,7 @@ const calculators = [
   { name: 'AVM', icon: Film, component: <AvmCalculator />, value: 'avm', category: 'marketing' },
   { name: 'Simple', icon: Calculator, component: <SimpleCalculator />, value: 'simple', category: 'general' },
   { name: 'Man-Hours', icon: Clock, component: <ManHoursCalculator />, value: 'man-hours', category: 'general' },
+  { name: 'EVM', icon: ClipboardList, component: <EvmCalculator />, value: 'evm', category: 'general' },
 ];
 
 const financeCalculators = calculators.filter(c => c.category === 'finance');

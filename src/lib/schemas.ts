@@ -95,3 +95,9 @@ export const avmSchema = z.object({
   totalWatchTime: z.coerce.number().min(0.1, { message: 'Total watch time must be a positive number.' }),
   totalViews: z.coerce.number().min(1, { message: 'Total views must be at least 1.' }),
 });
+
+export const evmSchema = z.object({
+    plannedValue: z.coerce.number().min(0, { message: 'Planned Value (PV) must be a positive number.' }),
+    earnedValue: z.coerce.number().min(0, { message: 'Earned Value (EV) must be a positive number.' }),
+    actualCost: z.coerce.number().min(0, { message: 'Actual Cost (AC) must be a positive number.' }),
+});
