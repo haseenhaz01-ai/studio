@@ -58,3 +58,8 @@ export const adsenseSchema = z.object({
   ctr: z.coerce.number().min(0, { message: 'CTR must be a positive number.' }).max(100, { message: 'CTR cannot be more than 100%.' }),
   cpc: z.coerce.number().min(0.01, { message: 'CPC must be a positive number.' }),
 });
+
+export const grpSchema = z.object({
+  reach: z.coerce.number().min(0, { message: 'Reach must be a positive number.' }).max(100, { message: 'Reach cannot be more than 100%.' }),
+  averageFrequency: z.coerce.number().min(0.1, { message: 'Average frequency must be a positive number.' }),
+});
