@@ -90,3 +90,8 @@ export const ctrSchema = z.object({
   message: 'Total Impressions must be greater than or equal to Total Clicks.',
   path: ['totalImpressions'],
 });
+
+export const avmSchema = z.object({
+  totalWatchTime: z.coerce.number().min(0.1, { message: 'Total watch time must be a positive number.' }),
+  totalViews: z.coerce.number().min(1, { message: 'Total views must be at least 1.' }),
+});
