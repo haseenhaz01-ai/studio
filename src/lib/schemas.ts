@@ -63,3 +63,11 @@ export const grpSchema = z.object({
   reach: z.coerce.number().min(0, { message: 'Reach must be a positive number.' }).max(100, { message: 'Reach cannot be more than 100%.' }),
   averageFrequency: z.coerce.number().min(0.1, { message: 'Average frequency must be a positive number.' }),
 });
+
+export const lernerIndexSchema = z.object({
+  price: z.coerce.number().min(0.01, { message: 'Price must be a positive number.' }),
+  marginalCost: z.coerce.number().min(0, { message: 'Marginal cost must be a positive number.' }),
+}).refine(data => data.price > data.marginalCost, {
+  message: "Price must be greater than Marginal Cost.",
+  path: ["price"],
+});
