@@ -52,3 +52,9 @@ export const exitRateSchema = z.object({
   message: 'Total Pageviews must be greater than or equal to Total Exits.',
   path: ['totalPageviews'],
 });
+
+export const adsenseSchema = z.object({
+  pageImpressions: z.coerce.number().min(1, { message: 'Page impressions must be at least 1.' }),
+  ctr: z.coerce.number().min(0, { message: 'CTR must be a positive number.' }).max(100, { message: 'CTR cannot be more than 100%.' }),
+  cpc: z.coerce.number().min(0.01, { message: 'CPC must be a positive number.' }),
+});
