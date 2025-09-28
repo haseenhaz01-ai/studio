@@ -82,3 +82,11 @@ export const manHoursSchema = z.object({
   hoursPerWorker: z.coerce.number().min(0.1, { message: 'Hours per worker must be a positive number.' }),
   numberOfDays: z.coerce.number().min(0.1, { message: 'Number of days must be a positive number.' }),
 });
+
+export const ctrSchema = z.object({
+  totalClicks: z.coerce.number().min(0, { message: 'Total clicks must be a positive number.' }),
+  totalImpressions: z.coerce.number().min(1, { message: 'Total impressions must be at least 1.' }),
+}).refine(data => data.totalImpressions >= data.totalClicks, {
+  message: 'Total Impressions must be greater than or equal to Total Clicks.',
+  path: ['totalImpressions'],
+});
