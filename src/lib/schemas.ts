@@ -71,3 +71,8 @@ export const lernerIndexSchema = z.object({
   message: "Price must be greater than Marginal Cost.",
   path: ["price"],
 });
+
+export const liquidNetWorthSchema = z.object({
+  cashAndInvestments: z.coerce.number().min(0, { message: 'Cash and investments must be a positive number.' }),
+  shortTermLiabilities: z.coerce.number().min(0, { message: 'Short-term liabilities must be a positive number.' }),
+});
