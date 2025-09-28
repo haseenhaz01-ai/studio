@@ -17,3 +17,10 @@ export const simpleCalculatorSchema = z.object({
   number2: z.coerce.number(),
   operation: z.enum(['add', 'subtract', 'multiply', 'divide']),
 });
+
+export const investmentCalculatorSchema = z.object({
+  initialAmount: z.coerce.number().min(0, { message: 'Initial amount must be positive.' }),
+  monthlyContribution: z.coerce.number().min(0, { message: 'Monthly contribution must be positive.' }),
+  interestRate: z.coerce.number().min(0.1, { message: 'Interest rate must be positive.' }).max(100, { message: 'Interest rate cannot exceed 100%.' }),
+  tenure: z.coerce.number().min(1, { message: 'Tenure must be at least 1 year.' }).max(50, { message: 'Tenure cannot exceed 50 years.' }),
+});
