@@ -1,19 +1,21 @@
 'use client';
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Coins, Percent } from 'lucide-react';
+import { Coins, Percent, Calculator } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import EmiCalculator from './EmiCalculator';
+import SimpleCalculator from './SimpleCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency' },
   { name: 'EMI', icon: Percent, component: <EmiCalculator />, value: 'emi' },
+  { name: 'Simple', icon: Calculator, component: <SimpleCalculator />, value: 'simple' },
 ];
 
 export default function CalculatorTabs() {
   return (
     <Tabs defaultValue="currency" className="w-full">
-      <TabsList className="grid w-full grid-cols-2">
+      <TabsList className="grid w-full grid-cols-3">
         {calculators.map((calc) => (
           <TabsTrigger key={calc.value} value={calc.value} className="flex gap-2">
             <calc.icon className="h-4 w-4" />
