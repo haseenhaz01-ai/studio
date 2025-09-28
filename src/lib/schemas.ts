@@ -24,3 +24,11 @@ export const investmentCalculatorSchema = z.object({
   interestRate: z.coerce.number().min(0.1, { message: 'Interest rate must be positive.' }).max(100, { message: 'Interest rate cannot exceed 100%.' }),
   tenure: z.coerce.number().min(1, { message: 'Tenure must be at least 1 year.' }).max(50, { message: 'Tenure cannot exceed 50 years.' }),
 });
+
+export const contributionMarginSchema = z.object({
+  totalSales: z.coerce.number().min(0, { message: 'Total sales must be a positive number.' }),
+  totalVariableCosts: z.coerce.number().min(0, { message: 'Total variable costs must be a positive number.' }),
+}).refine(data => data.totalSales > data.totalVariableCosts, {
+  message: "Total Sales must be greater than Total Variable Costs.",
+  path: ["totalSales"],
+});
