@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import EmiCalculator from './EmiCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -23,6 +23,7 @@ import AdsenseCalculator from './AdsenseCalculator';
 import GrpCalculator from './GrpCalculator';
 import LernerIndexCalculator from './LernerIndexCalculator';
 import LiquidNetWorthCalculator from './LiquidNetWorthCalculator';
+import ManHoursCalculator from './ManHoursCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'finance' },
@@ -37,6 +38,7 @@ const calculators = [
   { name: 'AdSense', icon: DollarSign, component: <AdsenseCalculator />, value: 'adsense', category: 'marketing' },
   { name: 'GRP', icon: Tv, component: <GrpCalculator />, value: 'grp', category: 'marketing' },
   { name: 'Simple', icon: Calculator, component: <SimpleCalculator />, value: 'simple', category: 'general' },
+  { name: 'Man-Hours', icon: Clock, component: <ManHoursCalculator />, value: 'man-hours', category: 'general' },
 ];
 
 const financeCalculators = calculators.filter(c => c.category === 'finance');

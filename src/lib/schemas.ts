@@ -76,3 +76,9 @@ export const liquidNetWorthSchema = z.object({
   cashAndInvestments: z.coerce.number().min(0, { message: 'Cash and investments must be a positive number.' }),
   shortTermLiabilities: z.coerce.number().min(0, { message: 'Short-term liabilities must be a positive number.' }),
 });
+
+export const manHoursSchema = z.object({
+  numberOfWorkers: z.coerce.number().min(1, { message: 'Number of workers must be at least 1.' }),
+  hoursPerWorker: z.coerce.number().min(0.1, { message: 'Hours per worker must be a positive number.' }),
+  numberOfDays: z.coerce.number().min(0.1, { message: 'Number of days must be a positive number.' }),
+});
