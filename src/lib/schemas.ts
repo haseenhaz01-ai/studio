@@ -38,3 +38,9 @@ export const cogsSchema = z.object({
   purchases: z.coerce.number().min(0, { message: 'Purchases must be a positive number.' }),
   endingInventory: z.coerce.number().min(0, { message: 'Ending inventory must be a positive number.' }),
 });
+
+export const cpcCpmSchema = z.object({
+  totalCost: z.coerce.number().min(0.01, 'Total Cost must be positive'),
+  totalClicks: z.coerce.number().min(1, 'Total Clicks must be at least 1').optional(),
+  totalImpressions: z.coerce.number().min(1, 'Total Impressions must be at least 1').optional(),
+});
