@@ -103,9 +103,9 @@ export default function SimpleCalculator() {
       const secondOperand = parseFloat(displayValue);
       const result = calculate(firstOperand, secondOperand, operator);
       setDisplayValue(String(result));
-      setFirstOperand(result); // Allows for continuous calculations
+      setFirstOperand(null);
       setOperator(null);
-      setWaitingForSecondOperand(true);
+      setWaitingForSecondOperand(false);
     }
   };
 
