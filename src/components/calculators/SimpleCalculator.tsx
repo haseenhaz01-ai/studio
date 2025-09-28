@@ -1,129 +1,167 @@
 'use client';
 
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import type { z } from 'zod';
-import { simpleCalculatorSchema } from '@/lib/schemas';
-
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-
-type SimpleCalculatorFormValues = z.infer<typeof simpleCalculatorSchema>;
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Delete } from 'lucide-react';
 
 export default function SimpleCalculator() {
-  const [result, setResult] = useState<number | null>(null);
+  const [displayValue, setDisplayValue] = useState('0');
+  const [firstOperand, setFirstOperand] = useState<number | null>(null);
+  const [operator, setOperator] = useState<string | null>(null);
+  const [waitingForSecondOperand, setWaitingForSecondOperand] = useState(false);
 
-  const form = useForm<SimpleCalculatorFormValues>({
-    resolver: zodResolver(simpleCalculatorSchema),
-    defaultValues: {
-      number1: 0,
-      number2: 0,
-      operation: 'add',
-    },
-  });
-
-  const onSubmit = (values: SimpleCalculatorFormValues) => {
-    const { number1, number2, operation } = values;
-    let calculationResult: number;
-    switch (operation) {
-      case 'add':
-        calculationResult = number1 + number2;
-        break;
-      case 'subtract':
-        calculationResult = number1 - number2;
-        break;
-      case 'multiply':
-        calculationResult = number1 * number2;
-        break;
-      case 'divide':
-        calculationResult = number1 / number2;
-        break;
-      default:
-        calculationResult = 0;
+  const inputDigit = (digit: string) => {
+    if (waitingForSecondOperand) {
+      setDisplayValue(digit);
+      setWaitingForSecondOperand(false);
+    } else {
+      setDisplayValue(displayValue === '0' ? digit : displayValue + digit);
     }
-    setResult(calculationResult);
   };
 
+  const inputDecimal = () => {
+    if (waitingForSecondOperand) {
+      setDisplayValue('0.');
+      setWaitingForSecondOperand(false);
+      return;
+    }
+    if (!displayValue.includes('.')) {
+      setDisplayValue(displayValue + '.');
+    }
+  };
+
+  const toggleSign = () => {
+    setDisplayValue(
+      displayValue.startsWith('-') ? displayValue.slice(1) : `-${displayValue}`
+    );
+  };
+
+  const clearAll = () => {
+    setDisplayValue('0');
+    setFirstOperand(null);
+    setOperator(null);
+    setWaitingForSecondOperand(false);
+  };
+
+  const backspace = () => {
+    if (displayValue.length === 1 || (displayValue.startsWith('-') && displayValue.length === 2)) {
+      setDisplayValue('0');
+    } else {
+      setDisplayValue(displayValue.slice(0, -1));
+    }
+  };
+  
+  const calculatePercentage = () => {
+    const currentValue = parseFloat(displayValue);
+    if (firstOperand === null) {
+      setDisplayValue(String(currentValue / 100));
+    } else {
+      const result = (firstOperand * currentValue) / 100;
+      setDisplayValue(String(result));
+    }
+  };
+
+
+  const performOperation = (nextOperator: string) => {
+    const inputValue = parseFloat(displayValue);
+
+    if (operator && waitingForSecondOperand) {
+      setOperator(nextOperator);
+      return;
+    }
+
+    if (firstOperand === null) {
+      setFirstOperand(inputValue);
+    } else if (operator) {
+      const result = calculate(firstOperand, inputValue, operator);
+      setDisplayValue(String(result));
+      setFirstOperand(result);
+    }
+
+    setWaitingForSecondOperand(true);
+    setOperator(nextOperator);
+  };
+
+  const calculate = (first: number, second: number, op: string): number => {
+    switch (op) {
+      case '+':
+        return first + second;
+      case '-':
+        return first - second;
+      case '×':
+        return first * second;
+      case '÷':
+        return first / second;
+      default:
+        return second;
+    }
+  };
+
+  const handleEquals = () => {
+    if (operator && firstOperand !== null) {
+      const secondOperand = parseFloat(displayValue);
+      const result = calculate(firstOperand, secondOperand, operator);
+      setDisplayValue(String(result));
+      setFirstOperand(result); // Allows for continuous calculations
+      setOperator(null);
+      setWaitingForSecondOperand(true);
+    }
+  };
+
+  const renderButton = (
+    label: string | React.ReactNode,
+    onClick: () => void,
+    className = ''
+  ) => (
+    <Button
+      onClick={onClick}
+      className={`h-16 w-16 rounded-full text-2xl ${className}`}
+      variant="outline"
+    >
+      {label}
+    </Button>
+  );
+
   return (
-    <Card className="mx-auto max-w-2xl">
+    <Card className="mx-auto max-w-sm overflow-hidden">
       <CardHeader>
         <CardTitle className="font-headline">Simple Calculator</CardTitle>
         <CardDescription>Perform basic arithmetic operations.</CardDescription>
       </CardHeader>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <CardContent className="space-y-6">
-            <div className="grid grid-cols-1 items-end gap-4 md:grid-cols-[1fr,150px,1fr]">
-              <FormField
-                control={form.control}
-                name="number1"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Number 1</FormLabel>
-                    <FormControl>
-                      <Input type="number" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="operation"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Operation</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                            <SelectTrigger>
-                                <SelectValue placeholder="Select an operation" />
-                            </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                            <SelectItem value="add">+</SelectItem>
-                            <SelectItem value="subtract">-</SelectItem>
-                            <SelectItem value="multiply">*</SelectItem>
-                            <SelectItem value="divide">/</SelectItem>
-                        </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="number2"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Number 2</FormLabel>
-                    <FormControl>
-                      <Input type="number" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            {result !== null && (
-              <div className="rounded-r-lg border-l-4 border-accent bg-accent/20 p-6">
-                <p className="text-sm text-accent-foreground/80">Result</p>
-                <p className="font-headline text-4xl font-bold text-accent-foreground">
-                  {result}
-                </p>
-              </div>
-            )}
-          </CardContent>
-          <CardFooter>
-            <Button type="submit" className="w-full">
-              Calculate
-            </Button>
-          </CardFooter>
-        </form>
-      </Form>
+      <CardContent>
+        <div className="mb-4 rounded-lg bg-muted p-4 text-right">
+          <p className="font-headline break-all text-5xl font-bold text-foreground">
+            {displayValue}
+          </p>
+        </div>
+        <div className="grid grid-cols-4 gap-2">
+          {renderButton('AC', clearAll, 'bg-accent text-accent-foreground hover:bg-accent/90')}
+          {renderButton(<Delete />, backspace, 'bg-accent text-accent-foreground hover:bg-accent/90')}
+          {renderButton('+/-', toggleSign, 'bg-accent text-accent-foreground hover:bg-accent/90')}
+          {renderButton('÷', () => performOperation('÷'), 'bg-primary text-primary-foreground hover:bg-primary/90')}
+
+          {renderButton('7', () => inputDigit('7'))}
+          {renderButton('8', () => inputDigit('8'))}
+          {renderButton('9', () => inputDigit('9'))}
+          {renderButton('×', () => performOperation('×'), 'bg-primary text-primary-foreground hover:bg-primary/90')}
+
+          {renderButton('4', () => inputDigit('4'))}
+          {renderButton('5', () => inputDigit('5'))}
+          {renderButton('6', () => inputDigit('6'))}
+          {renderButton('-', () => performOperation('-'), 'bg-primary text-primary-foreground hover:bg-primary/90')}
+
+          {renderButton('1', () => inputDigit('1'))}
+          {renderButton('2', () => inputDigit('2'))}
+          {renderButton('3', () => inputDigit('3'))}
+          {renderButton('+', () => performOperation('+'), 'bg-primary text-primary-foreground hover:bg-primary/90')}
+          
+          {renderButton('%', calculatePercentage)}
+          {renderButton('0', () => inputDigit('0'))}
+          {renderButton('.', inputDecimal)}
+          {renderButton('=', handleEquals, 'bg-primary text-primary-foreground hover:bg-primary/90')}
+        </div>
+      </CardContent>
     </Card>
   );
 }
