@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import EmiCalculator from './EmiCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -18,6 +18,7 @@ import InvestmentCalculator from './InvestmentCalculator';
 import ContributionMarginCalculator from './ContributionMarginCalculator';
 import CogsCalculator from './CogsCalculator';
 import CpcCpmCalculator from './CpcCpmCalculator';
+import ExitRateCalculator from './ExitRateCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'finance' },
@@ -26,6 +27,7 @@ const calculators = [
   { name: 'Contrib. Margin', icon: BarChartBig, component: <ContributionMarginCalculator />, value: 'contribution-margin', category: 'finance' },
   { name: 'COGS', icon: Archive, component: <CogsCalculator />, value: 'cogs', category: 'finance' },
   { name: 'CPC/CPM', icon: MousePointerClick, component: <CpcCpmCalculator />, value: 'cpc-cpm', category: 'marketing' },
+  { name: 'Exit Rate', icon: LogOut, component: <ExitRateCalculator />, value: 'exit-rate', category: 'marketing' },
   { name: 'Simple', icon: Calculator, component: <SimpleCalculator />, value: 'simple', category: 'general' },
 ];
 

@@ -44,3 +44,11 @@ export const cpcCpmSchema = z.object({
   totalClicks: z.coerce.number().min(1, 'Total Clicks must be at least 1').optional(),
   totalImpressions: z.coerce.number().min(1, 'Total Impressions must be at least 1').optional(),
 });
+
+export const exitRateSchema = z.object({
+  totalExits: z.coerce.number().min(0, { message: 'Total exits must be a positive number.' }),
+  totalPageviews: z.coerce.number().min(1, { message: 'Total pageviews must be at least 1.' }),
+}).refine(data => data.totalPageviews >= data.totalExits, {
+  message: 'Total Pageviews must be greater than or equal to Total Exits.',
+  path: ['totalPageviews'],
+});
