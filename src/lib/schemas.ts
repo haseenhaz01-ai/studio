@@ -32,3 +32,9 @@ export const contributionMarginSchema = z.object({
   message: "Total Sales must be greater than Total Variable Costs.",
   path: ["totalSales"],
 });
+
+export const cogsSchema = z.object({
+  beginningInventory: z.coerce.number().min(0, { message: 'Beginning inventory must be a positive number.' }),
+  purchases: z.coerce.number().min(0, { message: 'Purchases must be a positive number.' }),
+  endingInventory: z.coerce.number().min(0, { message: 'Ending inventory must be a positive number.' }),
+});
