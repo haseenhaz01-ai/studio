@@ -101,3 +101,24 @@ export const evmSchema = z.object({
     earnedValue: z.coerce.number().min(0, { message: 'Earned Value (EV) must be a positive number.' }),
     actualCost: z.coerce.number().min(0, { message: 'Actual Cost (AC) must be a positive number.' }),
 });
+
+const differenceSchema = z.object({
+  mode: z.literal('difference'),
+  fromDate: z.date(),
+  toDate: z.date(),
+});
+
+const addSubtractSchema = z.object({
+  mode: z.literal('add-subtract'),
+  startDate: z.date(),
+  operation: z.enum(['add', 'subtract']),
+  years: z.coerce.number().int().min(0).optional(),
+  months: z.coerce.number().int().min(0).optional(),
+  weeks: z.coerce.number().int().min(0).optional(),
+  days: z.coerce.number().int().min(0).optional(),
+});
+
+export const dateTimeSchema = z.discriminatedUnion('mode', [
+  differenceSchema,
+  addSubtractSchema,
+]);
