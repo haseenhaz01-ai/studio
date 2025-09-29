@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, Printer } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import EmiCalculator from './EmiCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -30,6 +30,7 @@ import EvmCalculator from './EvmCalculator';
 import DateTimeCalculator from './DateTimeCalculator';
 import TimeCalculator from './TimeCalculator';
 import AgeCalculator from './AgeCalculator';
+import PrintingCalculator from './PrintingCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'finance' },
@@ -45,7 +46,8 @@ const calculators = [
   { name: 'AdSense', icon: DollarSign, component: <AdsenseCalculator />, value: 'adsense', category: 'marketing' },
   { name: 'GRP', icon: Tv, component: <GrpCalculator />, value: 'grp', category: 'marketing' },
   { name: 'AVM', icon: Film, component: <AvmCalculator />, value: 'avm', category: 'marketing' },
-  { name: 'Simple', icon: Calculator, component: <SimpleCalculator />, value: 'simple', category: 'general' },
+  { name: 'Standard', icon: Calculator, component: <SimpleCalculator />, value: 'simple', category: 'general' },
+  { name: 'Printing', icon: Printer, component: <PrintingCalculator />, value: 'printing', category: 'general' },
   { name: 'Man-Hours', icon: Clock, component: <ManHoursCalculator />, value: 'man-hours', category: 'general' },
   { name: 'EVM', icon: ClipboardList, component: <EvmCalculator />, value: 'evm', category: 'general' },
   { name: 'Date', icon: CalendarClock, component: <DateTimeCalculator />, value: 'date-time', category: 'general' },
@@ -90,6 +92,7 @@ export default function CalculatorTabs() {
               </DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
+            <DropdownMenuLabel>General</DropdownMenuLabel>
              {otherCalculators.map((calc) => (
               <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />

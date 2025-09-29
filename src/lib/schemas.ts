@@ -137,3 +137,8 @@ export const ageSchema = z.object({
     required_error: "A date of birth is required.",
   }),
 });
+
+export const printingCalculatorSchema = z.object({
+  value: z.coerce.number(),
+  operation: z.enum(['add', 'subtract']),
+});
