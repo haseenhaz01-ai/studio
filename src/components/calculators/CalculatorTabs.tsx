@@ -46,7 +46,7 @@ const calculators = [
   { name: 'Simple', icon: Calculator, component: <SimpleCalculator />, value: 'simple', category: 'general' },
   { name: 'Man-Hours', icon: Clock, component: <ManHoursCalculator />, value: 'man-hours', category: 'general' },
   { name: 'EVM', icon: ClipboardList, component: <EvmCalculator />, value: 'evm', category: 'general' },
-  { name: 'Date & Time', icon: CalendarClock, component: <DateTimeCalculator />, value: 'date-time', category: 'general' },
+  { name: 'Date', icon: CalendarClock, component: <DateTimeCalculator />, value: 'date-time', category: 'general' },
 ];
 
 const financeCalculators = calculators.filter(c => c.category === 'finance');

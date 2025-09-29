@@ -94,7 +94,7 @@ export default function DateTimeCalculator() {
   return (
     <Card className="mx-auto max-w-2xl">
       <CardHeader>
-        <CardTitle className="font-headline">Date & Time Calculator</CardTitle>
+        <CardTitle className="font-headline">Date Calculator</CardTitle>
         <CardDescription>Calculate date differences or add/subtract time.</CardDescription>
       </CardHeader>
       <Form {...form}>
