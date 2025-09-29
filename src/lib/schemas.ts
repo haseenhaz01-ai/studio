@@ -188,3 +188,11 @@ export const paycheckCalculatorSchema = z.object({
     filingStatus: z.enum(['single', 'married_jointly', 'married_separately', 'head_of_household']),
     state: z.string().min(2, "Please select a state."),
   });
+
+export const calorieCalculatorSchema = z.object({
+  gender: z.enum(['male', 'female']),
+  age: z.coerce.number().int().min(1, "Age must be at least 1.").max(120),
+  heightCm: z.coerce.number().positive("Height must be positive."),
+  weightKg: z.coerce.number().positive("Weight must be positive."),
+  activityLevel: z.enum(['sedentary', 'light', 'moderate', 'active', 'very_active']),
+});
