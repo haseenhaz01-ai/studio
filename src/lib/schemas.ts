@@ -155,3 +155,11 @@ export const graphingCalculatorSchema = z.object({
     message: "xMax must be greater than xMin.",
     path: ["xMax"],
 });
+
+export const statisticsCalculatorSchema = z.object({
+  data: z.string().min(1, { message: 'Please enter at least one number.' })
+    .refine(data => {
+      const numbers = data.split(/[\s,]+/).filter(Boolean).map(Number);
+      return numbers.length > 0 && numbers.every(n => !isNaN(n));
+    }, { message: 'Please enter a valid list of numbers separated by spaces or commas.' }),
+});
