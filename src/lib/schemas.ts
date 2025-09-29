@@ -163,3 +163,21 @@ export const statisticsCalculatorSchema = z.object({
       return numbers.length > 0 && numbers.every(n => !isNaN(n));
     }, { message: 'Please enter a valid list of numbers separated by spaces or commas.' }),
 });
+
+const metricBmiSchema = z.object({
+  unit: z.literal('metric'),
+  heightCm: z.coerce.number().positive("Height must be positive."),
+  weightKg: z.coerce.number().positive("Weight must be positive."),
+});
+
+const imperialBmiSchema = z.object({
+    unit: z.literal('imperial'),
+    heightFt: z.coerce.number().positive("Height must be positive."),
+    heightIn: z.coerce.number().min(0, "Inches must be positive.").max(11.99),
+    weightLb: z.coerce.number().positive("Weight must be positive."),
+});
+
+export const bmiSchema = z.discriminatedUnion('unit', [
+    metricBmiSchema,
+    imperialBmiSchema,
+]);

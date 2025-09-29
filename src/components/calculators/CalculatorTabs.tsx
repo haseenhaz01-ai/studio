@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import EmiCalculator from './EmiCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -34,6 +34,7 @@ import PrintingCalculator from './PrintingCalculator';
 import ScientificCalculator from './ScientificCalculator';
 import GraphingCalculator from './GraphingCalculator';
 import StatisticsCalculator from './StatisticsCalculator';
+import BmiCalculator from './BmiCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'finance' },
@@ -56,7 +57,8 @@ const calculators = [
   { name: 'Date', icon: CalendarClock, component: <DateTimeCalculator />, value: 'date-time', category: 'general' },
   { name: 'Time', icon: Timer, component: <TimeCalculator />, value: 'time', category: 'general' },
   { name: 'Age', icon: Gift, component: <AgeCalculator />, value: 'age', category: 'general' },
-  { name: 'Scientific', icon: FlaskConical, component: <ScientificCalculator />, value: 'scientific', category: 'advanced' },
+  { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'health' },
+  { name: 'Scientific', icon: FlaskConical, component: <ScientificCalculator />, value: 'advanced' },
   { name: 'Graphing', icon: LineChart, component: <GraphingCalculator />, value: 'graphing', category: 'advanced' },
   { name: 'Statistics', icon: Sigma, component: <StatisticsCalculator />, value: 'statistics', category: 'statistics' },
 ];
@@ -64,6 +66,7 @@ const calculators = [
 const financeCalculators = calculators.filter(c => c.category === 'finance');
 const marketingCalculators = calculators.filter(c => c.category === 'marketing');
 const generalCalculators = calculators.filter(c => c.category === 'general');
+const healthCalculators = calculators.filter(c => c.category === 'health');
 const advancedCalculators = calculators.filter(c => c.category === 'advanced');
 const statisticsCalculators = calculators.filter(c => c.category === 'statistics');
 
@@ -102,6 +105,14 @@ export default function CalculatorTabs() {
             <DropdownMenuSeparator />
             <DropdownMenuLabel>General</DropdownMenuLabel>
              {generalCalculators.map((calc) => (
+              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
+                <calc.icon className="h-4 w-4" />
+                {calc.name}
+              </DropdownMenuItem>
+            ))}
+            <DropdownMenuSeparator />
+            <DropdownMenuLabel>Health</DropdownMenuLabel>
+             {healthCalculators.map((calc) => (
               <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />
                 {calc.name}
