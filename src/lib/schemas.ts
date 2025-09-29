@@ -131,3 +131,9 @@ export const timeCalculatorSchema = z.object({
     operation: z.enum(['add', 'subtract']),
   })).min(1, 'Please add at least one time entry.'),
 });
+
+export const ageSchema = z.object({
+  dob: z.date({
+    required_error: "A date of birth is required.",
+  }),
+});

@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import EmiCalculator from './EmiCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -29,6 +29,7 @@ import AvmCalculator from './AvmCalculator';
 import EvmCalculator from './EvmCalculator';
 import DateTimeCalculator from './DateTimeCalculator';
 import TimeCalculator from './TimeCalculator';
+import AgeCalculator from './AgeCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'finance' },
@@ -49,6 +50,7 @@ const calculators = [
   { name: 'EVM', icon: ClipboardList, component: <EvmCalculator />, value: 'evm', category: 'general' },
   { name: 'Date', icon: CalendarClock, component: <DateTimeCalculator />, value: 'date-time', category: 'general' },
   { name: 'Time', icon: Timer, component: <TimeCalculator />, value: 'time', category: 'general' },
+  { name: 'Age', icon: Gift, component: <AgeCalculator />, value: 'age', category: 'general' },
 ];
 
 const financeCalculators = calculators.filter(c => c.category === 'finance');
