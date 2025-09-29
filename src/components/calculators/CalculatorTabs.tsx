@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import EmiCalculator from './EmiCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -32,6 +32,7 @@ import TimeCalculator from './TimeCalculator';
 import AgeCalculator from './AgeCalculator';
 import PrintingCalculator from './PrintingCalculator';
 import ScientificCalculator from './ScientificCalculator';
+import GraphingCalculator from './GraphingCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'finance' },
@@ -55,6 +56,7 @@ const calculators = [
   { name: 'Time', icon: Timer, component: <TimeCalculator />, value: 'time', category: 'general' },
   { name: 'Age', icon: Gift, component: <AgeCalculator />, value: 'age', category: 'general' },
   { name: 'Scientific', icon: FlaskConical, component: <ScientificCalculator />, value: 'scientific', category: 'advanced' },
+  { name: 'Graphing', icon: LineChart, component: <GraphingCalculator />, value: 'graphing', category: 'advanced' },
 ];
 
 const financeCalculators = calculators.filter(c => c.category === 'finance');

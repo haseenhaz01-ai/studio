@@ -146,3 +146,12 @@ export const printingCalculatorSchema = z.object({
 export const scientificCalculatorSchema = z.object({
   expression: z.string(),
 });
+
+export const graphingCalculatorSchema = z.object({
+    expression: z.string().min(1, { message: "Please enter a function." }),
+    xMin: z.coerce.number(),
+    xMax: z.coerce.number(),
+}).refine(data => data.xMax > data.xMin, {
+    message: "xMax must be greater than xMin.",
+    path: ["xMax"],
+});
