@@ -122,3 +122,12 @@ export const dateTimeSchema = z.discriminatedUnion('mode', [
   differenceSchema,
   addSubtractSchema,
 ]);
+
+export const timeCalculatorSchema = z.object({
+  times: z.array(z.object({
+    hours: z.coerce.number().min(0).optional().default(0),
+    minutes: z.coerce.number().min(0).max(59).optional().default(0),
+    seconds: z.coerce.number().min(0).max(59).optional().default(0),
+    operation: z.enum(['add', 'subtract']),
+  })).min(1, 'Please add at least one time entry.'),
+});
