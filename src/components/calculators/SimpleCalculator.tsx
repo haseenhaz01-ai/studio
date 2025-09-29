@@ -126,7 +126,7 @@ export default function SimpleCalculator() {
   return (
     <Card className="mx-auto max-w-sm overflow-hidden">
       <CardHeader>
-        <CardTitle className="font-headline">Simple Calculator</CardTitle>
+        <CardTitle className="font-headline">Standard Calculator</CardTitle>
         <CardDescription>Perform basic arithmetic operations.</CardDescription>
       </CardHeader>
       <CardContent>
