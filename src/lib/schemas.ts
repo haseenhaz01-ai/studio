@@ -181,3 +181,10 @@ export const bmiSchema = z.discriminatedUnion('unit', [
     metricBmiSchema,
     imperialBmiSchema,
 ]);
+
+export const paycheckCalculatorSchema = z.object({
+    grossPay: z.coerce.number().positive("Gross pay must be a positive number."),
+    payFrequency: z.enum(['annually', 'monthly', 'bi-weekly', 'weekly']),
+    filingStatus: z.enum(['single', 'married_jointly', 'married_separately', 'head_of_household']),
+    state: z.string().min(2, "Please select a state."),
+  });

@@ -1,7 +1,8 @@
 'use server';
 
 import { convertCurrency } from '@/ai/flows/currency-conversion-tool';
-import { currencyConversionSchema } from '@/lib/schemas';
+import { calculatePaycheck } from '@/ai/flows/paycheck-calculator-flow';
+import { currencyConversionSchema, paycheckCalculatorSchema } from '@/lib/schemas';
 import { z } from 'zod';
 
 export async function handleCurrencyConversion(values: z.infer<typeof currencyConversionSchema>) {
@@ -33,5 +34,21 @@ export async function handleCurrencyConversion(values: z.infer<typeof currencyCo
   } catch (error) {
     console.error(error);
     return { error: 'Failed to convert currency. Please try again.' };
+  }
+}
+
+export async function handlePaycheckCalculation(values: z.infer<typeof paycheckCalculatorSchema>) {
+  const validatedFields = paycheckCalculatorSchema.safeParse(values);
+
+  if (!validatedFields.success) {
+    return { error: 'Invalid input.' };
+  }
+
+  try {
+    const result = await calculatePaycheck(validatedFields.data);
+    return { success: result };
+  } catch (error) {
+    console.error(error);
+    return { error: 'Failed to calculate paycheck. Please try again.' };
   }
 }
