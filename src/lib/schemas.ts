@@ -142,3 +142,7 @@ export const printingCalculatorSchema = z.object({
   value: z.coerce.number(),
   operation: z.enum(['add', 'subtract']),
 });
+
+export const scientificCalculatorSchema = z.object({
+  expression: z.string(),
+});
