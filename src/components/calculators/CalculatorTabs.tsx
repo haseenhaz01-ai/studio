@@ -10,11 +10,11 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import LoanCalculator from './LoanCalculator';
 import SimpleCalculator from './SimpleCalculator';
-import InvestmentCalculator from './InvestmentCalculator';
+import RetirementCalculator from './RetirementCalculator';
 import ContributionMarginCalculator from './ContributionMarginCalculator';
 import CogsCalculator from './CogsCalculator';
 import CpcCpmCalculator from './CpcCpmCalculator';
@@ -45,7 +45,7 @@ import TemperatureCalculator from './TemperatureCalculator';
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'business' },
   { name: 'Loan', icon: Landmark, component: <LoanCalculator />, value: 'loan', category: 'business' },
-  { name: 'Investment', icon: PiggyBank, component: <InvestmentCalculator />, value: 'investment', category: 'business' },
+  { name: 'Retirement', icon: PiggyBank, component: <RetirementCalculator />, value: 'retirement', category: 'business' },
   { name: 'Contrib. Margin', icon: BarChartBig, component: <ContributionMarginCalculator />, value: 'contribution-margin', category: 'business' },
   { name: 'COGS', icon: Archive, component: <CogsCalculator />, value: 'cogs', category: 'business' },
   { name: 'Lerner Index', icon: Scale, component: <LernerIndexCalculator />, value: 'lerner-index', category: 'business' },

@@ -4,7 +4,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { z } from 'zod';
-import { investmentCalculatorSchema } from '@/lib/schemas';
+import { retirementCalculatorSchema } from '@/lib/schemas';
 import { useShareableLink } from '@/hooks/useShareableLink';
 
 import { Button } from '@/components/ui/button';
@@ -24,21 +24,21 @@ import {
   CartesianGrid,
 } from 'recharts';
 
-type InvestmentFormValues = z.infer<typeof investmentCalculatorSchema>;
+type RetirementFormValues = z.infer<typeof retirementCalculatorSchema>;
 
-interface InvestmentResult {
+interface RetirementResult {
   futureValue: number;
   totalInvestment: number;
   totalInterest: number;
   yearlyData: { year: number; value: number }[];
 }
 
-export default function InvestmentCalculator() {
-  const [result, setResult] = useState<InvestmentResult | null>(null);
+export default function RetirementCalculator() {
+  const [result, setResult] = useState<RetirementResult | null>(null);
   const { toast } = useToast();
 
-  const form = useForm<InvestmentFormValues>({
-    resolver: zodResolver(investmentCalculatorSchema),
+  const form = useForm<RetirementFormValues>({
+    resolver: zodResolver(retirementCalculatorSchema),
     defaultValues: {
       initialAmount: 10000,
       monthlyContribution: 5000,
@@ -49,7 +49,7 @@ export default function InvestmentCalculator() {
 
   useShareableLink(form, ['initialAmount', 'monthlyContribution', 'interestRate', 'tenure']);
   
-  const calculateInvestment = (values: InvestmentFormValues) => {
+  const calculateRetirement = (values: RetirementFormValues) => {
     const { initialAmount, monthlyContribution, interestRate, tenure } = values;
     const monthlyRate = interestRate / 12 / 100;
     const numberOfMonths = tenure * 12;
@@ -76,8 +76,8 @@ export default function InvestmentCalculator() {
   };
 
   useEffect(() => {
-    calculateInvestment(form.getValues());
-    const subscription = form.watch(() => calculateInvestment(form.getValues()));
+    calculateRetirement(form.getValues());
+    const subscription = form.watch(() => calculateRetirement(form.getValues()));
     return () => subscription.unsubscribe();
   }, [form]);
   
@@ -91,8 +91,8 @@ export default function InvestmentCalculator() {
   return (
     <Card className="mx-auto max-w-4xl">
       <CardHeader>
-        <CardTitle className="font-headline">Investment Calculator</CardTitle>
-        <CardDescription>Calculate the future value of your investments with compound interest.</CardDescription>
+        <CardTitle className="font-headline">Retirement Calculator</CardTitle>
+        <CardDescription>Estimate the future value of your retirement savings.</CardDescription>
       </CardHeader>
       <div className="grid gap-8 md:grid-cols-2">
         <Form {...form}>
@@ -103,7 +103,7 @@ export default function InvestmentCalculator() {
                 name="initialAmount"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Initial Amount</FormLabel>
+                    <FormLabel>Current Savings</FormLabel>
                     <FormControl>
                       <Input type="number" {...field} />
                     </FormControl>
@@ -131,7 +131,7 @@ export default function InvestmentCalculator() {
                 name="interestRate"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Expected Interest Rate (% p.a.)</FormLabel>
+                    <FormLabel>Expected Annual Return (%)</FormLabel>
                     <FormControl>
                       <Input type="number" {...field} />
                     </FormControl>
@@ -145,7 +145,7 @@ export default function InvestmentCalculator() {
                 name="tenure"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Investment Tenure (Years)</FormLabel>
+                    <FormLabel>Years Until Retirement</FormLabel>
                     <FormControl>
                       <Input type="number" {...field} />
                     </FormControl>
@@ -164,16 +164,16 @@ export default function InvestmentCalculator() {
             {result && (
                 <>
                     <div className="space-y-1 text-center">
-                        <p className="text-muted-foreground">Future Value</p>
+                        <p className="text-muted-foreground">Estimated Retirement Corpus</p>
                         <p className="font-headline text-4xl font-bold text-primary">{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(result.futureValue)}</p>
                     </div>
                     <div className="flex justify-around pt-4 text-center">
                         <div>
-                            <p className="text-sm text-muted-foreground">Total Investment</p>
+                            <p className="text-sm text-muted-foreground">Total Contribution</p>
                             <p className="text-lg font-semibold">{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(result.totalInvestment)}</p>
                         </div>
                         <div>
-                            <p className="text-sm text-muted-foreground">Total Interest</p>
+                            <p className="text-sm text-muted-foreground">Total Interest Earned</p>
                             <p className="text-lg font-semibold">{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(result.totalInterest)}</p>
                         </div>
                     </div>
