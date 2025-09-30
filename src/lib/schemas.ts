@@ -210,3 +210,9 @@ export const fractionSchema = z.object({
     denominator2: z.coerce.number().int().refine(n => n !== 0, { message: "Cannot be zero." }),
     operation: z.enum(['add', 'subtract', 'multiply', 'divide']),
 });
+
+export const quadraticSchema = z.object({
+  a: z.coerce.number().refine(n => n !== 0, { message: 'Coefficient "a" cannot be zero.' }),
+  b: z.coerce.number(),
+  c: z.coerce.number(),
+});

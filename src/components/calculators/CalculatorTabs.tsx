@@ -39,6 +39,7 @@ import PaycheckCalculator from './PaycheckCalculator';
 import CalorieCalculator from './CalorieCalculator';
 import LengthCalculator from './LengthCalculator';
 import FractionCalculator from './FractionCalculator';
+import QuadraticCalculator from './QuadraticCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'business' },
@@ -68,6 +69,7 @@ const calculators = [
   { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'health' },
   { name: 'Scientific', icon: FlaskConical, component: <ScientificCalculator />, value: 'advanced' },
   { name: 'Graphing', icon: LineChart, component: <GraphingCalculator />, value: 'graphing', category: 'advanced' },
+  { name: 'Quadratic', icon: Sigma, component: <QuadraticCalculator />, value: 'quadratic', category: 'advanced' },
   { name: 'Statistics', icon: Sigma, component: <StatisticsCalculator />, value: 'statistics', category: 'statistics' },
 ];
 
