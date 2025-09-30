@@ -41,14 +41,14 @@ import LengthCalculator from './LengthCalculator';
 import FractionCalculator from './FractionCalculator';
 
 const calculators = [
-  { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'finance' },
-  { name: 'EMI', icon: Percent, component: <EmiCalculator />, value: 'emi', category: 'finance' },
-  { name: 'Investment', icon: PiggyBank, component: <InvestmentCalculator />, value: 'investment', category: 'finance' },
-  { name: 'Contrib. Margin', icon: BarChartBig, component: <ContributionMarginCalculator />, value: 'contribution-margin', category: 'finance' },
-  { name: 'COGS', icon: Archive, component: <CogsCalculator />, value: 'cogs', category: 'finance' },
-  { name: 'Lerner Index', icon: Scale, component: <LernerIndexCalculator />, value: 'lerner-index', category: 'finance' },
-  { name: 'Liquid Net Worth', icon: WalletCards, component: <LiquidNetWorthCalculator />, value: 'liquid-net-worth', category: 'finance' },
-  { name: 'Paycheck', icon: Receipt, component: <PaycheckCalculator />, value: 'paycheck', category: 'finance' },
+  { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'business' },
+  { name: 'EMI', icon: Percent, component: <EmiCalculator />, value: 'emi', category: 'business' },
+  { name: 'Investment', icon: PiggyBank, component: <InvestmentCalculator />, value: 'investment', category: 'business' },
+  { name: 'Contrib. Margin', icon: BarChartBig, component: <ContributionMarginCalculator />, value: 'contribution-margin', category: 'business' },
+  { name: 'COGS', icon: Archive, component: <CogsCalculator />, value: 'cogs', category: 'business' },
+  { name: 'Lerner Index', icon: Scale, component: <LernerIndexCalculator />, value: 'lerner-index', category: 'business' },
+  { name: 'Liquid Net Worth', icon: WalletCards, component: <LiquidNetWorthCalculator />, value: 'liquid-net-worth', category: 'business' },
+  { name: 'Paycheck', icon: Receipt, component: <PaycheckCalculator />, value: 'paycheck', category: 'business' },
   { name: 'CPC/CPM', icon: MousePointerClick, component: <CpcCpmCalculator />, value: 'cpc-cpm', category: 'marketing' },
   { name: 'CTR', icon: MousePointer2, component: <CtrCalculator />, value: 'ctr', category: 'marketing' },
   { name: 'Exit Rate', icon: LogOut, component: <ExitRateCalculator />, value: 'exit-rate', category: 'marketing' },
@@ -71,7 +71,7 @@ const calculators = [
   { name: 'Statistics', icon: Sigma, component: <StatisticsCalculator />, value: 'statistics', category: 'statistics' },
 ];
 
-const financeCalculators = calculators.filter(c => c.category === 'finance');
+const businessCalculators = calculators.filter(c => c.category === 'business');
 const marketingCalculators = calculators.filter(c => c.category === 'marketing');
 const generalCalculators = calculators.filter(c => c.category === 'general');
 const healthCalculators = calculators.filter(c => c.category === 'health');
@@ -95,8 +95,8 @@ export default function CalculatorTabs() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)]">
-            <DropdownMenuLabel>Finance</DropdownMenuLabel>
-            {financeCalculators.map((calc) => (
+            <DropdownMenuLabel>Business</DropdownMenuLabel>
+            {businessCalculators.map((calc) => (
               <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />
                 {calc.name}
