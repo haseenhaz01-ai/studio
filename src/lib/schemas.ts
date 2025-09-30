@@ -269,3 +269,18 @@ export const randomNumberGeneratorSchema = z.object({
   message: "Max must be greater than min.",
   path: ["max"],
 });
+
+export const triangleCalculatorSchema = z.object({
+  sideA: z.coerce.number().positive("Side A must be positive."),
+  sideB: z.coerce.number().positive("Side B must be positive."),
+  sideC: z.coerce.number().positive("Side C must be positive."),
+}).refine(data => data.sideA + data.sideB > data.sideC, {
+  message: "The sum of any two sides must be greater than the third side.",
+  path: ["root"],
+}).refine(data => data.sideA + data.sideC > data.sideB, {
+  message: "The sum of any two sides must be greater than the third side.",
+  path: ["root"],
+}).refine(data => data.sideB + data.sideC > data.sideA, {
+  message: "The sum of any two sides must be greater than the third side.",
+  path: ["root"],
+});
