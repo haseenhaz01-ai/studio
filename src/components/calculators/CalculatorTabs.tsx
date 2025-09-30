@@ -67,8 +67,8 @@ const calculators = [
   { name: 'Length', icon: Ruler, component: <LengthCalculator />, value: 'length', category: 'general' },
   { name: 'Temperature', icon: Thermometer, component: <TemperatureCalculator />, value: 'temperature', category: 'general' },
   { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'fraction', category: 'general' },
-  { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'health' },
-  { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'health' },
+  { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'fitness' },
+  { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'fitness' },
   { name: 'Scientific', icon: FlaskConical, component: <ScientificCalculator />, value: 'scientific', category: 'science' },
   { name: 'Graphing', icon: LineChart, component: <GraphingCalculator />, value: 'graphing', category: 'science' },
   { name: 'Quadratic', icon: Sigma, component: <QuadraticCalculator />, value: 'quadratic', category: 'science' },
@@ -78,7 +78,7 @@ const calculators = [
 const businessCalculators = calculators.filter(c => c.category === 'business');
 const marketingCalculators = calculators.filter(c => c.category === 'marketing');
 const generalCalculators = calculators.filter(c => c.category === 'general');
-const healthCalculators = calculators.filter(c => c.category === 'health');
+const fitnessCalculators = calculators.filter(c => c.category === 'fitness');
 const scienceCalculators = calculators.filter(c => c.category === 'science');
 const statisticsCalculators = calculators.filter(c => c.category === 'statistics');
 
@@ -123,8 +123,8 @@ export default function CalculatorTabs() {
               </DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
-            <DropdownMenuLabel>Health</DropdownMenuLabel>
-             {healthCalculators.map((calc) => (
+            <DropdownMenuLabel>Fitness</DropdownMenuLabel>
+             {fitnessCalculators.map((calc) => (
               <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />
                 {calc.name}
