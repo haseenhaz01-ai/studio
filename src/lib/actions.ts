@@ -37,7 +37,7 @@ export async function handleCurrencyConversion(values: z.infer<typeof currencyCo
   }
 }
 
-export async function handlePaycheckCalculation(values: z.infer<typeof paycheckCalculatorSchema>) {
+export async function handleIncomeTaxCalculation(values: z.infer<typeof paycheckCalculatorSchema>) {
   const validatedFields = paycheckCalculatorSchema.safeParse(values);
 
   if (!validatedFields.success) {

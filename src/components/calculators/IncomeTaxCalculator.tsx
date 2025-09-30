@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { z } from 'zod';
 import { paycheckCalculatorSchema } from '@/lib/schemas';
-import { handlePaycheckCalculation } from '@/lib/actions';
+import { handleIncomeTaxCalculation } from '@/lib/actions';
 import { US_STATES } from '@/lib/constants';
 
 import { Button } from '@/components/ui/button';
@@ -27,7 +27,7 @@ type PaycheckResult = {
 };
 
 
-export default function PaycheckCalculator() {
+export default function IncomeTaxCalculator() {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
   const [result, setResult] = useState<PaycheckResult | null>(null);
@@ -45,7 +45,7 @@ export default function PaycheckCalculator() {
   const onSubmit = (values: PaycheckFormValues) => {
     setResult(null);
     startTransition(async () => {
-      const response = await handlePaycheckCalculation(values);
+      const response = await handleIncomeTaxCalculation(values);
       if (response.error) {
         toast({
           variant: 'destructive',
@@ -62,8 +62,8 @@ export default function PaycheckCalculator() {
   return (
     <Card className="mx-auto max-w-2xl">
       <CardHeader>
-        <CardTitle className="font-headline">AI Paycheck Calculator</CardTitle>
-        <CardDescription>Estimate your take-home pay with our AI-powered calculator.</CardDescription>
+        <CardTitle className="font-headline">AI Income Tax Calculator</CardTitle>
+        <CardDescription>Estimate your income tax and take-home pay with our AI-powered calculator.</CardDescription>
       </CardHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -201,7 +201,7 @@ export default function PaycheckCalculator() {
           </CardContent>
           <CardFooter>
             <Button type="submit" disabled={isPending} className="w-full">
-              {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Calculate Paycheck'}
+              {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Calculate Taxes'}
             </Button>
           </CardFooter>
         </form>
