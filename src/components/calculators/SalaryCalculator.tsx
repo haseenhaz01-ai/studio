@@ -27,7 +27,7 @@ type PaycheckResult = {
 };
 
 
-export default function IncomeTaxCalculator() {
+export default function SalaryCalculator() {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
   const [result, setResult] = useState<PaycheckResult | null>(null);
@@ -62,8 +62,8 @@ export default function IncomeTaxCalculator() {
   return (
     <Card className="mx-auto max-w-2xl">
       <CardHeader>
-        <CardTitle className="font-headline">AI Income Tax Calculator</CardTitle>
-        <CardDescription>Estimate your income tax and take-home pay with our AI-powered calculator.</CardDescription>
+        <CardTitle className="font-headline">AI Salary Calculator</CardTitle>
+        <CardDescription>Estimate your take-home pay with our AI-powered calculator.</CardDescription>
       </CardHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -201,7 +201,7 @@ export default function IncomeTaxCalculator() {
           </CardContent>
           <CardFooter>
             <Button type="submit" disabled={isPending} className="w-full">
-              {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Calculate Taxes'}
+              {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Calculate Salary'}
             </Button>
           </CardFooter>
         </form>

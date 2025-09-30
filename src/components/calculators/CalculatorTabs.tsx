@@ -35,7 +35,7 @@ import ScientificCalculator from './ScientificCalculator';
 import GraphingCalculator from './GraphingCalculator';
 import StatisticsCalculator from './StatisticsCalculator';
 import BmiCalculator from './BmiCalculator';
-import IncomeTaxCalculator from './IncomeTaxCalculator';
+import SalaryCalculator from './SalaryCalculator';
 import CalorieCalculator from './CalorieCalculator';
 import LengthCalculator from './LengthCalculator';
 import FractionCalculator from './FractionCalculator';
@@ -51,7 +51,7 @@ const calculators = [
   { name: 'COGS', icon: Archive, component: <CogsCalculator />, value: 'cogs', category: 'business' },
   { name: 'Lerner Index', icon: Scale, component: <LernerIndexCalculator />, value: 'lerner-index', category: 'business' },
   { name: 'Liquid Net Worth', icon: WalletCards, component: <LiquidNetWorthCalculator />, value: 'liquid-net-worth', category: 'business' },
-  { name: 'Income Tax', icon: Receipt, component: <IncomeTaxCalculator />, value: 'income-tax', category: 'business' },
+  { name: 'Salary', icon: Receipt, component: <SalaryCalculator />, value: 'salary', category: 'business' },
   { name: 'Inflation', icon: TrendingUp, component: <InflationCalculator />, value: 'inflation', category: 'business' },
   { name: 'CPC/CPM', icon: MousePointerClick, component: <CpcCpmCalculator />, value: 'cpc-cpm', category: 'marketing' },
   { name: 'CTR', icon: MousePointer2, component: <CtrCalculator />, value: 'ctr', category: 'marketing' },
