@@ -47,6 +47,7 @@ import PercentageCalculator from './PercentageCalculator';
 import RandomNumberGenerator from './RandomNumberGenerator';
 import TriangleCalculator from './TriangleCalculator';
 import BodyFatCalculator from './BodyFatCalculator';
+import IdealWeightCalculator from './IdealWeightCalculator';
 
 const TriangleIcon = () => (
   <svg
@@ -97,6 +98,7 @@ const calculators = [
   { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'fitness' },
   { name: 'Body Fat', icon: HeartPulse, component: <BodyFatCalculator />, value: 'body-fat', category: 'fitness' },
   { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'fitness' },
+  { name: 'Ideal Weight', icon: HeartPulse, component: <IdealWeightCalculator />, value: 'ideal-weight', category: 'fitness' },
   { name: 'Scientific', icon: FlaskConical, component: <ScientificCalculator />, value: 'scientific', category: 'science' },
   { name: 'Graphing', icon: LineChart, component: <GraphingCalculator />, value: 'graphing', category: 'science' },
   { name: 'Quadratic', icon: Sigma, component: <QuadraticCalculator />, value: 'quadratic', category: 'science' },

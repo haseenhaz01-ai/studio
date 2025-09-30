@@ -306,3 +306,24 @@ const bodyFatBaseSchema = z.object({
     maleSchema,
     femaleSchema,
   ]);
+
+  const idealWeightBaseSchema = z.object({
+    gender: z.enum(['male', 'female']),
+    unit: z.enum(['metric', 'imperial']),
+  });
+  
+  const idealWeightMetricSchema = idealWeightBaseSchema.extend({
+    unit: z.literal('metric'),
+    heightCm: z.coerce.number().positive("Height must be positive."),
+  });
+  
+  const idealWeightImperialSchema = idealWeightBaseSchema.extend({
+    unit: z.literal('imperial'),
+    heightFt: z.coerce.number().positive("Feet must be positive."),
+    heightIn: z.coerce.number().min(0, "Inches must be non-negative.").max(11.99),
+  });
+  
+  export const idealWeightSchema = z.discriminatedUnion('unit', [
+    idealWeightMetricSchema,
+    idealWeightImperialSchema,
+  ]);
