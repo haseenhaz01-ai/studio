@@ -203,6 +203,12 @@ export const lengthConversionSchema = z.object({
   toUnit: z.string().min(1, { message: 'Please select a target unit.' }),
 });
 
+export const temperatureConversionSchema = z.object({
+  amount: z.coerce.number(),
+  fromUnit: z.enum(['celsius', 'fahrenheit', 'kelvin']),
+  toUnit: z.enum(['celsius', 'fahrenheit', 'kelvin']),
+});
+
 export const fractionSchema = z.object({
     numerator1: z.coerce.number().int(),
     denominator1: z.coerce.number().int().refine(n => n !== 0, { message: "Cannot be zero." }),

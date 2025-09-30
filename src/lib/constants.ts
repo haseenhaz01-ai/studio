@@ -88,3 +88,9 @@ export const CURRENCIES = [
     inches: 0.0254,
     nautical_miles: 1852,
   };
+
+  export const TEMPERATURE_UNITS = [
+    { value: 'celsius', label: 'Celsius' },
+    { value: 'fahrenheit', label: 'Fahrenheit' },
+    { value: 'kelvin', label: 'Kelvin' },
+  ];
