@@ -261,3 +261,11 @@ export const percentageCalculatorSchema = z.discriminatedUnion('mode', [
   isWhatPercentSchema,
   percentChangeSchema,
 ]);
+
+export const randomNumberGeneratorSchema = z.object({
+  min: z.coerce.number().int(),
+  max: z.coerce.number().int(),
+}).refine(data => data.max > data.min, {
+  message: "Max must be greater than min.",
+  path: ["max"],
+});
