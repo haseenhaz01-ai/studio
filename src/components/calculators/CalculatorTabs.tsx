@@ -42,6 +42,7 @@ import FractionCalculator from './FractionCalculator';
 import QuadraticCalculator from './QuadraticCalculator';
 import TemperatureCalculator from './TemperatureCalculator';
 import InflationCalculator from './InflationCalculator';
+import SalesTaxCalculator from './SalesTaxCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'business' },
@@ -53,6 +54,7 @@ const calculators = [
   { name: 'Liquid Net Worth', icon: WalletCards, component: <LiquidNetWorthCalculator />, value: 'liquid-net-worth', category: 'business' },
   { name: 'Salary', icon: Receipt, component: <SalaryCalculator />, value: 'salary', category: 'business' },
   { name: 'Inflation', icon: TrendingUp, component: <InflationCalculator />, value: 'inflation', category: 'business' },
+  { name: 'Sales Tax', icon: Percent, component: <SalesTaxCalculator />, value: 'sales-tax', category: 'business' },
   { name: 'CPC/CPM', icon: MousePointerClick, component: <CpcCpmCalculator />, value: 'cpc-cpm', category: 'marketing' },
   { name: 'CTR', icon: MousePointer2, component: <CtrCalculator />, value: 'ctr', category: 'marketing' },
   { name: 'Exit Rate', icon: LogOut, component: <ExitRateCalculator />, value: 'exit-rate', category: 'marketing' },
@@ -97,7 +99,7 @@ export default function CalculatorTabs() {
             <Button variant="outline" className="w-full max-w-sm text-lg py-6">
               <ActiveCalcIcon className="h-5 w-5 mr-3" />
               {activeCalculator.name}
-              <ChevronDown className="h-5 w-5 ml-auto" />
+              <ChevronDown className="h-5 w.5 ml-auto" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)]">

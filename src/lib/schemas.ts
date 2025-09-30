@@ -232,3 +232,8 @@ export const inflationCalculatorSchema = z.object({
     message: "End year must be greater than or equal to start year.",
     path: ["endYear"],
 });
+
+export const salesTaxSchema = z.object({
+  amount: z.coerce.number().min(0.01, { message: 'Amount must be a positive number.' }),
+  taxRate: z.coerce.number().min(0, { message: 'Tax rate must be a positive number.' }),
+});
