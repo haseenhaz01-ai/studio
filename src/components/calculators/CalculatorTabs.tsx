@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import LoanCalculator from './LoanCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -41,6 +41,7 @@ import LengthCalculator from './LengthCalculator';
 import FractionCalculator from './FractionCalculator';
 import QuadraticCalculator from './QuadraticCalculator';
 import TemperatureCalculator from './TemperatureCalculator';
+import InflationCalculator from './InflationCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'business' },
@@ -51,6 +52,7 @@ const calculators = [
   { name: 'Lerner Index', icon: Scale, component: <LernerIndexCalculator />, value: 'lerner-index', category: 'business' },
   { name: 'Liquid Net Worth', icon: WalletCards, component: <LiquidNetWorthCalculator />, value: 'liquid-net-worth', category: 'business' },
   { name: 'Paycheck', icon: Receipt, component: <PaycheckCalculator />, value: 'paycheck', category: 'business' },
+  { name: 'Inflation', icon: TrendingUp, component: <InflationCalculator />, value: 'inflation', category: 'business' },
   { name: 'CPC/CPM', icon: MousePointerClick, component: <CpcCpmCalculator />, value: 'cpc-cpm', category: 'marketing' },
   { name: 'CTR', icon: MousePointer2, component: <CtrCalculator />, value: 'ctr', category: 'marketing' },
   { name: 'Exit Rate', icon: LogOut, component: <ExitRateCalculator />, value: 'exit-rate', category: 'marketing' },

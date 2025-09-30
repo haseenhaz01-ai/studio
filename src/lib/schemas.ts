@@ -223,4 +223,12 @@ export const quadraticSchema = z.object({
   c: z.coerce.number(),
 });
 
-    
+export const inflationCalculatorSchema = z.object({
+  initialAmount: z.coerce.number().min(0, { message: 'Initial amount must be a positive number.' }),
+  inflationRate: z.coerce.number().min(0, { message: 'Inflation rate must be a positive number.' }),
+  startYear: z.coerce.number().int().min(1900, { message: 'Start year must be after 1900.' }),
+  endYear: z.coerce.number().int(),
+}).refine(data => data.endYear >= data.startYear, {
+    message: "End year must be greater than or equal to start year.",
+    path: ["endYear"],
+});
