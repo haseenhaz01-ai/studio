@@ -196,3 +196,9 @@ export const calorieCalculatorSchema = z.object({
   weightKg: z.coerce.number().positive("Weight must be positive."),
   activityLevel: z.enum(['sedentary', 'light', 'moderate', 'active', 'very_active']),
 });
+
+export const lengthConversionSchema = z.object({
+  amount: z.coerce.number(),
+  fromUnit: z.string().min(1, { message: 'Please select a source unit.' }),
+  toUnit: z.string().min(1, { message: 'Please select a target unit.' }),
+});

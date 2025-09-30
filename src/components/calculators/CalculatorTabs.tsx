@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import EmiCalculator from './EmiCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -37,6 +37,7 @@ import StatisticsCalculator from './StatisticsCalculator';
 import BmiCalculator from './BmiCalculator';
 import PaycheckCalculator from './PaycheckCalculator';
 import CalorieCalculator from './CalorieCalculator';
+import LengthCalculator from './LengthCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'finance' },
@@ -60,6 +61,7 @@ const calculators = [
   { name: 'Date', icon: CalendarClock, component: <DateTimeCalculator />, value: 'date-time', category: 'general' },
   { name: 'Time', icon: Timer, component: <TimeCalculator />, value: 'time', category: 'general' },
   { name: 'Age', icon: Gift, component: <AgeCalculator />, value: 'age', category: 'general' },
+  { name: 'Length', icon: Ruler, component: <LengthCalculator />, value: 'length', category: 'general' },
   { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'health' },
   { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'health' },
   { name: 'Scientific', icon: FlaskConical, component: <ScientificCalculator />, value: 'advanced' },

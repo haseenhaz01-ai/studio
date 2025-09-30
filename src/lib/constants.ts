@@ -64,3 +64,27 @@ export const CURRENCIES = [
     { value: 'WI', label: 'Wisconsin' },
     { value: 'WY', label: 'Wyoming' },
   ];
+
+  export const LENGTH_UNITS = [
+    { value: 'meters', label: 'Meters' },
+    { value: 'kilometers', label: 'Kilometers' },
+    { value: 'centimeters', label: 'Centimeters' },
+    { value: 'millimeters', label: 'Millimeters' },
+    { value: 'miles', label: 'Miles' },
+    { value: 'yards', label: 'Yards' },
+    { value: 'feet', label: 'Feet' },
+    { value: 'inches', label: 'Inches' },
+    { value: 'nautical_miles', label: 'Nautical Miles' },
+  ];
+  
+  export const LENGTH_CONVERSION_FACTORS: Record<string, number> = {
+    meters: 1,
+    kilometers: 1000,
+    centimeters: 0.01,
+    millimeters: 0.001,
+    miles: 1609.34,
+    yards: 0.9144,
+    feet: 0.3048,
+    inches: 0.0254,
+    nautical_miles: 1852,
+  };
