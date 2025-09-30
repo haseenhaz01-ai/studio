@@ -202,3 +202,11 @@ export const lengthConversionSchema = z.object({
   fromUnit: z.string().min(1, { message: 'Please select a source unit.' }),
   toUnit: z.string().min(1, { message: 'Please select a target unit.' }),
 });
+
+export const fractionSchema = z.object({
+    numerator1: z.coerce.number().int(),
+    denominator1: z.coerce.number().int().refine(n => n !== 0, { message: "Cannot be zero." }),
+    numerator2: z.coerce.number().int(),
+    denominator2: z.coerce.number().int().refine(n => n !== 0, { message: "Cannot be zero." }),
+    operation: z.enum(['add', 'subtract', 'multiply', 'divide']),
+});

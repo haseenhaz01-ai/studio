@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import EmiCalculator from './EmiCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -38,6 +38,7 @@ import BmiCalculator from './BmiCalculator';
 import PaycheckCalculator from './PaycheckCalculator';
 import CalorieCalculator from './CalorieCalculator';
 import LengthCalculator from './LengthCalculator';
+import FractionCalculator from './FractionCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'finance' },
@@ -62,6 +63,7 @@ const calculators = [
   { name: 'Time', icon: Timer, component: <TimeCalculator />, value: 'time', category: 'general' },
   { name: 'Age', icon: Gift, component: <AgeCalculator />, value: 'age', category: 'general' },
   { name: 'Length', icon: Ruler, component: <LengthCalculator />, value: 'length', category: 'general' },
+  { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'fraction', category: 'general' },
   { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'health' },
   { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'health' },
   { name: 'Scientific', icon: FlaskConical, component: <ScientificCalculator />, value: 'advanced' },
@@ -103,7 +105,7 @@ export default function CalculatorTabs() {
             <DropdownMenuSeparator />
             <DropdownMenuLabel>Marketing</DropdownMenuLabel>
             {marketingCalculators.map((calc) => (
-              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
+              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap_2">
                 <calc.icon className="h-4 w-4" />
                 {calc.name}
               </DropdownMenuItem>
