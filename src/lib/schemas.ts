@@ -237,3 +237,27 @@ export const salesTaxSchema = z.object({
   amount: z.coerce.number().min(0.01, { message: 'Amount must be a positive number.' }),
   taxRate: z.coerce.number().min(0, { message: 'Tax rate must be a positive number.' }),
 });
+
+const percentOfSchema = z.object({
+  mode: z.literal('percentOf'),
+  percentage: z.coerce.number().min(0, "Percentage must be positive."),
+  baseValue: z.coerce.number().min(0, "Base value must be positive."),
+});
+
+const isWhatPercentSchema = z.object({
+  mode: z.literal('isWhatPercent'),
+  partValue: z.coerce.number().min(0, "Value must be positive."),
+  totalValue: z.coerce.number().min(0, "Total value must be positive."),
+});
+
+const percentChangeSchema = z.object({
+  mode: z.literal('percentChange'),
+  initialValue: z.coerce.number().min(0, "Initial value must be positive."),
+  finalValue: z.coerce.number().min(0, "Final value must be positive."),
+});
+
+export const percentageCalculatorSchema = z.discriminatedUnion('mode', [
+  percentOfSchema,
+  isWhatPercentSchema,
+  percentChangeSchema,
+]);

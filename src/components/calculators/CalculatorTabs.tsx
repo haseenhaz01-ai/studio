@@ -43,6 +43,7 @@ import QuadraticCalculator from './QuadraticCalculator';
 import TemperatureCalculator from './TemperatureCalculator';
 import InflationCalculator from './InflationCalculator';
 import SalesTaxCalculator from './SalesTaxCalculator';
+import PercentageCalculator from './PercentageCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'business' },
@@ -62,6 +63,7 @@ const calculators = [
   { name: 'GRP', icon: Tv, component: <GrpCalculator />, value: 'grp', category: 'marketing' },
   { name: 'AVM', icon: Film, component: <AvmCalculator />, value: 'avm', category: 'marketing' },
   { name: 'Standard', icon: Calculator, component: <SimpleCalculator />, value: 'simple', category: 'general' },
+  { name: 'Percentage', icon: Percent, component: <PercentageCalculator />, value: 'percentage', category: 'general' },
   { name: 'Printing', icon: Printer, component: <PrintingCalculator/>, value: 'printing', category: 'general' },
   { name: 'Man-Hours', icon: Clock, component: <ManHoursCalculator />, value: 'man-hours', category: 'general' },
   { name: 'EVM', icon: ClipboardList, component: <EvmCalculator />, value: 'evm', category: 'general' },
