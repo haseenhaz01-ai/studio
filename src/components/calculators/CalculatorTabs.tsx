@@ -46,6 +46,7 @@ import SalesTaxCalculator from './SalesTaxCalculator';
 import PercentageCalculator from './PercentageCalculator';
 import RandomNumberGenerator from './RandomNumberGenerator';
 import TriangleCalculator from './TriangleCalculator';
+import BodyFatCalculator from './BodyFatCalculator';
 
 const TriangleIcon = () => (
   <svg
@@ -94,6 +95,7 @@ const calculators = [
   { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'fraction', category: 'general' },
   { name: 'Random Number', icon: Shuffle, component: <RandomNumberGenerator />, value: 'random-number', category: 'general' },
   { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'fitness' },
+  { name: 'Body Fat', icon: HeartPulse, component: <BodyFatCalculator />, value: 'body-fat', category: 'fitness' },
   { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'fitness' },
   { name: 'Scientific', icon: FlaskConical, component: <ScientificCalculator />, value: 'scientific', category: 'science' },
   { name: 'Graphing', icon: LineChart, component: <GraphingCalculator />, value: 'graphing', category: 'science' },

@@ -284,3 +284,25 @@ export const triangleCalculatorSchema = z.object({
   message: "The sum of any two sides must be greater than the third side.",
   path: ["root"],
 });
+
+const bodyFatBaseSchema = z.object({
+    unit: z.enum(['metric', 'imperial']),
+    age: z.coerce.number().int().min(18, "Must be 18 or older.").max(100),
+    height: z.coerce.number().positive("Height must be positive."),
+    neck: z.coerce.number().positive("Neck measurement must be positive."),
+    waist: z.coerce.number().positive("Waist measurement must be positive."),
+  });
+  
+  const maleSchema = bodyFatBaseSchema.extend({
+    gender: z.literal('male'),
+  });
+  
+  const femaleSchema = bodyFatBaseSchema.extend({
+    gender: z.literal('female'),
+    hip: z.coerce.number().positive("Hip measurement must be positive."),
+  });
+  
+  export const bodyFatCalculatorSchema = z.discriminatedUnion('gender', [
+    maleSchema,
+    femaleSchema,
+  ]);
