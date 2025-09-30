@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
@@ -14,7 +13,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Slider } from '@/components/ui/slider';
-import { Download, Link as LinkIcon, Home } from 'lucide-react';
+import { Download, Link as LinkIcon } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import {
   ResponsiveContainer,

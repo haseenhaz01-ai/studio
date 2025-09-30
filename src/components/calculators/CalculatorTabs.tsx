@@ -10,9 +10,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Home } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
-import EmiCalculator from './EmiCalculator';
+import MortgageCalculator from './MortgageCalculator';
 import SimpleCalculator from './SimpleCalculator';
 import InvestmentCalculator from './InvestmentCalculator';
 import ContributionMarginCalculator from './ContributionMarginCalculator';
@@ -44,7 +44,7 @@ import TemperatureCalculator from './TemperatureCalculator';
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'business' },
-  { name: 'EMI', icon: Percent, component: <EmiCalculator />, value: 'emi', category: 'business' },
+  { name: 'Mortgage', icon: Home, component: <MortgageCalculator />, value: 'mortgage', category: 'business' },
   { name: 'Investment', icon: PiggyBank, component: <InvestmentCalculator />, value: 'investment', category: 'business' },
   { name: 'Contrib. Margin', icon: BarChartBig, component: <ContributionMarginCalculator />, value: 'contribution-margin', category: 'business' },
   { name: 'COGS', icon: Archive, component: <CogsCalculator />, value: 'cogs', category: 'business' },
