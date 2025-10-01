@@ -338,3 +338,9 @@ const bodyFatBaseSchema = z.object({
       message: "Total time must be greater than zero.",
       path: ["hours"],
   });
+
+  export const pregnancyCalculatorSchema = z.object({
+    lmp: z.date({
+      required_error: "Last menstrual period date is required.",
+    }),
+  });

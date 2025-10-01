@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import LoanCalculator from './LoanCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -49,6 +49,7 @@ import TriangleCalculator from './TriangleCalculator';
 import BodyFatCalculator from './BodyFatCalculator';
 import IdealWeightCalculator from './IdealWeightCalculator';
 import PaceCalculator from './PaceCalculator';
+import PregnancyCalculator from './PregnancyCalculator';
 
 const TriangleIcon = () => (
   <svg
@@ -96,11 +97,12 @@ const calculators = [
   { name: 'Temperature', icon: Thermometer, component: <TemperatureCalculator />, value: 'temperature', category: 'general' },
   { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'fraction', category: 'general' },
   { name: 'Random Number', icon: Shuffle, component: <RandomNumberGenerator />, value: 'random-number', category: 'general' },
-  { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'fitness' },
-  { name: 'Body Fat', icon: HeartPulse, component: <BodyFatCalculator />, value: 'body-fat', category: 'fitness' },
-  { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'fitness' },
-  { name: 'Ideal Weight', icon: HeartPulse, component: <IdealWeightCalculator />, value: 'ideal-weight', category: 'fitness' },
-  { name: 'Pace', icon: Footprints, component: <PaceCalculator />, value: 'pace', category: 'fitness' },
+  { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'health' },
+  { name: 'Body Fat', icon: HeartPulse, component: <BodyFatCalculator />, value: 'body-fat', category: 'health' },
+  { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'health' },
+  { name: 'Ideal Weight', icon: HeartPulse, component: <IdealWeightCalculator />, value: 'ideal-weight', category: 'health' },
+  { name: 'Pace', icon: Footprints, component: <PaceCalculator />, value: 'pace', category: 'health' },
+  { name: 'Pregnancy', icon: Baby, component: <PregnancyCalculator />, value: 'pregnancy', category: 'health' },
   { name: 'Scientific', icon: FlaskConical, component: <ScientificCalculator />, value: 'scientific', category: 'science' },
   { name: 'Graphing', icon: LineChart, component: <GraphingCalculator />, value: 'graphing', category: 'science' },
   { name: 'Quadratic', icon: Sigma, component: <QuadraticCalculator />, value: 'quadratic', category: 'science' },
@@ -111,7 +113,7 @@ const calculators = [
 const businessCalculators = calculators.filter(c => c.category === 'business');
 const marketingCalculators = calculators.filter(c => c.category === 'marketing');
 const generalCalculators = calculators.filter(c => c.category === 'general');
-const fitnessCalculators = calculators.filter(c => c.category === 'fitness');
+const healthCalculators = calculators.filter(c => c.category === 'health');
 const scienceCalculators = calculators.filter(c => c.category === 'science');
 const statisticsCalculators = calculators.filter(c => c.category === 'statistics');
 
@@ -156,8 +158,8 @@ export default function CalculatorTabs() {
               </DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
-            <DropdownMenuLabel>Fitness</DropdownMenuLabel>
-             {fitnessCalculators.map((calc) => (
+            <DropdownMenuLabel>Health & Fitness</DropdownMenuLabel>
+             {healthCalculators.map((calc) => (
               <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />
                 {calc.name}
