@@ -401,3 +401,7 @@ export const imageResizerSchema = z.object({
 export const fancyFontGeneratorSchema = z.object({
   text: z.string(),
 });
+
+export const qrCodeGeneratorSchema = z.object({
+  text: z.string().min(1, { message: 'Please enter text or a URL.' }),
+});

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
@@ -53,6 +53,7 @@ import PaypalFeeCalculator from './PaypalFeeCalculator';
 import ImageCompressor from './ImageCompressor';
 import ImageResizer from './ImageResizer';
 import FancyFontGenerator from './FancyFontGenerator';
+import QrCodeGenerator from './QrCodeGenerator';
 
 const TriangleIcon = () => (
   <svg
@@ -119,6 +120,7 @@ const calculators = [
   { name: 'Image Compressor', icon: Image, component: <ImageCompressor />, value: 'image-compressor', category: 'tools' },
   { name: 'Image Resizer', icon: Crop, component: <ImageResizer />, value: 'image-resizer', category: 'tools' },
   { name: 'Fancy Fonts', icon: Type, component: <FancyFontGenerator />, value: 'fancy-font-generator', category: 'tools' },
+  { name: 'QR Code', icon: QrCode, component: <QrCodeGenerator />, value: 'qr-code-generator', category: 'tools' },
 ];
 
 const categories = [
