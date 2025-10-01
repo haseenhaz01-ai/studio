@@ -2,15 +2,10 @@
 
 import { useState } from 'react';
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop } from 'lucide-react';
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop
+} from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Card, CardContent } from "@/components/ui/card"
 import CurrencyConverter from './CurrencyConverter';
 import LoanCalculator from './LoanCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -103,7 +98,7 @@ const calculators = [
   { name: 'Age', icon: Gift, component: <AgeCalculator />, value: 'age', category: 'general' },
   { name: 'Length', icon: Ruler, component: <LengthCalculator />, value: 'length', category: 'general' },
   { name: 'Temperature', icon: Thermometer, component: <TemperatureCalculator />, value: 'temperature', category: 'general' },
-  { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'math' },
+  { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'fraction', category: 'math' },
   { name: 'Random Number', icon: Shuffle, component: <RandomNumberGenerator />, value: 'random-number', category: 'general' },
   { name: 'Password', icon: KeyRound, component: <PasswordGenerator />, value: 'password-generator', category: 'general' },
   { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'health' },
@@ -124,113 +119,69 @@ const calculators = [
   { name: 'Image Resizer', icon: Crop, component: <ImageResizer />, value: 'image-resizer', category: 'tools' },
 ];
 
-const financialCalculators = calculators.filter(c => c.category === 'financial');
-const marketingCalculators = calculators.filter(c => c.category === 'marketing');
-const mathCalculators = calculators.filter(c => c.category === 'math');
-const generalCalculators = calculators.filter(c => c.category === 'general');
-const healthCalculators = calculators.filter(c => c.category === 'health');
-const scienceCalculators = calculators.filter(c => c.category === 'science' || c.category === 'statistics');
-const educationCalculators = calculators.filter(c => c.category === 'education');
-const constructionCalculators = calculators.filter(c => c.category === 'construction');
-const itCalculators = calculators.filter(c => c.category === 'it');
-const toolsCalculators = calculators.filter(c => c.category === 'tools');
+const categories = [
+    { name: 'Financial', slug: 'financial' },
+    { name: 'Marketing & Web', slug: 'marketing' },
+    { name: 'Math & General', slug: 'math-general' },
+    { name: 'Health & Fitness', slug: 'health' },
+    { name: 'Science & Education', slug: 'science-education' },
+    { name: 'Construction & IT', slug: 'construction-it' },
+    { name: 'Image Tools', slug: 'tools' },
+];
+
+const calculatorsByCategory: Record<string, typeof calculators> = {
+    'financial': calculators.filter(c => c.category === 'financial'),
+    'marketing': calculators.filter(c => c.category === 'marketing'),
+    'math-general': calculators.filter(c => c.category === 'math' || c.category === 'general'),
+    'health': calculators.filter(c => c.category === 'health'),
+    'science-education': calculators.filter(c => c.category === 'science' || c.category === 'statistics' || c.category === 'education'),
+    'construction-it': calculators.filter(c => c.category === 'construction' || c.category === 'it'),
+    'tools': calculators.filter(c => c.category === 'tools'),
+};
 
 
 export default function CalculatorTabs() {
   const [activeCalculator, setActiveCalculator] = useState(calculators[0]);
-  const ActiveCalcIcon = activeCalculator.icon;
 
   return (
     <div className="w-full">
-      <div className="mb-6 flex justify-center">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="w-full max-w-sm text-lg py-6">
-              <ActiveCalcIcon className="h-5 w-5 mr-3" />
-              {activeCalculator.name}
-              <ChevronDown className="h-5 w.5 ml-auto" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)]">
-            <DropdownMenuLabel>Financial</DropdownMenuLabel>
-            {financialCalculators.map((calc) => (
-              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
-                <calc.icon className="h-4 w-4" />
-                {calc.name}
-              </DropdownMenuItem>
+        <Tabs defaultValue="financial" className="w-full">
+            <div className="flex justify-center">
+                <TabsList className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 h-auto flex-wrap">
+                    {categories.map(category => (
+                        <TabsTrigger key={category.slug} value={category.slug}>{category.name}</TabsTrigger>
+                    ))}
+                </TabsList>
+            </div>
+            
+            {categories.map(category => (
+                <TabsContent key={category.slug} value={category.slug}>
+                    <Card>
+                        <CardContent className="p-4">
+                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                                {calculatorsByCategory[category.slug].map(calc => {
+                                    const Icon = calc.icon;
+                                    return (
+                                        <button 
+                                            key={calc.value} 
+                                            onClick={() => setActiveCalculator(calc)}
+                                            className="flex flex-col items-center justify-center gap-2 p-4 rounded-lg text-center bg-muted/50 hover:bg-accent hover:text-accent-foreground transition-colors"
+                                        >
+                                            <Icon className="h-6 w-6" />
+                                            <span className="text-sm font-medium">{calc.name}</span>
+                                        </button>
+                                    )
+                                })}
+                            </div>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
             ))}
-            <DropdownMenuSeparator />
-            <DropdownMenuLabel>Marketing & Web</DropdownMenuLabel>
-            {marketingCalculators.map((calc) => (
-              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
-                <calc.icon className="h-4 w-4" />
-                {calc.name}
-              </DropdownMenuItem>
-            ))}
-            <DropdownMenuSeparator />
-            <DropdownMenuLabel>Math & General</DropdownMenuLabel>
-             {mathCalculators.map((calc) => (
-              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
-                <calc.icon className="h-4 w-4" />
-                {calc.name}
-              </DropdownMenuItem>
-            ))}
-             {generalCalculators.map((calc) => (
-              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
-                <calc.icon className="h-4 w-4" />
-                {calc.name}
-              </DropdownMenuItem>
-            ))}
-            <DropdownMenuSeparator />
-            <DropdownMenuLabel>Health & Fitness</DropdownMenuLabel>
-             {healthCalculators.map((calc) => (
-              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
-                <calc.icon className="h-4 w-4" />
-                {calc.name}
-              </DropdownMenuItem>
-            ))}
-             <DropdownMenuSeparator />
-            <DropdownMenuLabel>Science & Education</DropdownMenuLabel>
-             {scienceCalculators.map((calc) => (
-              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
-                <calc.icon className="h-4 w-4" />
-                {calc.name}
-              </DropdownMenuItem>
-            ))}
-             {educationCalculators.map((calc) => (
-              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
-                <calc.icon className="h-4 w-4" />
-                {calc.name}
-              </DropdownMenuItem>
-            ))}
-             <DropdownMenuSeparator />
-            <DropdownMenuLabel>Construction & IT</DropdownMenuLabel>
-             {constructionCalculators.map((calc) => (
-              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
-                <calc.icon className="h-4 w-4" />
-                {calc.name}
-              </DropdownMenuItem>
-            ))}
-             {itCalculators.map((calc) => (
-              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
-                <calc.icon className="h-4 w-4" />
-                {calc.name}
-              </DropdownMenuItem>
-            ))}
-            <DropdownMenuSeparator />
-            <DropdownMenuLabel>Image Tools</DropdownMenuLabel>
-             {toolsCalculators.map((calc) => (
-              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
-                <calc.icon className="h-4 w-4" />
-                {calc.name}
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
-      <div>
-        {activeCalculator.component}
-      </div>
+        </Tabs>
+
+        <div className="mt-8">
+            {activeCalculator.component}
+        </div>
     </div>
   );
 }
