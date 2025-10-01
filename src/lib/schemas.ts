@@ -405,3 +405,7 @@ export const fancyFontGeneratorSchema = z.object({
 export const qrCodeGeneratorSchema = z.object({
   text: z.string().min(1, { message: 'Please enter text or a URL.' }),
 });
+
+export const wordCounterSchema = z.object({
+  text: z.string(),
+});
