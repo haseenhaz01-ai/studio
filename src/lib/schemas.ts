@@ -352,3 +352,10 @@ const bodyFatBaseSchema = z.object({
       credits: z.coerce.number().min(0.5, { message: "Credits must be > 0." }),
     })).min(1, 'Please add at least one course.'),
   });
+
+  export const concreteCalculatorSchema = z.object({
+    unit: z.enum(['imperial', 'metric']),
+    length: z.coerce.number().positive("Length must be positive."),
+    width: z.coerce.number().positive("Width must be positive."),
+    thickness: z.coerce.number().positive("Thickness must be positive."),
+});
