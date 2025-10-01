@@ -344,3 +344,11 @@ const bodyFatBaseSchema = z.object({
       required_error: "Last menstrual period date is required.",
     }),
   });
+
+  export const gpaCalculatorSchema = z.object({
+    courses: z.array(z.object({
+      name: z.string().optional(),
+      grade: z.string().min(1, { message: "Select grade." }),
+      credits: z.coerce.number().min(0.5, { message: "Credits must be > 0." }),
+    })).min(1, 'Please add at least one course.'),
+  });

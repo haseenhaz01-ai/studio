@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import LoanCalculator from './LoanCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -50,6 +50,7 @@ import BodyFatCalculator from './BodyFatCalculator';
 import IdealWeightCalculator from './IdealWeightCalculator';
 import PaceCalculator from './PaceCalculator';
 import PregnancyCalculator from './PregnancyCalculator';
+import GpaCalculator from './GpaCalculator';
 
 const TriangleIcon = () => (
   <svg
@@ -108,6 +109,7 @@ const calculators = [
   { name: 'Quadratic', icon: Sigma, component: <QuadraticCalculator />, value: 'quadratic', category: 'science' },
   { name: 'Triangle', icon: TriangleIcon, component: <TriangleCalculator />, value: 'triangle', category: 'science' },
   { name: 'Statistics', icon: Sigma, component: <StatisticsCalculator />, value: 'statistics', category: 'statistics' },
+  { name: 'GPA', icon: GraduationCap, component: <GpaCalculator />, value: 'gpa', category: 'education' },
 ];
 
 const businessCalculators = calculators.filter(c => c.category === 'business');
@@ -116,6 +118,7 @@ const generalCalculators = calculators.filter(c => c.category === 'general');
 const healthCalculators = calculators.filter(c => c.category === 'health');
 const scienceCalculators = calculators.filter(c => c.category === 'science');
 const statisticsCalculators = calculators.filter(c => c.category === 'statistics');
+const educationCalculators = calculators.filter(c => c.category === 'education');
 
 
 export default function CalculatorTabs() {
@@ -176,6 +179,14 @@ export default function CalculatorTabs() {
              <DropdownMenuSeparator />
             <DropdownMenuLabel>Statistics</DropdownMenuLabel>
              {statisticsCalculators.map((calc) => (
+              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
+                <calc.icon className="h-4 w-4" />
+                {calc.name}
+              </DropdownMenuItem>
+            ))}
+            <DropdownMenuSeparator />
+            <DropdownMenuLabel>Education</DropdownMenuLabel>
+             {educationCalculators.map((calc) => (
               <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />
                 {calc.name}
