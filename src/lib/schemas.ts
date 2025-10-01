@@ -327,3 +327,14 @@ const bodyFatBaseSchema = z.object({
     idealWeightMetricSchema,
     idealWeightImperialSchema,
   ]);
+
+  export const paceCalculatorSchema = z.object({
+    distance: z.coerce.number().positive("Distance must be positive."),
+    distanceUnit: z.enum(['km', 'miles']),
+    hours: z.coerce.number().min(0).optional(),
+    minutes: z.coerce.number().min(0).optional(),
+    seconds: z.coerce.number().min(0).optional(),
+  }).refine(data => (data.hours || 0) + (data.minutes || 0) + (data.seconds || 0) > 0, {
+      message: "Total time must be greater than zero.",
+      path: ["hours"],
+  });
