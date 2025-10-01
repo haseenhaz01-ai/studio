@@ -236,23 +236,25 @@ export default function ImageResizer() {
         )}
       </CardContent>
       <CardFooter>
-        <Button 
-            disabled={!resizedState}
-            className="w-full"
-            asChild
-        >
-          {resizedState ? (
-             <a href={resizedState.resizedSrc} download={imageState?.originalFile.name.replace(/\.[^/.]+$/, "") + '-resized.png'}>
-                <Download className="mr-2 h-4 w-4" />
-                Download Resized Image
+        {resizedState ? (
+          <Button className="w-full" asChild>
+            <a
+              href={resizedState.resizedSrc}
+              download={
+                imageState?.originalFile.name.replace(/\.[^/.]+$/, "") +
+                "-resized.png"
+              }
+            >
+              <Download className="mr-2 h-4 w-4" />
+              Download Resized Image
             </a>
-          ) : (
-            <>
-                <Download className="mr-2 h-4 w-4" />
-                Download Resized Image
-            </>
-          )}
-        </Button>
+          </Button>
+        ) : (
+          <Button disabled className="w-full">
+            <Download className="mr-2 h-4 w-4" />
+            Download Resized Image
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );

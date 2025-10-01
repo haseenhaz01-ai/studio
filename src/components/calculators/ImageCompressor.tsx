@@ -196,24 +196,25 @@ export default function ImageCompressor() {
         )}
       </CardContent>
       <CardFooter>
-        <Button 
-            disabled={!compressedState}
-            className="w-full"
-            asChild
-        >
-          {compressedState && (
-             <a href={compressedState.compressedSrc} download={imageState?.originalFile.name.replace(/\.[^/.]+$/, "") + '-compressed.jpg'}>
-                <Download className="mr-2 h-4 w-4" />
-                Download Compressed Image
+        {compressedState ? (
+          <Button className="w-full" asChild>
+            <a
+              href={compressedState.compressedSrc}
+              download={
+                imageState?.originalFile.name.replace(/\.[^/.]+$/, "") +
+                "-compressed.jpg"
+              }
+            >
+              <Download className="mr-2 h-4 w-4" />
+              Download Compressed Image
             </a>
-          )}
-          {!compressedState && (
-              <>
-                <Download className="mr-2 h-4 w-4" />
-                Download Compressed Image
-              </>
-          )}
-        </Button>
+          </Button>
+        ) : (
+          <Button disabled className="w-full">
+            <Download className="mr-2 h-4 w-4" />
+            Download Compressed Image
+          </Button>
+        )}
       </CardFooter>
     </Card>
   );
