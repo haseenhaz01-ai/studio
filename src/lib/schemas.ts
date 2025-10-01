@@ -384,3 +384,7 @@ export const passwordGeneratorSchema = z.object({
 export const paypalFeeSchema = z.object({
   amount: z.coerce.number().positive("Amount must be a positive number."),
 });
+
+export const imageCompressorSchema = z.object({
+  quality: z.coerce.number().min(0).max(1),
+});
