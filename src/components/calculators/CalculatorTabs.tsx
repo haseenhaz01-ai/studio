@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
@@ -52,6 +52,7 @@ import PasswordGenerator from './PasswordGenerator';
 import PaypalFeeCalculator from './PaypalFeeCalculator';
 import ImageCompressor from './ImageCompressor';
 import ImageResizer from './ImageResizer';
+import FancyFontGenerator from './FancyFontGenerator';
 
 const TriangleIcon = () => (
   <svg
@@ -88,35 +89,36 @@ const calculators = [
   { name: 'AdSense', icon: DollarSign, component: <AdsenseCalculator />, value: 'adsense', category: 'marketing' },
   { name: 'GRP', icon: Tv, component: <GrpCalculator />, value: 'grp', category: 'marketing' },
   { name: 'AVM', icon: Film, component: <AvmCalculator />, value: 'avm', category: 'marketing' },
-  { name: 'Standard', icon: Calculator, component: <SimpleCalculator />, value: 'simple', category: 'math' },
-  { name: 'Percentage', icon: Percent, component: <PercentageCalculator />, value: 'percentage', category: 'math' },
-  { name: 'Printing', icon: Printer, component: <PrintingCalculator/>, value: 'printing', category: 'general' },
-  { name: 'Man-Hours', icon: Clock, component: <ManHoursCalculator />, value: 'man-hours', category: 'general' },
-  { name: 'EVM', icon: ClipboardList, component: <EvmCalculator />, value: 'evm', category: 'general' },
-  { name: 'Date', icon: CalendarClock, component: <DateTimeCalculator />, value: 'date-time', category: 'general' },
-  { name: 'Time', icon: Timer, component: <TimeCalculator />, value: 'time', category: 'general' },
-  { name: 'Age', icon: Gift, component: <AgeCalculator />, value: 'age', category: 'general' },
-  { name: 'Length', icon: Ruler, component: <LengthCalculator />, value: 'length', category: 'general' },
-  { name: 'Temperature', icon: Thermometer, component: <TemperatureCalculator />, value: 'temperature', category: 'general' },
-  { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'fraction', category: 'math' },
-  { name: 'Random Number', icon: Shuffle, component: <RandomNumberGenerator />, value: 'random-number', category: 'general' },
-  { name: 'Password', icon: KeyRound, component: <PasswordGenerator />, value: 'password-generator', category: 'general' },
+  { name: 'Standard', icon: Calculator, component: <SimpleCalculator />, value: 'simple', category: 'math-general' },
+  { name: 'Percentage', icon: Percent, component: <PercentageCalculator />, value: 'percentage', category: 'math-general' },
+  { name: 'Printing', icon: Printer, component: <PrintingCalculator/>, value: 'printing', category: 'math-general' },
+  { name: 'Man-Hours', icon: Clock, component: <ManHoursCalculator />, value: 'man-hours', category: 'math-general' },
+  { name: 'EVM', icon: ClipboardList, component: <EvmCalculator />, value: 'evm', category: 'math-general' },
+  { name: 'Date', icon: CalendarClock, component: <DateTimeCalculator />, value: 'date-time', category: 'math-general' },
+  { name: 'Time', icon: Timer, component: <TimeCalculator />, value: 'time', category: 'math-general' },
+  { name: 'Age', icon: Gift, component: <AgeCalculator />, value: 'age', category: 'math-general' },
+  { name: 'Length', icon: Ruler, component: <LengthCalculator />, value: 'length', category: 'math-general' },
+  { name: 'Temperature', icon: Thermometer, component: <TemperatureCalculator />, value: 'temperature', category: 'math-general' },
+  { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'fraction', category: 'math-general' },
+  { name: 'Random Number', icon: Shuffle, component: <RandomNumberGenerator />, value: 'random-number', category: 'math-general' },
+  { name: 'Password', icon: KeyRound, component: <PasswordGenerator />, value: 'password-generator', category: 'math-general' },
   { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'health' },
   { name: 'Body Fat', icon: HeartPulse, component: <BodyFatCalculator />, value: 'body-fat', category: 'health' },
   { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'health' },
   { name: 'Ideal Weight', icon: HeartPulse, component: <IdealWeightCalculator />, value: 'ideal-weight', category: 'health' },
   { name: 'Pace', icon: Footprints, component: <PaceCalculator />, value: 'pace', category: 'health' },
   { name: 'Pregnancy', icon: Baby, component: <PregnancyCalculator />, value: 'pregnancy', category: 'health' },
-  { name: 'Scientific', icon: FlaskConical, component: <ScientificCalculator />, value: 'scientific', category: 'science' },
-  { name: 'Graphing', icon: LineChart, component: <GraphingCalculator />, value: 'graphing', category: 'science' },
-  { name: 'Quadratic', icon: Sigma, component: <QuadraticCalculator />, value: 'quadratic', category: 'science' },
-  { name: 'Triangle', icon: TriangleIcon, component: <TriangleCalculator />, value: 'triangle', category: 'science' },
-  { name: 'Statistics', icon: Sigma, component: <StatisticsCalculator />, value: 'statistics', category: 'science' },
-  { name: 'GPA', icon: GraduationCap, component: <GpaCalculator />, value: 'gpa', category: 'education' },
-  { name: 'Concrete', icon: HardHat, component: <ConcreteCalculator />, value: 'concrete', category: 'construction' },
-  { name: 'Subnet', icon: Network, component: <SubnetCalculator />, value: 'networking', category: 'it' },
+  { name: 'Scientific', icon: FlaskConical, component: <ScientificCalculator />, value: 'scientific', category: 'science-education' },
+  { name: 'Graphing', icon: LineChart, component: <GraphingCalculator />, value: 'graphing', category: 'science-education' },
+  { name: 'Quadratic', icon: Sigma, component: <QuadraticCalculator />, value: 'quadratic', category: 'science-education' },
+  { name: 'Triangle', icon: TriangleIcon, component: <TriangleCalculator />, value: 'triangle', category: 'science-education' },
+  { name: 'Statistics', icon: Sigma, component: <StatisticsCalculator />, value: 'statistics', category: 'science-education' },
+  { name: 'GPA', icon: GraduationCap, component: <GpaCalculator />, value: 'gpa', category: 'science-education' },
+  { name: 'Concrete', icon: HardHat, component: <ConcreteCalculator />, value: 'concrete', category: 'construction-it' },
+  { name: 'Subnet', icon: Network, component: <SubnetCalculator />, value: 'subnet', category: 'construction-it' },
   { name: 'Image Compressor', icon: Image, component: <ImageCompressor />, value: 'image-compressor', category: 'tools' },
   { name: 'Image Resizer', icon: Crop, component: <ImageResizer />, value: 'image-resizer', category: 'tools' },
+  { name: 'Fancy Fonts', icon: Type, component: <FancyFontGenerator />, value: 'fancy-font-generator', category: 'tools' },
 ];
 
 const categories = [
@@ -132,10 +134,10 @@ const categories = [
 const calculatorsByCategory: Record<string, typeof calculators> = {
     'financial': calculators.filter(c => c.category === 'financial'),
     'marketing': calculators.filter(c => c.category === 'marketing'),
-    'math-general': calculators.filter(c => c.category === 'math' || c.category === 'general'),
+    'math-general': calculators.filter(c => c.category === 'math-general'),
     'health': calculators.filter(c => c.category === 'health'),
-    'science-education': calculators.filter(c => c.category === 'science' || c.category === 'statistics' || c.category === 'education'),
-    'construction-it': calculators.filter(c => c.category === 'construction' || c.category === 'it'),
+    'science-education': calculators.filter(c => c.category === 'science-education'),
+    'construction-it': calculators.filter(c => c.category === 'construction-it'),
     'tools': calculators.filter(c => c.category === 'tools'),
 };
 

@@ -397,3 +397,7 @@ export const imageResizerSchema = z.object({
   message: "Either width or height must be provided.",
   path: ["width"],
 });
+
+export const fancyFontGeneratorSchema = z.object({
+  text: z.string(),
+});
