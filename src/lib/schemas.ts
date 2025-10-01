@@ -359,3 +359,13 @@ const bodyFatBaseSchema = z.object({
     width: z.coerce.number().positive("Width must be positive."),
     thickness: z.coerce.number().positive("Thickness must be positive."),
 });
+
+const ipAddressRegex = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+const cidrRegex = /^([0-9]|[1-2][0-9]|3[0-2])$/;
+
+export const subnetCalculatorSchema = z.object({
+  ipAddress: z.string().regex(ipAddressRegex, { message: "Invalid IPv4 address format." }),
+  subnet: z.string().refine(value => {
+    return cidrRegex.test(value) || ipAddressRegex.test(value);
+  }, { message: "Invalid CIDR or subnet mask." }),
+});
