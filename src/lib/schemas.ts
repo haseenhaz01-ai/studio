@@ -419,3 +419,7 @@ export const wordCounterSchema = z.object({
 export const duplicateSentenceCheckerSchema = z.object({
   text: z.string(),
 });
+
+export const colourConverterSchema = z.object({
+  colour: z.string().min(1, { message: 'Please enter a colour value.' }),
+});
