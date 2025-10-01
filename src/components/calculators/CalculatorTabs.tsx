@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
@@ -56,6 +56,7 @@ import FancyFontGenerator from './FancyFontGenerator';
 import QrCodeGenerator from './QrCodeGenerator';
 import WordCounter from './WordCounter';
 import DuplicateSentenceChecker from './DuplicateSentenceChecker';
+import CryptoConverter from './CryptoConverter';
 
 const TriangleIcon = () => (
   <svg
@@ -76,6 +77,7 @@ const TriangleIcon = () => (
 
 const calculators = [
   { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'financial' },
+  { name: 'Crypto', icon: Bitcoin, component: <CryptoConverter />, value: 'crypto', category: 'financial' },
   { name: 'Loan', icon: Landmark, component: <LoanCalculator />, value: 'loan', category: 'financial' },
   { name: 'Retirement', icon: PiggyBank, component: <RetirementCalculator />, value: 'retirement', category: 'financial' },
   { name: 'Contrib. Margin', icon: BarChartBig, component: <ContributionMarginCalculator />, value: 'contribution-margin', category: 'financial' },

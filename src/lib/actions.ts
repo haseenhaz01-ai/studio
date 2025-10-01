@@ -1,8 +1,9 @@
 'use server';
 
 import { convertCurrency } from '@/ai/flows/currency-conversion-tool';
+import { convertCrypto } from '@/ai/flows/crypto-conversion-tool';
 import { calculatePaycheck } from '@/ai/flows/paycheck-calculator-flow';
-import { currencyConversionSchema, paycheckCalculatorSchema } from '@/lib/schemas';
+import { currencyConversionSchema, paycheckCalculatorSchema, cryptoConversionSchema } from '@/lib/schemas';
 import { z } from 'zod';
 
 export async function handleCurrencyConversion(values: z.infer<typeof currencyConversionSchema>) {
@@ -34,6 +35,22 @@ export async function handleCurrencyConversion(values: z.infer<typeof currencyCo
   } catch (error) {
     console.error(error);
     return { error: 'Failed to convert currency. Please try again.' };
+  }
+}
+
+export async function handleCryptoConversion(values: z.infer<typeof cryptoConversionSchema>) {
+  const validatedFields = cryptoConversionSchema.safeParse(values);
+
+  if (!validatedFields.success) {
+    return { error: 'Invalid input.' };
+  }
+
+  try {
+    const result = await convertCrypto(validatedFields.data);
+    return { success: result };
+  } catch (error) {
+    console.error(error);
+    return { error: 'Failed to convert cryptocurrency. Please try again.' };
   }
 }
 

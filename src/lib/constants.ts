@@ -12,6 +12,17 @@ export const CURRENCIES = [
     { value: 'INR', label: 'INR - Indian Rupee' },
   ];
 
+  export const CRYPTOCURRENCIES = [
+    { value: 'BTC', label: 'BTC - Bitcoin' },
+    { value: 'ETH', label: 'ETH - Ethereum' },
+    { value: 'USDT', label: 'USDT - Tether' },
+    { value: 'BNB', label: 'BNB - Binance Coin' },
+    { value: 'SOL', label: 'SOL - Solana' },
+    { value: 'XRP', label: 'XRP - XRP' },
+    { value: 'DOGE', label: 'DOGE - Dogecoin' },
+    { value: 'ADA', label: 'ADA - Cardano' },
+  ];
+
   export const US_STATES = [
     { value: 'AL', label: 'Alabama' },
     { value: 'AK', label: 'Alaska' },

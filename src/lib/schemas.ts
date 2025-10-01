@@ -6,6 +6,12 @@ export const currencyConversionSchema = z.object({
   targetCurrency: z.string().min(3, { message: 'Please select a target currency.' }),
 });
 
+export const cryptoConversionSchema = z.object({
+  amount: z.coerce.number().min(0.000001, { message: 'Amount must be positive.' }),
+  sourceCurrency: z.string().min(3, { message: 'Please select a source currency.' }),
+  targetCurrency: z.string().min(3, { message: 'Please select a target currency.' }),
+});
+
 export const loanCalculatorSchema = z.object({
     loanAmount: z.coerce.number().min(1, { message: 'Loan amount must be at least 1.' }),
     interestRate: z.coerce.number().min(0.1, { message: 'Interest rate must be positive.' }).max(100, { message: 'Interest rate cannot exceed 100%.' }),
