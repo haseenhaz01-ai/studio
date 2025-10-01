@@ -54,6 +54,7 @@ import GpaCalculator from './GpaCalculator';
 import ConcreteCalculator from './ConcreteCalculator';
 import SubnetCalculator from './SubnetCalculator';
 import PasswordGenerator from './PasswordGenerator';
+import PaypalFeeCalculator from './PaypalFeeCalculator';
 
 const TriangleIcon = () => (
   <svg
@@ -83,6 +84,7 @@ const calculators = [
   { name: 'Salary', icon: Receipt, component: <SalaryCalculator />, value: 'salary', category: 'business' },
   { name: 'Inflation', icon: TrendingUp, component: <InflationCalculator />, value: 'inflation', category: 'business' },
   { name: 'Sales Tax', icon: Percent, component: <SalesTaxCalculator />, value: 'sales-tax', category: 'business' },
+  { name: 'PayPal Fee', icon: Home, component: <PaypalFeeCalculator />, value: 'paypal-fee', category: 'business' },
   { name: 'CPC/CPM', icon: MousePointerClick, component: <CpcCpmCalculator />, value: 'cpc-cpm', category: 'marketing' },
   { name: 'CTR', icon: MousePointer2, component: <CtrCalculator />, value: 'ctr', category: 'marketing' },
   { name: 'Exit Rate', icon: LogOut, component: <ExitRateCalculator />, value: 'exit-rate', category: 'marketing' },

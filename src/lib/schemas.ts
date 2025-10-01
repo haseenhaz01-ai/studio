@@ -380,3 +380,7 @@ export const passwordGeneratorSchema = z.object({
   message: "At least one character type must be selected.",
   path: ["uppercase"],
 });
+
+export const paypalFeeSchema = z.object({
+  amount: z.coerce.number().positive("Amount must be a positive number."),
+});
