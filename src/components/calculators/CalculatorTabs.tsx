@@ -76,25 +76,25 @@ const TriangleIcon = () => (
 
 
 const calculators = [
-  { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'business' },
-  { name: 'Loan', icon: Landmark, component: <LoanCalculator />, value: 'loan', category: 'business' },
-  { name: 'Retirement', icon: PiggyBank, component: <RetirementCalculator />, value: 'retirement', category: 'business' },
-  { name: 'Contrib. Margin', icon: BarChartBig, component: <ContributionMarginCalculator />, value: 'contribution-margin', category: 'business' },
-  { name: 'COGS', icon: Archive, component: <CogsCalculator />, value: 'cogs', category: 'business' },
-  { name: 'Lerner Index', icon: Scale, component: <LernerIndexCalculator />, value: 'lerner-index', category: 'business' },
-  { name: 'Liquid Net Worth', icon: WalletCards, component: <LiquidNetWorthCalculator />, value: 'liquid-net-worth', category: 'business' },
-  { name: 'Salary', icon: Receipt, component: <SalaryCalculator />, value: 'salary', category: 'business' },
-  { name: 'Inflation', icon: TrendingUp, component: <InflationCalculator />, value: 'inflation', category: 'business' },
-  { name: 'Sales Tax', icon: Percent, component: <SalesTaxCalculator />, value: 'sales-tax', category: 'business' },
-  { name: 'PayPal Fee', icon: Home, component: <PaypalFeeCalculator />, value: 'paypal-fee', category: 'business' },
+  { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'financial' },
+  { name: 'Loan', icon: Landmark, component: <LoanCalculator />, value: 'loan', category: 'financial' },
+  { name: 'Retirement', icon: PiggyBank, component: <RetirementCalculator />, value: 'retirement', category: 'financial' },
+  { name: 'Contrib. Margin', icon: BarChartBig, component: <ContributionMarginCalculator />, value: 'contribution-margin', category: 'financial' },
+  { name: 'COGS', icon: Archive, component: <CogsCalculator />, value: 'cogs', category: 'financial' },
+  { name: 'Lerner Index', icon: Scale, component: <LernerIndexCalculator />, value: 'lerner-index', category: 'financial' },
+  { name: 'Liquid Net Worth', icon: WalletCards, component: <LiquidNetWorthCalculator />, value: 'liquid-net-worth', category: 'financial' },
+  { name: 'Salary', icon: Receipt, component: <SalaryCalculator />, value: 'salary', category: 'financial' },
+  { name: 'Inflation', icon: TrendingUp, component: <InflationCalculator />, value: 'inflation', category: 'financial' },
+  { name: 'Sales Tax', icon: Percent, component: <SalesTaxCalculator />, value: 'sales-tax', category: 'financial' },
+  { name: 'PayPal Fee', icon: Home, component: <PaypalFeeCalculator />, value: 'paypal-fee', category: 'financial' },
   { name: 'CPC/CPM', icon: MousePointerClick, component: <CpcCpmCalculator />, value: 'cpc-cpm', category: 'marketing' },
   { name: 'CTR', icon: MousePointer2, component: <CtrCalculator />, value: 'ctr', category: 'marketing' },
   { name: 'Exit Rate', icon: LogOut, component: <ExitRateCalculator />, value: 'exit-rate', category: 'marketing' },
   { name: 'AdSense', icon: DollarSign, component: <AdsenseCalculator />, value: 'adsense', category: 'marketing' },
   { name: 'GRP', icon: Tv, component: <GrpCalculator />, value: 'grp', category: 'marketing' },
   { name: 'AVM', icon: Film, component: <AvmCalculator />, value: 'avm', category: 'marketing' },
-  { name: 'Standard', icon: Calculator, component: <SimpleCalculator />, value: 'simple', category: 'general' },
-  { name: 'Percentage', icon: Percent, component: <PercentageCalculator />, value: 'percentage', category: 'general' },
+  { name: 'Standard', icon: Calculator, component: <SimpleCalculator />, value: 'simple', category: 'math' },
+  { name: 'Percentage', icon: Percent, component: <PercentageCalculator />, value: 'percentage', category: 'math' },
   { name: 'Printing', icon: Printer, component: <PrintingCalculator/>, value: 'printing', category: 'general' },
   { name: 'Man-Hours', icon: Clock, component: <ManHoursCalculator />, value: 'man-hours', category: 'general' },
   { name: 'EVM', icon: ClipboardList, component: <EvmCalculator />, value: 'evm', category: 'general' },
@@ -103,7 +103,7 @@ const calculators = [
   { name: 'Age', icon: Gift, component: <AgeCalculator />, value: 'age', category: 'general' },
   { name: 'Length', icon: Ruler, component: <LengthCalculator />, value: 'length', category: 'general' },
   { name: 'Temperature', icon: Thermometer, component: <TemperatureCalculator />, value: 'temperature', category: 'general' },
-  { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'fraction', category: 'general' },
+  { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'math' },
   { name: 'Random Number', icon: Shuffle, component: <RandomNumberGenerator />, value: 'random-number', category: 'general' },
   { name: 'Password', icon: KeyRound, component: <PasswordGenerator />, value: 'password-generator', category: 'general' },
   { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'health' },
@@ -116,23 +116,23 @@ const calculators = [
   { name: 'Graphing', icon: LineChart, component: <GraphingCalculator />, value: 'graphing', category: 'science' },
   { name: 'Quadratic', icon: Sigma, component: <QuadraticCalculator />, value: 'quadratic', category: 'science' },
   { name: 'Triangle', icon: TriangleIcon, component: <TriangleCalculator />, value: 'triangle', category: 'science' },
-  { name: 'Statistics', icon: Sigma, component: <StatisticsCalculator />, value: 'statistics', category: 'statistics' },
+  { name: 'Statistics', icon: Sigma, component: <StatisticsCalculator />, value: 'statistics', category: 'science' },
   { name: 'GPA', icon: GraduationCap, component: <GpaCalculator />, value: 'gpa', category: 'education' },
   { name: 'Concrete', icon: HardHat, component: <ConcreteCalculator />, value: 'concrete', category: 'construction' },
-  { name: 'Subnet', icon: Network, component: <SubnetCalculator />, value: 'subnet', category: 'networking' },
+  { name: 'Subnet', icon: Network, component: <SubnetCalculator />, value: 'networking', category: 'it' },
   { name: 'Image Compressor', icon: Image, component: <ImageCompressor />, value: 'image-compressor', category: 'tools' },
   { name: 'Image Resizer', icon: Crop, component: <ImageResizer />, value: 'image-resizer', category: 'tools' },
 ];
 
-const businessCalculators = calculators.filter(c => c.category === 'business');
+const financialCalculators = calculators.filter(c => c.category === 'financial');
 const marketingCalculators = calculators.filter(c => c.category === 'marketing');
+const mathCalculators = calculators.filter(c => c.category === 'math');
 const generalCalculators = calculators.filter(c => c.category === 'general');
 const healthCalculators = calculators.filter(c => c.category === 'health');
-const scienceCalculators = calculators.filter(c => c.category === 'science');
-const statisticsCalculators = calculators.filter(c => c.category === 'statistics');
+const scienceCalculators = calculators.filter(c => c.category === 'science' || c.category === 'statistics');
 const educationCalculators = calculators.filter(c => c.category === 'education');
 const constructionCalculators = calculators.filter(c => c.category === 'construction');
-const networkingCalculators = calculators.filter(c => c.category === 'networking');
+const itCalculators = calculators.filter(c => c.category === 'it');
 const toolsCalculators = calculators.filter(c => c.category === 'tools');
 
 
@@ -152,23 +152,29 @@ export default function CalculatorTabs() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)]">
-            <DropdownMenuLabel>Business</DropdownMenuLabel>
-            {businessCalculators.map((calc) => (
+            <DropdownMenuLabel>Financial</DropdownMenuLabel>
+            {financialCalculators.map((calc) => (
               <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />
                 {calc.name}
               </DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
-            <DropdownMenuLabel>Marketing</DropdownMenuLabel>
+            <DropdownMenuLabel>Marketing & Web</DropdownMenuLabel>
             {marketingCalculators.map((calc) => (
-              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap_2">
+              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />
                 {calc.name}
               </DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
-            <DropdownMenuLabel>General</DropdownMenuLabel>
+            <DropdownMenuLabel>Math & General</DropdownMenuLabel>
+             {mathCalculators.map((calc) => (
+              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
+                <calc.icon className="h-4 w-4" />
+                {calc.name}
+              </DropdownMenuItem>
+            ))}
              {generalCalculators.map((calc) => (
               <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />
@@ -184,23 +190,13 @@ export default function CalculatorTabs() {
               </DropdownMenuItem>
             ))}
              <DropdownMenuSeparator />
-            <DropdownMenuLabel>Science</DropdownMenuLabel>
+            <DropdownMenuLabel>Science & Education</DropdownMenuLabel>
              {scienceCalculators.map((calc) => (
               <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />
                 {calc.name}
               </DropdownMenuItem>
             ))}
-             <DropdownMenuSeparator />
-            <DropdownMenuLabel>Statistics</DropdownMenuLabel>
-             {statisticsCalculators.map((calc) => (
-              <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
-                <calc.icon className="h-4 w-4" />
-                {calc.name}
-              </DropdownMenuItem>
-            ))}
-            <DropdownMenuSeparator />
-            <DropdownMenuLabel>Education</DropdownMenuLabel>
              {educationCalculators.map((calc) => (
               <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />
@@ -208,23 +204,21 @@ export default function CalculatorTabs() {
               </DropdownMenuItem>
             ))}
              <DropdownMenuSeparator />
-            <DropdownMenuLabel>Construction</DropdownMenuLabel>
+            <DropdownMenuLabel>Construction & IT</DropdownMenuLabel>
              {constructionCalculators.map((calc) => (
               <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />
                 {calc.name}
               </DropdownMenuItem>
             ))}
-            <DropdownMenuSeparator />
-            <DropdownMenuLabel>Networking</DropdownMenuLabel>
-             {networkingCalculators.map((calc) => (
+             {itCalculators.map((calc) => (
               <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />
                 {calc.name}
               </DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
-            <DropdownMenuLabel>Tools</DropdownMenuLabel>
+            <DropdownMenuLabel>Image Tools</DropdownMenuLabel>
              {toolsCalculators.map((calc) => (
               <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />
