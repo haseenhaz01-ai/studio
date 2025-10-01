@@ -369,3 +369,14 @@ export const subnetCalculatorSchema = z.object({
     return cidrRegex.test(value) || ipAddressRegex.test(value);
   }, { message: "Invalid CIDR or subnet mask." }),
 });
+
+export const passwordGeneratorSchema = z.object({
+  length: z.coerce.number().min(4, "Must be at least 4.").max(128, "Cannot exceed 128."),
+  uppercase: z.boolean(),
+  lowercase: z.boolean(),
+  numbers: z.boolean(),
+  symbols: z.boolean(),
+}).refine(data => data.uppercase || data.lowercase || data.numbers || data.symbols, {
+  message: "At least one character type must be selected.",
+  path: ["uppercase"],
+});

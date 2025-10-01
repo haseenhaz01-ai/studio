@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import LoanCalculator from './LoanCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -53,6 +53,7 @@ import PregnancyCalculator from './PregnancyCalculator';
 import GpaCalculator from './GpaCalculator';
 import ConcreteCalculator from './ConcreteCalculator';
 import SubnetCalculator from './SubnetCalculator';
+import PasswordGenerator from './PasswordGenerator';
 
 const TriangleIcon = () => (
   <svg
@@ -100,6 +101,7 @@ const calculators = [
   { name: 'Temperature', icon: Thermometer, component: <TemperatureCalculator />, value: 'temperature', category: 'general' },
   { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'fraction', category: 'general' },
   { name: 'Random Number', icon: Shuffle, component: <RandomNumberGenerator />, value: 'random-number', category: 'general' },
+  { name: 'Password', icon: KeyRound, component: <PasswordGenerator />, value: 'password-generator', category: 'general' },
   { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'health' },
   { name: 'Body Fat', icon: HeartPulse, component: <BodyFatCalculator />, value: 'body-fat', category: 'health' },
   { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'health' },
