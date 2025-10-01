@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
@@ -55,6 +55,7 @@ import ImageResizer from './ImageResizer';
 import FancyFontGenerator from './FancyFontGenerator';
 import QrCodeGenerator from './QrCodeGenerator';
 import WordCounter from './WordCounter';
+import DuplicateSentenceChecker from './DuplicateSentenceChecker';
 
 const TriangleIcon = () => (
   <svg
@@ -123,6 +124,7 @@ const calculators = [
   { name: 'Fancy Fonts', icon: Type, component: <FancyFontGenerator />, value: 'fancy-font-generator', category: 'tools' },
   { name: 'QR Code', icon: QrCode, component: <QrCodeGenerator />, value: 'qr-code-generator', category: 'tools' },
   { name: 'Word Counter', icon: FileText, component: <WordCounter />, value: 'word-counter', category: 'tools' },
+  { name: 'Duplicate Checker', icon: ScanSearch, component: <DuplicateSentenceChecker />, value: 'duplicate-sentence-checker', category: 'tools' },
 ];
 
 const categories = [

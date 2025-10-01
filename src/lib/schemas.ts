@@ -409,3 +409,7 @@ export const qrCodeGeneratorSchema = z.object({
 export const wordCounterSchema = z.object({
   text: z.string(),
 });
+
+export const duplicateSentenceCheckerSchema = z.object({
+  text: z.string(),
+});
