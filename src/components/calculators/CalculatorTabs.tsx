@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image } from 'lucide-react';
+import { Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop } from 'lucide-react';
 import CurrencyConverter from './CurrencyConverter';
 import LoanCalculator from './LoanCalculator';
 import SimpleCalculator from './SimpleCalculator';
@@ -56,6 +56,7 @@ import SubnetCalculator from './SubnetCalculator';
 import PasswordGenerator from './PasswordGenerator';
 import PaypalFeeCalculator from './PaypalFeeCalculator';
 import ImageCompressor from './ImageCompressor';
+import ImageResizer from './ImageResizer';
 
 const TriangleIcon = () => (
   <svg
@@ -119,7 +120,8 @@ const calculators = [
   { name: 'GPA', icon: GraduationCap, component: <GpaCalculator />, value: 'gpa', category: 'education' },
   { name: 'Concrete', icon: HardHat, component: <ConcreteCalculator />, value: 'concrete', category: 'construction' },
   { name: 'Subnet', icon: Network, component: <SubnetCalculator />, value: 'subnet', category: 'networking' },
-  { name: 'Image Compressor', icon: Image, component: <ImageCompressor />, value: 'image-compressor', category: 'media' },
+  { name: 'Image Compressor', icon: Image, component: <ImageCompressor />, value: 'image-compressor', category: 'tools' },
+  { name: 'Image Resizer', icon: Crop, component: <ImageResizer />, value: 'image-resizer', category: 'tools' },
 ];
 
 const businessCalculators = calculators.filter(c => c.category === 'business');
@@ -131,7 +133,7 @@ const statisticsCalculators = calculators.filter(c => c.category === 'statistics
 const educationCalculators = calculators.filter(c => c.category === 'education');
 const constructionCalculators = calculators.filter(c => c.category === 'construction');
 const networkingCalculators = calculators.filter(c => c.category === 'networking');
-const mediaCalculators = calculators.filter(c => c.category === 'media');
+const toolsCalculators = calculators.filter(c => c.category === 'tools');
 
 
 export default function CalculatorTabs() {
@@ -222,8 +224,8 @@ export default function CalculatorTabs() {
               </DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
-            <DropdownMenuLabel>Media</DropdownMenuLabel>
-             {mediaCalculators.map((calc) => (
+            <DropdownMenuLabel>Tools</DropdownMenuLabel>
+             {toolsCalculators.map((calc) => (
               <DropdownMenuItem key={calc.value} onClick={() => setActiveCalculator(calc)} className="flex gap-2">
                 <calc.icon className="h-4 w-4" />
                 {calc.name}

@@ -388,3 +388,12 @@ export const paypalFeeSchema = z.object({
 export const imageCompressorSchema = z.object({
   quality: z.coerce.number().min(0).max(1),
 });
+
+export const imageResizerSchema = z.object({
+  width: z.coerce.number().positive("Width must be positive.").optional(),
+  height: z.coerce.number().positive("Height must be positive.").optional(),
+  keepAspectRatio: z.boolean().default(true),
+}).refine(data => data.width || data.height, {
+  message: "Either width or height must be provided.",
+  path: ["width"],
+});
