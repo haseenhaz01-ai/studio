@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, AlarmClock
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, AlarmClock, Hourglass
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
@@ -59,6 +59,7 @@ import DuplicateSentenceChecker from './DuplicateSentenceChecker';
 import CryptoConverter from './CryptoConverter';
 import ColourConverter from './ColourConverter';
 import StopwatchCalculator from './StopwatchCalculator';
+import CountdownTimer from './CountdownTimer';
 
 const TriangleIcon = () => (
   <svg
@@ -109,6 +110,7 @@ const calculators = [
   { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'fraction', category: 'math-general' },
   { name: 'Random Number', icon: Shuffle, component: <RandomNumberGenerator />, value: 'random-number', category: 'math-general' },
   { name: 'Stopwatch', icon: AlarmClock, component: <StopwatchCalculator />, value: 'stopwatch', category: 'math-general' },
+  { name: 'Countdown', icon: Hourglass, component: <CountdownTimer />, value: 'countdown', category: 'math-general' },
   { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'health' },
   { name: 'Body Fat', icon: HeartPulse, component: <BodyFatCalculator />, value: 'body-fat', category: 'health' },
   { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'health' },
@@ -140,7 +142,7 @@ const categories = [
     { name: 'Health & Fitness', slug: 'health' },
     { name: 'Science & Education', slug: 'science-education' },
     { name: 'Construction & IT', slug: 'construction-it' },
-    { name: 'Image Tools', slug: 'tools' },
+    { name: 'Tools', slug: 'tools' },
 ];
 
 const calculatorsByCategory: Record<string, typeof calculators> = {

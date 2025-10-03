@@ -423,3 +423,14 @@ export const duplicateSentenceCheckerSchema = z.object({
 export const colourConverterSchema = z.object({
   colour: z.string().min(1, { message: 'Please enter a colour value.' }),
 });
+
+export const stopwatchSchema = z.object({});
+
+export const countdownTimerSchema = z.object({
+  hours: z.coerce.number().min(0).optional(),
+  minutes: z.coerce.number().min(0).optional(),
+  seconds: z.coerce.number().min(0).optional(),
+}).refine(data => (data.hours || 0) > 0 || (data.minutes || 0) > 0 || (data.seconds || 0) > 0, {
+  message: 'Please set a duration greater than zero.',
+  path: ['hours'],
+});
