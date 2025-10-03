@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Timer } from 'lucide-react';
+import { Calculator } from 'lucide-react';
 import { Button } from './ui/button';
 
 const Header = () => {
@@ -8,10 +8,10 @@ const Header = () => {
       <div className="container mx-auto flex items-center justify-between p-4">
         <Link href="/" className="flex items-center gap-3">
           <div className="rounded-lg bg-primary p-2 text-primary-foreground">
-            <Timer className="h-6 w-6" />
+            <Calculator className="h-6 w-6" />
           </div>
           <h1 className="font-headline text-2xl font-bold text-foreground">
-            TimeKit
+            FinCalc Pro
           </h1>
         </Link>
       </div>
