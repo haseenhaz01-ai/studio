@@ -1,5 +1,5 @@
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, CalendarClock, Timer, Gift
 } from 'lucide-react';
 import CurrencyConverter from '@/components/calculators/CurrencyConverter';
 import LoanCalculator from '@/components/calculators/LoanCalculator';
@@ -49,6 +49,10 @@ import WordCounter from '@/components/calculators/WordCounter';
 import DuplicateSentenceChecker from '@/components/calculators/DuplicateSentenceChecker';
 import CryptoConverter from '@/components/calculators/CryptoConverter';
 import ColourConverter from '@/components/calculators/ColourConverter';
+import DateCalculator from '@/components/calculators/DateCalculator';
+import Stopwatch from '@/components/calculators/Stopwatch';
+import TimeCalculator from '@/components/calculators/TimeCalculator';
+import WorldClock from '@/components/calculators/WorldClock';
 
 const TriangleIcon = () => (
   <svg
@@ -115,6 +119,10 @@ export const calculators = [
     { name: 'Word Counter', icon: FileText, component: <WordCounter />, value: 'word-counter', category: 'tools' },
     { name: 'Duplicate Checker', icon: ScanSearch, component: <DuplicateSentenceChecker />, value: 'duplicate-sentence-checker', category: 'tools' },
     { name: 'Colour Converter', icon: Palette, component: <ColourConverter />, value: 'colour-converter', category: 'tools' },
+    { name: 'Date Calculator', icon: CalendarClock, component: <DateCalculator />, value: 'date-calculator', category: 'tools' },
+    { name: 'Stopwatch', icon: Timer, component: <Stopwatch />, value: 'stopwatch', category: 'tools' },
+    { name: 'Time Calculator', icon: CalendarClock, component: <TimeCalculator />, value: 'time-calculator', category: 'tools' },
+    { name: 'World Clock', icon: Gift, component: <WorldClock />, value: 'world-clock', category: 'tools' }
 ];
 
 export const categories = [
