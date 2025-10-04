@@ -47,7 +47,7 @@ const backgroundRemoverFlow = ai.defineFlow(
         {text: prompt},
       ],
       config: {
-        responseModalities: ['IMAGE'],
+        responseModalities: ['TEXT', 'IMAGE'],
       },
     });
 
