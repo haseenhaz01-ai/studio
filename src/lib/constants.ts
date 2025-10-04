@@ -1,5 +1,5 @@
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle, Scissors
 } from 'lucide-react';
 import CurrencyConverter from '@/components/calculators/CurrencyConverter';
 import CryptoConverter from '@/components/calculators/CryptoConverter';
@@ -57,6 +57,7 @@ import IntervalTimer from '@/components/calculators/IntervalTimer';
 import AlarmClock from '@/components/calculators/AlarmClock';
 import Metronome from '@/components/calculators/Metronome';
 import ChessClock from '@/components/calculators/ChessClock';
+import BackgroundRemover from '@/components/calculators/BackgroundRemover';
 
 
 export const calculators = [
@@ -103,6 +104,7 @@ export const calculators = [
     { name: 'Password', icon: KeyRound, component: PasswordGenerator, value: 'password-generator', category: 'tools' },
     { name: 'Image Compressor', icon: Image, component: ImageCompressor, value: 'image-compressor', category: 'tools' },
     { name: 'Image Resizer', icon: Crop, component: ImageResizer, value: 'image-resizer', category: 'tools' },
+    { name: 'Background Remover', icon: Scissors, component: BackgroundRemover, value: 'background-remover', category: 'tools' },
     { name: 'Fancy Fonts', icon: Type, component: FancyFontGenerator, value: 'fancy-font-generator', category: 'tools' },
     { name: 'QR Code', icon: QrCode, component: QrCodeGenerator, value: 'qr-code-generator', category: 'tools' },
     { name: 'Word Counter', icon: FileText, component: WordCounter, value: 'word-counter', category: 'tools' },
@@ -120,13 +122,13 @@ export const calculators = [
 
 export const categories = [
     { name: 'Financial', slug: 'financial', icon: Coins, calculators: calculators.filter(c => c.category === 'financial') },
-    { name: 'Marketing & Web', slug: 'marketing', icon: MousePointerClick, calculators: calculators.filter(c => c.category === 'marketing') },
-    { name: 'Math & General', slug: 'math-general', icon: Calculator, calculators: calculators.filter(c => c.category === 'math-general') },
-    { name: 'Health & Fitness', slug: 'health', icon: HeartPulse, calculators: calculators.filter(c => c.category === 'health') },
-    { name: 'Science & Education', slug: 'science-education', icon: FlaskConical, calculators: calculators.filter(c => c.category === 'science-education') },
-    { name: 'Construction & IT', slug: 'construction-it', icon: HardHat, calculators: calculators.filter(c => c.category === 'construction-it') },
+    { name: 'Marketing &amp; Web', slug: 'marketing', icon: MousePointerClick, calculators: calculators.filter(c => c.category === 'marketing') },
+    { name: 'Math &amp; General', slug: 'math-general', icon: Calculator, calculators: calculators.filter(c => c.category === 'math-general') },
+    { name: 'Health &amp; Fitness', slug: 'health', icon: HeartPulse, calculators: calculators.filter(c => c.category === 'health') },
+    { name: 'Science &amp; Education', slug: 'science-education', icon: FlaskConical, calculators: calculators.filter(c => c.category === 'science-education') },
+    { name: 'Construction &amp; IT', slug: 'construction-it', icon: HardHat, calculators: calculators.filter(c => c.category === 'construction-it') },
     { name: 'Tools', slug: 'tools', icon: KeyRound, calculators: calculators.filter(c => c.category === 'tools') },
-    { name: 'Clock & Watch', slug: 'clock-watch', icon: Clock, calculators: calculators.filter(c => c.category === 'clock-watch') },
+    { name: 'Clock &amp; Watch', slug: 'clock-watch', icon: Clock, calculators: calculators.filter(c => c.category === 'clock-watch') },
 ];
 
   export const CURRENCIES = [
@@ -204,7 +206,7 @@ export const categories = [
     { value: 'WA', label: 'Washington' },
     { value: 'WV', label: 'West Virginia' },
     { value: 'WI', label: 'Wisconsin' },
-    { value: 'WY', 'label': 'Wyoming' },
+    { value: 'WY', label: 'Wyoming' },
   ];
 
   export const LENGTH_UNITS = [

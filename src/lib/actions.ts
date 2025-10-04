@@ -3,7 +3,8 @@
 import { convertCurrency } from '@/ai/flows/currency-conversion-tool';
 import { convertCrypto } from '@/ai/flows/crypto-conversion-tool';
 import { calculatePaycheck } from '@/ai/flows/paycheck-calculator-flow';
-import { currencyConversionSchema, paycheckCalculatorSchema, cryptoConversionSchema } from '@/lib/schemas';
+import { removeBackground } from '@/ai/flows/background-remover-flow';
+import { currencyConversionSchema, paycheckCalculatorSchema, cryptoConversionSchema, backgroundRemoverSchema } from '@/lib/schemas';
 import { z } from 'zod';
 
 export async function handleCurrencyConversion(values: z.infer<typeof currencyConversionSchema>) {
@@ -68,4 +69,17 @@ export async function handleIncomeTaxCalculation(values: z.infer<typeof paycheck
     console.error(error);
     return { error: 'Failed to calculate paycheck. Please try again.' };
   }
+}
+
+export async function handleBackgroundRemoval(values: { imageDataUri: string, backgroundColor: string }) {
+    try {
+        const result = await removeBackground({ 
+            imageDataUri: values.imageDataUri, 
+            backgroundColor: values.backgroundColor 
+        });
+        return { success: result };
+    } catch (error) {
+        console.error(error);
+        return { error: 'Failed to remove background. Please try again.' };
+    }
 }

@@ -426,3 +426,8 @@ export const alarmClockSchema = z.object({
 export const metronomeSchema = z.object({
   bpm: z.coerce.number().int().min(20, 'BPM must be at least 20.').max(300, 'BPM cannot exceed 300.'),
 });
+
+export const backgroundRemoverSchema = z.object({
+  image: z.any(),
+  backgroundColor: z.string().optional(),
+});
