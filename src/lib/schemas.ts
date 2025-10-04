@@ -83,12 +83,6 @@ export const liquidNetWorthSchema = z.object({
   shortTermLiabilities: z.coerce.number().min(0, { message: 'Short-term liabilities must be a positive number.' }),
 });
 
-export const manHoursSchema = z.object({
-  numberOfWorkers: z.coerce.number().min(1, { message: 'Number of workers must be at least 1.' }),
-  hoursPerWorker: z.coerce.number().min(0.1, { message: 'Hours per worker must be a positive number.' }),
-  numberOfDays: z.coerce.number().min(0.1, { message: 'Number of days must be a positive number.' }),
-});
-
 export const ctrSchema = z.object({
   totalClicks: z.coerce.number().min(0, { message: 'Total clicks must be a positive number.' }),
   totalImpressions: z.coerce.number().min(1, { message: 'Total impressions must be at least 1.' }),
@@ -128,21 +122,6 @@ export const dateTimeSchema = z.discriminatedUnion('mode', [
   differenceSchema,
   addSubtractSchema,
 ]);
-
-export const timeCalculatorSchema = z.object({
-  times: z.array(z.object({
-    hours: z.coerce.number().min(0).optional().default(0),
-    minutes: z.coerce.number().min(0).max(59).optional().default(0),
-    seconds: z.coerce.number().min(0).max(59).optional().default(0),
-    operation: z.enum(['add', 'subtract']),
-  })).min(1, 'Please add at least one time entry.'),
-});
-
-export const ageSchema = z.object({
-  dob: z.date({
-    required_error: "A date of birth is required.",
-  }),
-});
 
 export const printingCalculatorSchema = z.object({
   value: z.coerce.number(),
@@ -422,15 +401,4 @@ export const duplicateSentenceCheckerSchema = z.object({
 
 export const colourConverterSchema = z.object({
   colour: z.string().min(1, { message: 'Please enter a colour value.' }),
-});
-
-export const stopwatchSchema = z.object({});
-
-export const countdownTimerSchema = z.object({
-  hours: z.coerce.number().min(0).optional(),
-  minutes: z.coerce.number().min(0).optional(),
-  seconds: z.coerce.number().min(0).optional(),
-}).refine(data => (data.hours || 0) > 0 || (data.minutes || 0) > 0 || (data.seconds || 0) > 0, {
-  message: 'Please set a duration greater than zero.',
-  path: ['hours'],
 });

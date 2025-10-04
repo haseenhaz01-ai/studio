@@ -1,5 +1,5 @@
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, AlarmClock, Hourglass
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette
 } from 'lucide-react';
 import CurrencyConverter from '@/components/calculators/CurrencyConverter';
 import LoanCalculator from '@/components/calculators/LoanCalculator';
@@ -13,13 +13,9 @@ import AdsenseCalculator from '@/components/calculators/AdsenseCalculator';
 import GrpCalculator from '@/components/calculators/GrpCalculator';
 import LernerIndexCalculator from '@/components/calculators/LernerIndexCalculator';
 import LiquidNetWorthCalculator from '@/components/calculators/LiquidNetWorthCalculator';
-import ManHoursCalculator from '@/components/calculators/ManHoursCalculator';
 import CtrCalculator from '@/components/calculators/CtrCalculator';
 import AvmCalculator from '@/components/calculators/AvmCalculator';
 import EvmCalculator from '@/components/calculators/EvmCalculator';
-import DateTimeCalculator from '@/components/calculators/DateTimeCalculator';
-import TimeCalculator from '@/components/calculators/TimeCalculator';
-import AgeCalculator from '@/components/calculators/AgeCalculator';
 import PrintingCalculator from '@/components/calculators/PrintingCalculator';
 import ScientificCalculator from '@/components/calculators/ScientificCalculator';
 import GraphingCalculator from '@/components/calculators/GraphingCalculator';
@@ -53,8 +49,6 @@ import WordCounter from '@/components/calculators/WordCounter';
 import DuplicateSentenceChecker from '@/components/calculators/DuplicateSentenceChecker';
 import CryptoConverter from '@/components/calculators/CryptoConverter';
 import ColourConverter from '@/components/calculators/ColourConverter';
-import StopwatchCalculator from '@/components/calculators/StopwatchCalculator';
-import CountdownTimer from '@/components/calculators/CountdownTimer';
 
 const TriangleIcon = () => (
   <svg
@@ -86,7 +80,7 @@ export const calculators = [
     { name: 'Sales Tax', icon: Percent, component: <SalesTaxCalculator />, value: 'sales-tax', category: 'financial' },
     { name: 'PayPal Fee', icon: Home, component: <PaypalFeeCalculator />, value: 'paypal-fee', category: 'financial' },
     { name: 'CPC/CPM', icon: MousePointerClick, component: <CpcCpmCalculator />, value: 'cpc-cpm', category: 'marketing' },
-    { name: 'CTR', icon: MousePointer2, component: <CtrCalculator />, value: 'ctr', category: 'marketing' },
+    { name: 'CTR', icon: MousePointerClick, component: <CtrCalculator />, value: 'ctr', category: 'marketing' },
     { name: 'Exit Rate', icon: LogOut, component: <ExitRateCalculator />, value: 'exit-rate', category: 'marketing' },
     { name: 'AdSense', icon: DollarSign, component: <AdsenseCalculator />, value: 'adsense', category: 'marketing' },
     { name: 'GRP', icon: Tv, component: <GrpCalculator />, value: 'grp', category: 'marketing' },
@@ -94,17 +88,11 @@ export const calculators = [
     { name: 'Standard', icon: Calculator, component: <SimpleCalculator />, value: 'simple', category: 'math-general' },
     { name: 'Percentage', icon: Percent, component: <PercentageCalculator />, value: 'percentage', category: 'math-general' },
     { name: 'Printing', icon: Printer, component: <PrintingCalculator/>, value: 'printing', category: 'math-general' },
-    { name: 'Man-Hours', icon: Clock, component: <ManHoursCalculator />, value: 'man-hours', category: 'math-general' },
     { name: 'EVM', icon: ClipboardList, component: <EvmCalculator />, value: 'evm', category: 'math-general' },
-    { name: 'Date', icon: CalendarClock, component: <DateTimeCalculator />, value: 'date-time', category: 'math-general' },
-    { name: 'Time', icon: Timer, component: <TimeCalculator />, value: 'time', category: 'math-general' },
-    { name: 'Age', icon: Gift, component: <AgeCalculator />, value: 'age', category: 'math-general' },
     { name: 'Length', icon: Ruler, component: <LengthCalculator />, value: 'length', category: 'math-general' },
     { name: 'Temperature', icon: Thermometer, component: <TemperatureCalculator />, value: 'temperature', category: 'math-general' },
     { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'fraction', category: 'math-general' },
     { name: 'Random Number', icon: Shuffle, component: <RandomNumberGenerator />, value: 'random-number', category: 'math-general' },
-    { name: 'Stopwatch', icon: AlarmClock, component: <StopwatchCalculator />, value: 'stopwatch', category: 'math-general' },
-    { name: 'Countdown', icon: Hourglass, component: <CountdownTimer />, value: 'countdown', category: 'math-general' },
     { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'health' },
     { name: 'Body Fat', icon: HeartPulse, component: <BodyFatCalculator />, value: 'body-fat', category: 'health' },
     { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'health' },
@@ -214,7 +202,7 @@ export const categories = [
     { value: 'WA', label: 'Washington' },
     { value: 'WV', label: 'West Virginia' },
     { value: 'WI', label: 'Wisconsin' },
-    { value: 'WY', label: 'Wyoming' },
+    { value: 'WY', 'label': 'Wyoming' },
   ];
 
   export const LENGTH_UNITS = [
