@@ -1,7 +1,8 @@
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, CalendarClock, Timer, Gift
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle
 } from 'lucide-react';
 import CurrencyConverter from '@/components/calculators/CurrencyConverter';
+import CryptoConverter from '@/components/calculators/CryptoConverter';
 import LoanCalculator from '@/components/calculators/LoanCalculator';
 import SimpleCalculator from '@/components/calculators/SimpleCalculator';
 import RetirementCalculator from '@/components/calculators/RetirementCalculator';
@@ -47,82 +48,65 @@ import FancyFontGenerator from '@/components/calculators/FancyFontGenerator';
 import QrCodeGenerator from '@/components/calculators/QrCodeGenerator';
 import WordCounter from '@/components/calculators/WordCounter';
 import DuplicateSentenceChecker from '@/components/calculators/DuplicateSentenceChecker';
-import CryptoConverter from '@/components/calculators/CryptoConverter';
 import ColourConverter from '@/components/calculators/ColourConverter';
 import DateCalculator from '@/components/calculators/DateCalculator';
 import Stopwatch from '@/components/calculators/Stopwatch';
 import TimeCalculator from '@/components/calculators/TimeCalculator';
 import WorldClock from '@/components/calculators/WorldClock';
 
-const TriangleIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-  </svg>
-);
-
 export const calculators = [
-    { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'financial' },
-    { name: 'Crypto', icon: Bitcoin, component: <CryptoConverter />, value: 'crypto', category: 'financial' },
-    { name: 'Loan', icon: Landmark, component: <LoanCalculator />, value: 'loan', category: 'financial' },
-    { name: 'Retirement', icon: PiggyBank, component: <RetirementCalculator />, value: 'retirement', category: 'financial' },
-    { name: 'Contrib. Margin', icon: BarChartBig, component: <ContributionMarginCalculator />, value: 'contribution-margin', category: 'financial' },
-    { name: 'COGS', icon: Archive, component: <CogsCalculator />, value: 'cogs', category: 'financial' },
-    { name: 'Lerner Index', icon: Scale, component: <LernerIndexCalculator />, value: 'lerner-index', category: 'financial' },
-    { name: 'Liquid Net Worth', icon: WalletCards, component: <LiquidNetWorthCalculator />, value: 'liquid-net-worth', category: 'financial' },
-    { name: 'Salary', icon: Receipt, component: <SalaryCalculator />, value: 'salary', category: 'financial' },
-    { name: 'Inflation', icon: TrendingUp, component: <InflationCalculator />, value: 'inflation', category: 'financial' },
-    { name: 'Sales Tax', icon: Percent, component: <SalesTaxCalculator />, value: 'sales-tax', category: 'financial' },
-    { name: 'PayPal Fee', icon: Home, component: <PaypalFeeCalculator />, value: 'paypal-fee', category: 'financial' },
-    { name: 'CPC/CPM', icon: MousePointerClick, component: <CpcCpmCalculator />, value: 'cpc-cpm', category: 'marketing' },
-    { name: 'CTR', icon: MousePointerClick, component: <CtrCalculator />, value: 'ctr', category: 'marketing' },
-    { name: 'Exit Rate', icon: LogOut, component: <ExitRateCalculator />, value: 'exit-rate', category: 'marketing' },
-    { name: 'AdSense', icon: DollarSign, component: <AdsenseCalculator />, value: 'adsense', category: 'marketing' },
-    { name: 'GRP', icon: Tv, component: <GrpCalculator />, value: 'grp', category: 'marketing' },
-    { name: 'AVM', icon: Film, component: <AvmCalculator />, value: 'avm', category: 'marketing' },
-    { name: 'Standard', icon: Calculator, component: <SimpleCalculator />, value: 'simple', category: 'math-general' },
-    { name: 'Percentage', icon: Percent, component: <PercentageCalculator />, value: 'percentage', category: 'math-general' },
-    { name: 'Printing', icon: Printer, component: <PrintingCalculator/>, value: 'printing', category: 'math-general' },
-    { name: 'EVM', icon: ClipboardList, component: <EvmCalculator />, value: 'evm', category: 'math-general' },
-    { name: 'Length', icon: Ruler, component: <LengthCalculator />, value: 'length', category: 'math-general' },
-    { name: 'Temperature', icon: Thermometer, component: <TemperatureCalculator />, value: 'temperature', category: 'math-general' },
-    { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'fraction', category: 'math-general' },
-    { name: 'Random Number', icon: Shuffle, component: <RandomNumberGenerator />, value: 'random-number', category: 'math-general' },
-    { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'health' },
-    { name: 'Body Fat', icon: HeartPulse, component: <BodyFatCalculator />, value: 'body-fat', category: 'health' },
-    { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'health' },
-    { name: 'Ideal Weight', icon: HeartPulse, component: <IdealWeightCalculator />, value: 'ideal-weight', category: 'health' },
-    { name: 'Pace', icon: Footprints, component: <PaceCalculator />, value: 'pace', category: 'health' },
-    { name: 'Pregnancy', icon: Baby, component: <PregnancyCalculator />, value: 'pregnancy', category: 'health' },
-    { name: 'Scientific', icon: FlaskConical, component: <ScientificCalculator />, value: 'scientific', category: 'science-education' },
-    { name: 'Graphing', icon: LineChart, component: <GraphingCalculator />, value: 'graphing', category: 'science-education' },
-    { name: 'Quadratic', icon: Sigma, component: <QuadraticCalculator />, value: 'quadratic', category: 'science-education' },
-    { name: 'Triangle', icon: TriangleIcon, component: <TriangleCalculator />, value: 'triangle', category: 'science-education' },
-    { name: 'Statistics', icon: Sigma, component: <StatisticsCalculator />, value: 'statistics', category: 'science-education' },
-    { name: 'GPA', icon: GraduationCap, component: <GpaCalculator />, value: 'gpa', category: 'science-education' },
-    { name: 'Concrete', icon: HardHat, component: <ConcreteCalculator />, value: 'concrete', category: 'construction-it' },
-    { name: 'Subnet', icon: Network, component: <SubnetCalculator />, value: 'subnet', category: 'construction-it' },
-    { name: 'Password', icon: KeyRound, component: <PasswordGenerator />, value: 'password-generator', category: 'tools' },
-    { name: 'Image Compressor', icon: Image, component: <ImageCompressor />, value: 'image-compressor', category: 'tools' },
-    { name: 'Image Resizer', icon: Crop, component: <ImageResizer />, value: 'image-resizer', category: 'tools' },
-    { name: 'Fancy Fonts', icon: Type, component: <FancyFontGenerator />, value: 'fancy-font-generator', category: 'tools' },
-    { name: 'QR Code', icon: QrCode, component: <QrCodeGenerator />, value: 'qr-code-generator', category: 'tools' },
-    { name: 'Word Counter', icon: FileText, component: <WordCounter />, value: 'word-counter', category: 'tools' },
-    { name: 'Duplicate Checker', icon: ScanSearch, component: <DuplicateSentenceChecker />, value: 'duplicate-sentence-checker', category: 'tools' },
-    { name: 'Colour Converter', icon: Palette, component: <ColourConverter />, value: 'colour-converter', category: 'tools' },
-    { name: 'Date Calculator', icon: CalendarClock, component: <DateCalculator />, value: 'date-calculator', category: 'tools' },
-    { name: 'Stopwatch', icon: Timer, component: <Stopwatch />, value: 'stopwatch', category: 'tools' },
-    { name: 'Time Calculator', icon: CalendarClock, component: <TimeCalculator />, value: 'time-calculator', category: 'tools' },
-    { name: 'World Clock', icon: Gift, component: <WorldClock />, value: 'world-clock', category: 'tools' }
+    { name: 'Currency', icon: Coins, component: CurrencyConverter, value: 'currency', category: 'financial' },
+    { name: 'Crypto', icon: Bitcoin, component: CryptoConverter, value: 'crypto', category: 'financial' },
+    { name: 'Loan', icon: Landmark, component: LoanCalculator, value: 'loan', category: 'financial' },
+    { name: 'Retirement', icon: PiggyBank, component: RetirementCalculator, value: 'retirement', category: 'financial' },
+    { name: 'Contrib. Margin', icon: BarChartBig, component: ContributionMarginCalculator, value: 'contribution-margin', category: 'financial' },
+    { name: 'COGS', icon: Archive, component: CogsCalculator, value: 'cogs', category: 'financial' },
+    { name: 'Lerner Index', icon: Scale, component: LernerIndexCalculator, value: 'lerner-index', category: 'financial' },
+    { name: 'Liquid Net Worth', icon: WalletCards, component: LiquidNetWorthCalculator, value: 'liquid-net-worth', category: 'financial' },
+    { name: 'Salary', icon: Receipt, component: SalaryCalculator, value: 'salary', category: 'financial' },
+    { name: 'Inflation', icon: TrendingUp, component: InflationCalculator, value: 'inflation', category: 'financial' },
+    { name: 'Sales Tax', icon: Percent, component: SalesTaxCalculator, value: 'sales-tax', category: 'financial' },
+    { name: 'PayPal Fee', icon: Home, component: PaypalFeeCalculator, value: 'paypal-fee', category: 'financial' },
+    { name: 'CPC/CPM', icon: MousePointerClick, component: CpcCpmCalculator, value: 'cpc-cpm', category: 'marketing' },
+    { name: 'CTR', icon: MousePointerClick, component: CtrCalculator, value: 'ctr', category: 'marketing' },
+    { name: 'Exit Rate', icon: LogOut, component: ExitRateCalculator, value: 'exit-rate', category: 'marketing' },
+    { name: 'AdSense', icon: DollarSign, component: AdsenseCalculator, value: 'adsense', category: 'marketing' },
+    { name: 'GRP', icon: Tv, component: GrpCalculator, value: 'grp', category: 'marketing' },
+    { name: 'AVM', icon: Film, component: AvmCalculator, value: 'avm', category: 'marketing' },
+    { name: 'Standard', icon: Calculator, component: SimpleCalculator, value: 'simple', category: 'math-general' },
+    { name: 'Percentage', icon: Percent, component: PercentageCalculator, value: 'percentage', category: 'math-general' },
+    { name: 'Printing', icon: Printer, component: PrintingCalculator, value: 'printing', category: 'math-general' },
+    { name: 'EVM', icon: ClipboardList, component: EvmCalculator, value: 'evm', category: 'math-general' },
+    { name: 'Length', icon: Ruler, component: LengthCalculator, value: 'length', category: 'math-general' },
+    { name: 'Temperature', icon: Thermometer, component: TemperatureCalculator, value: 'temperature', category: 'math-general' },
+    { name: 'Fraction', icon: Divide, component: FractionCalculator, value: 'fraction', category: 'math-general' },
+    { name: 'Random Number', icon: Shuffle, component: RandomNumberGenerator, value: 'random-number', category: 'math-general' },
+    { name: 'BMI', icon: HeartPulse, component: BmiCalculator, value: 'bmi', category: 'health' },
+    { name: 'Body Fat', icon: HeartPulse, component: BodyFatCalculator, value: 'body-fat', category: 'health' },
+    { name: 'Calorie', icon: Zap, component: CalorieCalculator, value: 'calorie', category: 'health' },
+    { name: 'Ideal Weight', icon: HeartPulse, component: IdealWeightCalculator, value: 'ideal-weight', category: 'health' },
+    { name: 'Pace', icon: Footprints, component: PaceCalculator, value: 'pace', category: 'health' },
+    { name: 'Pregnancy', icon: Baby, component: PregnancyCalculator, value: 'pregnancy', category: 'health' },
+    { name: 'Scientific', icon: FlaskConical, component: ScientificCalculator, value: 'scientific', category: 'science-education' },
+    { name: 'Graphing', icon: LineChart, component: GraphingCalculator, value: 'graphing', category: 'science-education' },
+    { name: 'Quadratic', icon: Sigma, component: QuadraticCalculator, value: 'quadratic', category: 'science-education' },
+    { name: 'Triangle', icon: Triangle, component: TriangleCalculator, value: 'triangle', category: 'science-education' },
+    { name: 'Statistics', icon: Sigma, component: StatisticsCalculator, value: 'statistics', category: 'science-education' },
+    { name: 'GPA', icon: GraduationCap, component: GpaCalculator, value: 'gpa', category: 'science-education' },
+    { name: 'Concrete', icon: HardHat, component: ConcreteCalculator, value: 'concrete', category: 'construction-it' },
+    { name: 'Subnet', icon: Network, component: SubnetCalculator, value: 'subnet', category: 'construction-it' },
+    { name: 'Password', icon: KeyRound, component: PasswordGenerator, value: 'password-generator', category: 'tools' },
+    { name: 'Image Compressor', icon: Image, component: ImageCompressor, value: 'image-compressor', category: 'tools' },
+    { name: 'Image Resizer', icon: Crop, component: ImageResizer, value: 'image-resizer', category: 'tools' },
+    { name: 'Fancy Fonts', icon: Type, component: FancyFontGenerator, value: 'fancy-font-generator', category: 'tools' },
+    { name: 'QR Code', icon: QrCode, component: QrCodeGenerator, value: 'qr-code-generator', category: 'tools' },
+    { name: 'Word Counter', icon: FileText, component: WordCounter, value: 'word-counter', category: 'tools' },
+    { name: 'Duplicate Checker', icon: ScanSearch, component: DuplicateSentenceChecker, value: 'duplicate-sentence-checker', category: 'tools' },
+    { name: 'Colour Converter', icon: Palette, component: ColourConverter, value: 'colour-converter', category: 'tools' },
+    { name: 'Date Calculator', icon: Clock, component: DateCalculator, value: 'date-calculator', category: 'tools' },
+    { name: 'Stopwatch', icon: Timer, component: Stopwatch, value: 'stopwatch', category: 'tools' },
+    { name: 'Time Calculator', icon: Clock, component: TimeCalculator, value: 'time-calculator', category: 'tools' },
+    { name: 'World Clock', icon: Globe, component: WorldClock, value: 'world-clock', category: 'tools' }
 ];
 
 export const categories = [

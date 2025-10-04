@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, createElement } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CalculatorGrid, { Category } from '@/components/calculators/CalculatorGrid';
@@ -34,7 +34,7 @@ export default function Home() {
                <button onClick={handleBack} className="mb-4 text-sm font-medium text-primary hover:underline">
                 &larr; Back to {activeCategory?.name}
               </button>
-              {activeCalculator.component}
+              {createElement(activeCalculator.component)}
             </div>
           ) : activeCategory ? (
             <CalculatorList
