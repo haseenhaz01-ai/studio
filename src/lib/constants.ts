@@ -1,5 +1,5 @@
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle
 } from 'lucide-react';
 import CurrencyConverter from '@/components/calculators/CurrencyConverter';
 import CryptoConverter from '@/components/calculators/CryptoConverter';
@@ -51,6 +51,12 @@ import DuplicateSentenceChecker from '@/components/calculators/DuplicateSentence
 import ColourConverter from '@/components/calculators/ColourConverter';
 import DateCalculator from '@/components/calculators/DateCalculator';
 import DigitalClock from '@/components/calculators/DigitalClock';
+import Stopwatch from '@/components/calculators/Stopwatch';
+import Countdown from '@/components/calculators/Countdown';
+import IntervalTimer from '@/components/calculators/IntervalTimer';
+import AlarmClock from '@/components/calculators/AlarmClock';
+import Metronome from '@/components/calculators/Metronome';
+import ChessClock from '@/components/calculators/ChessClock';
 
 
 export const calculators = [
@@ -104,6 +110,12 @@ export const calculators = [
     { name: 'Colour Converter', icon: Palette, component: ColourConverter, value: 'colour-converter', category: 'tools' },
     { name: 'Date Calculator', icon: Clock, component: DateCalculator, value: 'date-calculator', category: 'tools' },
     { name: 'Digital Clock', icon: Clock, component: DigitalClock, value: 'digital-clock', category: 'clock-watch' },
+    { name: 'Stopwatch', icon: Timer, component: Stopwatch, value: 'stopwatch', category: 'clock-watch' },
+    { name: 'Countdown', icon: Timer, component: Countdown, value: 'countdown', category: 'clock-watch' },
+    { name: 'Interval Timer', icon: Play, component: IntervalTimer, value: 'interval-timer', category: 'clock-watch' },
+    { name: 'Alarm Clock', icon: Bell, component: AlarmClock, value: 'alarm-clock', category: 'clock-watch' },
+    { name: 'Metronome', icon: Gauge, component: Metronome, value: 'metronome', category: 'clock-watch' },
+    { name: 'Chess Clock', icon: Users, component: ChessClock, value: 'chess-clock', category: 'clock-watch' },
 ];
 
 export const categories = [

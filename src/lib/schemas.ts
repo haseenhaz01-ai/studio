@@ -402,3 +402,27 @@ export const duplicateSentenceCheckerSchema = z.object({
 export const colourConverterSchema = z.object({
   colour: z.string().min(1, { message: 'Please enter a colour value.' }),
 });
+
+export const countdownSchema = z.object({
+  hours: z.coerce.number().min(0).max(99),
+  minutes: z.coerce.number().min(0).max(59),
+  seconds: z.coerce.number().min(0).max(59),
+});
+
+export const intervalTimerSchema = z.object({
+  intervals: z.array(z.object({
+    name: z.string().optional(),
+    hours: z.coerce.number().min(0),
+    minutes: z.coerce.number().min(0),
+    seconds: z.coerce.number().min(0),
+  })).min(1, 'At least one interval is required.'),
+  rounds: z.coerce.number().int().min(1, 'Must have at least one round.'),
+});
+
+export const alarmClockSchema = z.object({
+    time: z.string().regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, 'Invalid time format (HH:MM)'),
+});
+
+export const metronomeSchema = z.object({
+  bpm: z.coerce.number().int().min(20, 'BPM must be at least 20.').max(300, 'BPM cannot exceed 300.'),
+});
