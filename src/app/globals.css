@@ -38,6 +38,7 @@
     --cat-science-education: 260 100% 60%;
     --cat-construction-it: 40 90% 50%;
     --cat-tools: 0 0% 50%;
+    --cat-clock-watch: 190 95% 45%;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -82,6 +83,7 @@
     --cat-science-education: 260 100% 60%;
     --cat-construction-it: 40 90% 50%;
     --cat-tools: 0 0% 70%;
+    --cat-clock-watch: 190 95% 55%;
     
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;

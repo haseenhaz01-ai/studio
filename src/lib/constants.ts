@@ -50,6 +50,7 @@ import WordCounter from '@/components/calculators/WordCounter';
 import DuplicateSentenceChecker from '@/components/calculators/DuplicateSentenceChecker';
 import ColourConverter from '@/components/calculators/ColourConverter';
 import DateCalculator from '@/components/calculators/DateCalculator';
+import DigitalClock from '@/components/calculators/DigitalClock';
 
 
 export const calculators = [
@@ -102,6 +103,7 @@ export const calculators = [
     { name: 'Duplicate Checker', icon: ScanSearch, component: DuplicateSentenceChecker, value: 'duplicate-sentence-checker', category: 'tools' },
     { name: 'Colour Converter', icon: Palette, component: ColourConverter, value: 'colour-converter', category: 'tools' },
     { name: 'Date Calculator', icon: Clock, component: DateCalculator, value: 'date-calculator', category: 'tools' },
+    { name: 'Digital Clock', icon: Clock, component: DigitalClock, value: 'digital-clock', category: 'clock-watch' },
 ];
 
 export const categories = [
@@ -112,6 +114,7 @@ export const categories = [
     { name: 'Science & Education', slug: 'science-education', icon: FlaskConical, calculators: calculators.filter(c => c.category === 'science-education') },
     { name: 'Construction & IT', slug: 'construction-it', icon: HardHat, calculators: calculators.filter(c => c.category === 'construction-it') },
     { name: 'Tools', slug: 'tools', icon: KeyRound, calculators: calculators.filter(c => c.category === 'tools') },
+    { name: 'Clock & Watch', slug: 'clock-watch', icon: Clock, calculators: calculators.filter(c => c.category === 'clock-watch') },
 ];
 
   export const CURRENCIES = [
