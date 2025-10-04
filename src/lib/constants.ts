@@ -50,15 +50,15 @@ import WordCounter from '@/components/calculators/WordCounter';
 import DuplicateSentenceChecker from '@/components/calculators/DuplicateSentenceChecker';
 import ColourConverter from '@/components/calculators/ColourConverter';
 import DateCalculator from '@/components/calculators/DateCalculator';
-import Stopwatch from '@/components/calculators/Stopwatch';
-import TimeCalculator from '@/components/calculators/TimeCalculator';
-import WorldClock from '@/components/calculators/WorldClock';
-import CountdownTimer from '@/components/calculators/CountdownTimer';
-import IntervalTimer from '@/components/calculators/IntervalTimer';
-import DigitalClock from '@/components/calculators/DigitalClock';
-import AlarmClock from '@/components/calculators/AlarmClock';
-import Metronome from '@/components/calculators/Metronome';
-import ChessClock from '@/components/calculators/ChessClock';
+import Stopwatch from '@/components/calculators/clock-and-watch/Stopwatch';
+import TimeCalculator from '@/components/calculators/clock-and-watch/TimeCalculator';
+import WorldClock from '@/components/calculators/clock-and-watch/WorldClock';
+import CountdownTimer from '@/components/calculators/clock-and-watch/CountdownTimer';
+import IntervalTimer from '@/components/calculators/clock-and-watch/IntervalTimer';
+import DigitalClock from '@/components/calculators/clock-and-watch/DigitalClock';
+import AlarmClock from '@/components/calculators/clock-and-watch/AlarmClock';
+import Metronome from '@/components/calculators/clock-and-watch/Metronome';
+import ChessClock from '@/components/calculators/clock-and-watch/ChessClock';
 
 
 export const calculators = [
@@ -129,7 +129,7 @@ export const categories = [
     { name: 'Health & Fitness', slug: 'health', icon: HeartPulse, calculators: calculators.filter(c => c.category === 'health') },
     { name: 'Science & Education', slug: 'science-education', icon: FlaskConical, calculators: calculators.filter(c => c.category === 'science-education') },
     { name: 'Construction & IT', slug: 'construction-it', icon: HardHat, calculators: calculators.filter(c => c.category === 'construction-it') },
-    { name: 'Tools', slug: 'tools', icon: KeyRound, calculators: calculators.filter(c => c.category === 'tools') },
+    { name: 'Clock and Watch', slug: 'tools', icon: KeyRound, calculators: calculators.filter(c => c.category === 'tools') },
 ];
 
   export const CURRENCIES = [
@@ -239,4 +239,3 @@ export const categories = [
     { value: 'fahrenheit', label: 'Fahrenheit' },
     { value: 'kelvin', label: 'Kelvin' },
   ];
-
