@@ -3,7 +3,7 @@
 import {
   Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, AlarmClock, Hourglass
 } from 'lucide-react';
-import { categories } from './CalculatorList';
+import { categories } from '@/lib/constants';
 
 export type Category = typeof categories[0];
 
@@ -24,9 +24,7 @@ export default function CalculatorGrid({ onCategorySelect }: CalculatorGridProps
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {categories.map(category => {
-            const firstCalc = category.calculators[0];
-            if (!firstCalc) return null;
-            const Icon = firstCalc.icon;
+            const Icon = category.icon;
             
             return (
                 <button

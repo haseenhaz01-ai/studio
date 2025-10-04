@@ -130,13 +130,13 @@ export const calculators = [
 ];
 
 export const categories = [
-    { name: 'Financial', slug: 'financial', calculators: calculators.filter(c => c.category === 'financial') },
-    { name: 'Marketing & Web', slug: 'marketing', calculators: calculators.filter(c => c.category === 'marketing') },
-    { name: 'Math & General', slug: 'math-general', calculators: calculators.filter(c => c.category === 'math-general') },
-    { name: 'Health & Fitness', slug: 'health', calculators: calculators.filter(c => c.category === 'health') },
-    { name: 'Science & Education', slug: 'science-education', calculators: calculators.filter(c => c.category === 'science-education') },
-    { name: 'Construction & IT', slug: 'construction-it', calculators: calculators.filter(c => c.category === 'construction-it') },
-    { name: 'Tools', slug: 'tools', calculators: calculators.filter(c => c.category === 'tools') },
+    { name: 'Financial', slug: 'financial', icon: Coins, calculators: calculators.filter(c => c.category === 'financial') },
+    { name: 'Marketing & Web', slug: 'marketing', icon: MousePointerClick, calculators: calculators.filter(c => c.category === 'marketing') },
+    { name: 'Math & General', slug: 'math-general', icon: Calculator, calculators: calculators.filter(c => c.category === 'math-general') },
+    { name: 'Health & Fitness', slug: 'health', icon: HeartPulse, calculators: calculators.filter(c => c.category === 'health') },
+    { name: 'Science & Education', slug: 'science-education', icon: FlaskConical, calculators: calculators.filter(c => c.category === 'science-education') },
+    { name: 'Construction & IT', slug: 'construction-it', icon: HardHat, calculators: calculators.filter(c => c.category === 'construction-it') },
+    { name: 'Tools', slug: 'tools', icon: KeyRound, calculators: calculators.filter(c => c.category === 'tools') },
 ];
 
   export const CURRENCIES = [

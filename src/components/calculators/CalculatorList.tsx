@@ -1,6 +1,6 @@
 'use client';
 
-import type { Category } from './CalculatorGrid';
+import type { Category } from '@/lib/constants';
 import { calculators } from '@/lib/constants';
 import CalculatorCard from './CalculatorCard';
 
