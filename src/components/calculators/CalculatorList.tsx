@@ -11,6 +11,7 @@ interface CalculatorListProps {
 }
 
 export default function CalculatorList({ category, onCalculatorSelect, onBack }: CalculatorListProps) {
+  const CategoryIcon = category.icon;
   return (
     <div>
       <button onClick={onBack} className="mb-6 text-sm font-medium text-primary hover:underline">
@@ -18,7 +19,7 @@ export default function CalculatorList({ category, onCalculatorSelect, onBack }:
       </button>
       <div className="mb-8 flex items-center gap-4">
         <div className={`flex h-12 w-12 items-center justify-center rounded-lg`} style={{backgroundColor: `hsl(var(--cat-${category.slug}))`}}>
-            {category.calculators[0] && <category.calculators[0].icon className="h-6 w-6 text-white" />}
+            <CategoryIcon className="h-6 w-6 text-white" />
         </div>
         <h2 className="text-3xl font-bold font-headline tracking-tight">{category.name} Calculators</h2>
       </div>

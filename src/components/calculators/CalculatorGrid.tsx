@@ -24,7 +24,7 @@ export default function CalculatorGrid({ onCategorySelect }: CalculatorGridProps
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {categories.map(category => {
-            const Icon = category.icon;
+            const CategoryIcon = category.icon;
             
             return (
                 <button
@@ -35,7 +35,7 @@ export default function CalculatorGrid({ onCategorySelect }: CalculatorGridProps
                     <div className="absolute top-0 right-0 h-20 w-20 rounded-bl-full opacity-10" style={{backgroundColor: `hsl(var(--cat-${category.slug}))`}} />
                     <div className="p-6">
                         <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg" style={{backgroundColor: `hsl(var(--cat-${category.slug}))`}}>
-                           <Icon className="h-6 w-6 text-white" />
+                           <CategoryIcon className="h-6 w-6 text-white" />
                         </div>
                         <h3 className="text-xl font-bold font-headline text-foreground">{category.name}</h3>
                         <p className="mt-1 text-sm text-muted-foreground">
