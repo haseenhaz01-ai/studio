@@ -53,12 +53,12 @@ import DateCalculator from '@/components/calculators/DateCalculator';
 import Stopwatch from '@/components/calculators/clock-and-watch/Stopwatch';
 import TimeCalculator from '@/components/calculators/clock-and-watch/TimeCalculator';
 import WorldClock from '@/components/calculators/clock-and-watch/WorldClock';
-import CountdownTimer from '@/components/calculators/clock-and-watch/CountdownTimer';
-import IntervalTimer from '@/components/calculators/clock-and-watch/IntervalTimer';
-import DigitalClock from '@/components/calculators/clock-and-watch/DigitalClock';
-import AlarmClock from '@/components/calculators/clock-and-watch/AlarmClock';
-import Metronome from '@/components/calculators/clock-and-watch/Metronome';
-import ChessClock from '@/components/calculators/clock-and-watch/ChessClock';
+import CountdownTimer from '@/components/calculators/watch/CountdownTimer';
+import IntervalTimer from '@/components/calculators/watch/IntervalTimer';
+import DigitalClock from '@/components/calculators/watch/DigitalClock';
+import AlarmClock from '@/components/calculators/watch/AlarmClock';
+import Metronome from '@/components/calculators/watch/Metronome';
+import ChessClock from '@/components/calculators/watch/ChessClock';
 
 
 export const calculators = [
