@@ -1,4 +1,145 @@
-export const CURRENCIES = [
+import {
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, ChevronDown, LogOut, DollarSign, Tv, Scale, WalletCards, Clock, MousePointer2, Film, ClipboardList, CalendarClock, Timer, Gift, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, AlarmClock, Hourglass
+} from 'lucide-react';
+import CurrencyConverter from '@/components/calculators/CurrencyConverter';
+import LoanCalculator from '@/components/calculators/LoanCalculator';
+import SimpleCalculator from '@/components/calculators/SimpleCalculator';
+import RetirementCalculator from '@/components/calculators/RetirementCalculator';
+import ContributionMarginCalculator from '@/components/calculators/ContributionMarginCalculator';
+import CogsCalculator from '@/components/calculators/CogsCalculator';
+import CpcCpmCalculator from '@/components/calculators/CpcCpmCalculator';
+import ExitRateCalculator from '@/components/calculators/ExitRateCalculator';
+import AdsenseCalculator from '@/components/calculators/AdsenseCalculator';
+import GrpCalculator from '@/components/calculators/GrpCalculator';
+import LernerIndexCalculator from '@/components/calculators/LernerIndexCalculator';
+import LiquidNetWorthCalculator from '@/components/calculators/LiquidNetWorthCalculator';
+import ManHoursCalculator from '@/components/calculators/ManHoursCalculator';
+import CtrCalculator from '@/components/calculators/CtrCalculator';
+import AvmCalculator from '@/components/calculators/AvmCalculator';
+import EvmCalculator from '@/components/calculators/EvmCalculator';
+import DateTimeCalculator from '@/components/calculators/DateTimeCalculator';
+import TimeCalculator from '@/components/calculators/TimeCalculator';
+import AgeCalculator from '@/components/calculators/AgeCalculator';
+import PrintingCalculator from '@/components/calculators/PrintingCalculator';
+import ScientificCalculator from '@/components/calculators/ScientificCalculator';
+import GraphingCalculator from '@/components/calculators/GraphingCalculator';
+import StatisticsCalculator from '@/components/calculators/StatisticsCalculator';
+import BmiCalculator from '@/components/calculators/BmiCalculator';
+import SalaryCalculator from '@/components/calculators/SalaryCalculator';
+import CalorieCalculator from '@/components/calculators/CalorieCalculator';
+import LengthCalculator from '@/components/calculators/LengthCalculator';
+import FractionCalculator from '@/components/calculators/FractionCalculator';
+import QuadraticCalculator from '@/components/calculators/QuadraticCalculator';
+import TemperatureCalculator from '@/components/calculators/TemperatureCalculator';
+import InflationCalculator from '@/components/calculators/InflationCalculator';
+import SalesTaxCalculator from '@/components/calculators/SalesTaxCalculator';
+import PercentageCalculator from '@/components/calculators/PercentageCalculator';
+import RandomNumberGenerator from '@/components/calculators/RandomNumberGenerator';
+import TriangleCalculator from '@/components/calculators/TriangleCalculator';
+import BodyFatCalculator from '@/components/calculators/BodyFatCalculator';
+import IdealWeightCalculator from '@/components/calculators/IdealWeightCalculator';
+import PaceCalculator from '@/components/calculators/PaceCalculator';
+import PregnancyCalculator from '@/components/calculators/PregnancyCalculator';
+import GpaCalculator from '@/components/calculators/GpaCalculator';
+import ConcreteCalculator from '@/components/calculators/ConcreteCalculator';
+import SubnetCalculator from '@/components/calculators/SubnetCalculator';
+import PasswordGenerator from '@/components/calculators/PasswordGenerator';
+import PaypalFeeCalculator from '@/components/calculators/PaypalFeeCalculator';
+import ImageCompressor from '@/components/calculators/ImageCompressor';
+import ImageResizer from '@/components/calculators/ImageResizer';
+import FancyFontGenerator from '@/components/calculators/FancyFontGenerator';
+import QrCodeGenerator from '@/components/calculators/QrCodeGenerator';
+import WordCounter from '@/components/calculators/WordCounter';
+import DuplicateSentenceChecker from '@/components/calculators/DuplicateSentenceChecker';
+import CryptoConverter from '@/components/calculators/CryptoConverter';
+import ColourConverter from '@/components/calculators/ColourConverter';
+import StopwatchCalculator from '@/components/calculators/StopwatchCalculator';
+import CountdownTimer from '@/components/calculators/CountdownTimer';
+
+const TriangleIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+  </svg>
+);
+
+export const calculators = [
+    { name: 'Currency', icon: Coins, component: <CurrencyConverter />, value: 'currency', category: 'financial' },
+    { name: 'Crypto', icon: Bitcoin, component: <CryptoConverter />, value: 'crypto', category: 'financial' },
+    { name: 'Loan', icon: Landmark, component: <LoanCalculator />, value: 'loan', category: 'financial' },
+    { name: 'Retirement', icon: PiggyBank, component: <RetirementCalculator />, value: 'retirement', category: 'financial' },
+    { name: 'Contrib. Margin', icon: BarChartBig, component: <ContributionMarginCalculator />, value: 'contribution-margin', category: 'financial' },
+    { name: 'COGS', icon: Archive, component: <CogsCalculator />, value: 'cogs', category: 'financial' },
+    { name: 'Lerner Index', icon: Scale, component: <LernerIndexCalculator />, value: 'lerner-index', category: 'financial' },
+    { name: 'Liquid Net Worth', icon: WalletCards, component: <LiquidNetWorthCalculator />, value: 'liquid-net-worth', category: 'financial' },
+    { name: 'Salary', icon: Receipt, component: <SalaryCalculator />, value: 'salary', category: 'financial' },
+    { name: 'Inflation', icon: TrendingUp, component: <InflationCalculator />, value: 'inflation', category: 'financial' },
+    { name: 'Sales Tax', icon: Percent, component: <SalesTaxCalculator />, value: 'sales-tax', category: 'financial' },
+    { name: 'PayPal Fee', icon: Home, component: <PaypalFeeCalculator />, value: 'paypal-fee', category: 'financial' },
+    { name: 'CPC/CPM', icon: MousePointerClick, component: <CpcCpmCalculator />, value: 'cpc-cpm', category: 'marketing' },
+    { name: 'CTR', icon: MousePointer2, component: <CtrCalculator />, value: 'ctr', category: 'marketing' },
+    { name: 'Exit Rate', icon: LogOut, component: <ExitRateCalculator />, value: 'exit-rate', category: 'marketing' },
+    { name: 'AdSense', icon: DollarSign, component: <AdsenseCalculator />, value: 'adsense', category: 'marketing' },
+    { name: 'GRP', icon: Tv, component: <GrpCalculator />, value: 'grp', category: 'marketing' },
+    { name: 'AVM', icon: Film, component: <AvmCalculator />, value: 'avm', category: 'marketing' },
+    { name: 'Standard', icon: Calculator, component: <SimpleCalculator />, value: 'simple', category: 'math-general' },
+    { name: 'Percentage', icon: Percent, component: <PercentageCalculator />, value: 'percentage', category: 'math-general' },
+    { name: 'Printing', icon: Printer, component: <PrintingCalculator/>, value: 'printing', category: 'math-general' },
+    { name: 'Man-Hours', icon: Clock, component: <ManHoursCalculator />, value: 'man-hours', category: 'math-general' },
+    { name: 'EVM', icon: ClipboardList, component: <EvmCalculator />, value: 'evm', category: 'math-general' },
+    { name: 'Date', icon: CalendarClock, component: <DateTimeCalculator />, value: 'date-time', category: 'math-general' },
+    { name: 'Time', icon: Timer, component: <TimeCalculator />, value: 'time', category: 'math-general' },
+    { name: 'Age', icon: Gift, component: <AgeCalculator />, value: 'age', category: 'math-general' },
+    { name: 'Length', icon: Ruler, component: <LengthCalculator />, value: 'length', category: 'math-general' },
+    { name: 'Temperature', icon: Thermometer, component: <TemperatureCalculator />, value: 'temperature', category: 'math-general' },
+    { name: 'Fraction', icon: Divide, component: <FractionCalculator />, value: 'fraction', category: 'math-general' },
+    { name: 'Random Number', icon: Shuffle, component: <RandomNumberGenerator />, value: 'random-number', category: 'math-general' },
+    { name: 'Stopwatch', icon: AlarmClock, component: <StopwatchCalculator />, value: 'stopwatch', category: 'math-general' },
+    { name: 'Countdown', icon: Hourglass, component: <CountdownTimer />, value: 'countdown', category: 'math-general' },
+    { name: 'BMI', icon: HeartPulse, component: <BmiCalculator />, value: 'bmi', category: 'health' },
+    { name: 'Body Fat', icon: HeartPulse, component: <BodyFatCalculator />, value: 'body-fat', category: 'health' },
+    { name: 'Calorie', icon: Zap, component: <CalorieCalculator />, value: 'calorie', category: 'health' },
+    { name: 'Ideal Weight', icon: HeartPulse, component: <IdealWeightCalculator />, value: 'ideal-weight', category: 'health' },
+    { name: 'Pace', icon: Footprints, component: <PaceCalculator />, value: 'pace', category: 'health' },
+    { name: 'Pregnancy', icon: Baby, component: <PregnancyCalculator />, value: 'pregnancy', category: 'health' },
+    { name: 'Scientific', icon: FlaskConical, component: <ScientificCalculator />, value: 'scientific', category: 'science-education' },
+    { name: 'Graphing', icon: LineChart, component: <GraphingCalculator />, value: 'graphing', category: 'science-education' },
+    { name: 'Quadratic', icon: Sigma, component: <QuadraticCalculator />, value: 'quadratic', category: 'science-education' },
+    { name: 'Triangle', icon: TriangleIcon, component: <TriangleCalculator />, value: 'triangle', category: 'science-education' },
+    { name: 'Statistics', icon: Sigma, component: <StatisticsCalculator />, value: 'statistics', category: 'science-education' },
+    { name: 'GPA', icon: GraduationCap, component: <GpaCalculator />, value: 'gpa', category: 'science-education' },
+    { name: 'Concrete', icon: HardHat, component: <ConcreteCalculator />, value: 'concrete', category: 'construction-it' },
+    { name: 'Subnet', icon: Network, component: <SubnetCalculator />, value: 'subnet', category: 'construction-it' },
+    { name: 'Password', icon: KeyRound, component: <PasswordGenerator />, value: 'password-generator', category: 'tools' },
+    { name: 'Image Compressor', icon: Image, component: <ImageCompressor />, value: 'image-compressor', category: 'tools' },
+    { name: 'Image Resizer', icon: Crop, component: <ImageResizer />, value: 'image-resizer', category: 'tools' },
+    { name: 'Fancy Fonts', icon: Type, component: <FancyFontGenerator />, value: 'fancy-font-generator', category: 'tools' },
+    { name: 'QR Code', icon: QrCode, component: <QrCodeGenerator />, value: 'qr-code-generator', category: 'tools' },
+    { name: 'Word Counter', icon: FileText, component: <WordCounter />, value: 'word-counter', category: 'tools' },
+    { name: 'Duplicate Checker', icon: ScanSearch, component: <DuplicateSentenceChecker />, value: 'duplicate-sentence-checker', category: 'tools' },
+    { name: 'Colour Converter', icon: Palette, component: <ColourConverter />, value: 'colour-converter', category: 'tools' },
+];
+
+export const categories = [
+    { name: 'Financial', slug: 'financial', calculators: calculators.filter(c => c.category === 'financial') },
+    { name: 'Marketing & Web', slug: 'marketing', calculators: calculators.filter(c => c.category === 'marketing') },
+    { name: 'Math & General', slug: 'math-general', calculators: calculators.filter(c => c.category === 'math-general') },
+    { name: 'Health & Fitness', slug: 'health', calculators: calculators.filter(c => c.category === 'health') },
+    { name: 'Science & Education', slug: 'science-education', calculators: calculators.filter(c => c.category === 'science-education') },
+    { name: 'Construction & IT', slug: 'construction-it', calculators: calculators.filter(c => c.category === 'construction-it') },
+    { name: 'Tools', slug: 'tools', calculators: calculators.filter(c => c.category === 'tools') },
+];
+
+  export const CURRENCIES = [
     { value: 'USD', label: 'USD - United States Dollar' },
     { value: 'EUR', label: 'EUR - Euro' },
     { value: 'JPY', label: 'JPY - Japanese Yen' },
@@ -60,7 +201,7 @@ export const CURRENCIES = [
     { value: 'ND', label: 'North Dakota' },
     { value: 'OH', label: 'Ohio' },
     { value: 'OK', label: 'Oklahoma' },
-    { value: 'OR', 'label': 'Oregon' },
+    { value: 'OR', label: 'Oregon' },
     { value: 'PA', label: 'Pennsylvania' },
     { value: 'RI', label: 'Rhode Island' },
     { value: 'SC', label: 'South Carolina' },
