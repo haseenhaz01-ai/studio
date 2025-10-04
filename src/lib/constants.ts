@@ -1,5 +1,5 @@
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle
 } from 'lucide-react';
 import CurrencyConverter from '@/components/calculators/CurrencyConverter';
 import CryptoConverter from '@/components/calculators/CryptoConverter';
@@ -50,15 +50,6 @@ import WordCounter from '@/components/calculators/WordCounter';
 import DuplicateSentenceChecker from '@/components/calculators/DuplicateSentenceChecker';
 import ColourConverter from '@/components/calculators/ColourConverter';
 import DateCalculator from '@/components/calculators/DateCalculator';
-import Stopwatch from '@/components/calculators/clock-and-watch/Stopwatch';
-import TimeCalculator from '@/components/calculators/clock-and-watch/TimeCalculator';
-import WorldClock from '@/components/calculators/clock-and-watch/WorldClock';
-import CountdownTimer from '@/components/calculators/watch/CountdownTimer';
-import IntervalTimer from '@/components/calculators/watch/IntervalTimer';
-import DigitalClock from '@/components/calculators/watch/DigitalClock';
-import AlarmClock from '@/components/calculators/watch/AlarmClock';
-import Metronome from '@/components/calculators/watch/Metronome';
-import ChessClock from '@/components/calculators/watch/ChessClock';
 
 
 export const calculators = [
@@ -111,15 +102,6 @@ export const calculators = [
     { name: 'Duplicate Checker', icon: ScanSearch, component: DuplicateSentenceChecker, value: 'duplicate-sentence-checker', category: 'tools' },
     { name: 'Colour Converter', icon: Palette, component: ColourConverter, value: 'colour-converter', category: 'tools' },
     { name: 'Date Calculator', icon: Clock, component: DateCalculator, value: 'date-calculator', category: 'tools' },
-    { name: 'Lap Timer', icon: Timer, component: Stopwatch, value: 'stopwatch', category: 'tools' },
-    { name: 'Time Calculator', icon: Clock, component: TimeCalculator, value: 'time-calculator', category: 'tools' },
-    { name: 'World Clock', icon: Globe, component: WorldClock, value: 'world-clock', category: 'tools' },
-    { name: 'Countdown Timer', icon: Timer, component: CountdownTimer, value: 'countdown-timer', category: 'tools' },
-    { name: 'Interval Timer', icon: Play, component: IntervalTimer, value: 'interval-timer', category: 'tools' },
-    { name: 'Digital Clock', icon: Clock, component: DigitalClock, value: 'digital-clock', category: 'tools' },
-    { name: 'Alarm Clock', icon: Bell, component: AlarmClock, value: 'alarm-clock', category: 'tools' },
-    { name: 'Metronome', icon: Gauge, component: Metronome, value: 'metronome', category: 'tools' },
-    { name: 'Chess Clock', icon: Puzzle, component: ChessClock, value: 'chess-clock', category: 'tools' }
 ];
 
 export const categories = [
@@ -129,7 +111,7 @@ export const categories = [
     { name: 'Health & Fitness', slug: 'health', icon: HeartPulse, calculators: calculators.filter(c => c.category === 'health') },
     { name: 'Science & Education', slug: 'science-education', icon: FlaskConical, calculators: calculators.filter(c => c.category === 'science-education') },
     { name: 'Construction & IT', slug: 'construction-it', icon: HardHat, calculators: calculators.filter(c => c.category === 'construction-it') },
-    { name: 'Clock and Watch', slug: 'tools', icon: KeyRound, calculators: calculators.filter(c => c.category === 'tools') },
+    { name: 'Tools', slug: 'tools', icon: KeyRound, calculators: calculators.filter(c => c.category === 'tools') },
 ];
 
   export const CURRENCIES = [
