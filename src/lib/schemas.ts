@@ -431,3 +431,24 @@ export const backgroundRemoverSchema = z.object({
   image: z.any(),
   backgroundColor: z.string().optional(),
 });
+
+export const imageToPdfSchema = z.object({
+    files: z.any().refine(files => files?.length > 0, 'Please select at least one image.'),
+});
+
+export const imageToJpgSchema = z.object({
+    file: z.any().refine(file => file, 'Please select an image file.'),
+});
+
+export const imageUpscalerSchema = z.object({
+  image: z.any(),
+});
+
+export const imageToTextSchema = z.object({
+    image: z.any(),
+});
+
+export const imageToVideoSchema = z.object({
+    image: z.any(),
+    prompt: z.string().min(1, { message: 'Please enter a prompt.' }),
+});

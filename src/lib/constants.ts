@@ -1,5 +1,5 @@
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle, Scissors
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle, Scissors, FileType, FileUp, Text, Clapperboard
 } from 'lucide-react';
 import CurrencyConverter from '@/components/calculators/CurrencyConverter';
 import CryptoConverter from '@/components/calculators/CryptoConverter';
@@ -58,7 +58,11 @@ import AlarmClock from '@/components/calculators/AlarmClock';
 import Metronome from '@/components/calculators/Metronome';
 import ChessClock from '@/components/calculators/ChessClock';
 import BackgroundRemover from '@/components/calculators/BackgroundRemover';
-
+import ImageToPdf from '@/components/calculators/ImageToPdf';
+import ImageToJpg from '@/components/calculators/ImageToJpg';
+import ImageUpscaler from '@/components/calculators/ImageUpscaler';
+import ImageToText from '@/components/calculators/ImageToText';
+import ImageToVideo from '@/components/calculators/ImageToVideo';
 
 export const calculators = [
     { name: 'Currency', icon: Coins, component: CurrencyConverter, value: 'currency', category: 'financial' },
@@ -102,9 +106,6 @@ export const calculators = [
     { name: 'Concrete', icon: HardHat, component: ConcreteCalculator, value: 'concrete', category: 'construction-it' },
     { name: 'Subnet', icon: Network, component: SubnetCalculator, value: 'subnet', category: 'construction-it' },
     { name: 'Password', icon: KeyRound, component: PasswordGenerator, value: 'password-generator', category: 'tools' },
-    { name: 'Image Compressor', icon: Image, component: ImageCompressor, value: 'image-compressor', category: 'tools' },
-    { name: 'Image Resizer', icon: Crop, component: ImageResizer, value: 'image-resizer', category: 'tools' },
-    { name: 'Background Remover', icon: Scissors, component: BackgroundRemover, value: 'background-remover', category: 'tools' },
     { name: 'Fancy Fonts', icon: Type, component: FancyFontGenerator, value: 'fancy-font-generator', category: 'tools' },
     { name: 'QR Code', icon: QrCode, component: QrCodeGenerator, value: 'qr-code-generator', category: 'tools' },
     { name: 'Word Counter', icon: FileText, component: WordCounter, value: 'word-counter', category: 'tools' },
@@ -118,17 +119,26 @@ export const calculators = [
     { name: 'Alarm Clock', icon: Bell, component: AlarmClock, value: 'alarm-clock', category: 'clock-watch' },
     { name: 'Metronome', icon: Gauge, component: Metronome, value: 'metronome', category: 'clock-watch' },
     { name: 'Chess Clock', icon: Users, component: ChessClock, value: 'chess-clock', category: 'clock-watch' },
+    { name: 'Image Upscaler', icon: FileUp, component: ImageUpscaler, value: 'image-upscaler', category: 'image' },
+    { name: 'Image Resizer', icon: Crop, component: ImageResizer, value: 'image-resizer', category: 'image' },
+    { name: 'Image Compressor', icon: Image, component: ImageCompressor, value: 'image-compressor', category: 'image' },
+    { name: 'Background Remover', icon: Scissors, component: BackgroundRemover, value: 'background-remover', category: 'image' },
+    { name: 'Image to PDF', icon: FileType, component: ImageToPdf, value: 'image-to-pdf', category: 'image' },
+    { name: 'Image to JPG', icon: Image, component: ImageToJpg, value: 'image-to-jpg', category: 'image' },
+    { name: 'Image to Text', icon: Text, component: ImageToText, value: 'image-to-text', category: 'image' },
+    { name: 'Image to Video', icon: Clapperboard, component: ImageToVideo, value: 'image-to-video', category: 'image' },
 ];
 
 export const categories = [
     { name: 'Financial', slug: 'financial', icon: Coins, calculators: calculators.filter(c => c.category === 'financial') },
-    { name: 'Marketing &amp; Web', slug: 'marketing', icon: MousePointerClick, calculators: calculators.filter(c => c.category === 'marketing') },
-    { name: 'Math &amp; General', slug: 'math-general', icon: Calculator, calculators: calculators.filter(c => c.category === 'math-general') },
-    { name: 'Health &amp; Fitness', slug: 'health', icon: HeartPulse, calculators: calculators.filter(c => c.category === 'health') },
-    { name: 'Science &amp; Education', slug: 'science-education', icon: FlaskConical, calculators: calculators.filter(c => c.category === 'science-education') },
-    { name: 'Construction &amp; IT', slug: 'construction-it', icon: HardHat, calculators: calculators.filter(c => c.category === 'construction-it') },
+    { name: 'Marketing & Web', slug: 'marketing', icon: MousePointerClick, calculators: calculators.filter(c => c.category === 'marketing') },
+    { name: 'Math & General', slug: 'math-general', icon: Calculator, calculators: calculators.filter(c => c.category === 'math-general') },
+    { name: 'Health & Fitness', slug: 'health', icon: HeartPulse, calculators: calculators.filter(c => c.category === 'health') },
+    { name: 'Science & Education', slug: 'science-education', icon: FlaskConical, calculators: calculators.filter(c => c.category === 'science-education') },
+    { name: 'Construction & IT', slug: 'construction-it', icon: HardHat, calculators: calculators.filter(c => c.category === 'construction-it') },
+    { name: 'Image', slug: 'image', icon: Image, calculators: calculators.filter(c => c.category === 'image') },
     { name: 'Tools', slug: 'tools', icon: KeyRound, calculators: calculators.filter(c => c.category === 'tools') },
-    { name: 'Clock &amp; Watch', slug: 'clock-watch', icon: Clock, calculators: calculators.filter(c => c.category === 'clock-watch') },
+    { name: 'Clock & Watch', slug: 'clock-watch', icon: Clock, calculators: calculators.filter(c => c.category === 'clock-watch') },
 ];
 
   export const CURRENCIES = [

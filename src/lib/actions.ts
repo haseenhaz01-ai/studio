@@ -2,8 +2,11 @@
 
 import { convertCurrency } from '@/ai/flows/currency-conversion-tool';
 import { convertCrypto } from '@/ai/flows/crypto-conversion-tool';
-import { calculatePaycheck } from '@/ai/flows/paycheck-calculator-flow';
+import { calculatePaycheck } from '@/aiflows/paycheck-calculator-flow';
 import { removeBackground } from '@/ai/flows/background-remover-flow';
+import { upscaleImage } from '@/ai/flows/image-upscaler-flow';
+import { imageToText } from '@/ai/flows/image-to-text-flow';
+import { imageToVideo } from '@/ai/flows/image-to-video-flow';
 import { currencyConversionSchema, paycheckCalculatorSchema, cryptoConversionSchema, backgroundRemoverSchema } from '@/lib/schemas';
 import { z } from 'zod';
 
@@ -81,5 +84,35 @@ export async function handleBackgroundRemoval(values: { imageDataUri: string, ba
     } catch (error) {
         console.error(error);
         return { error: 'Failed to remove background. Please try again.' };
+    }
+}
+
+export async function handleImageUpscaling(values: { imageDataUri: string }) {
+    try {
+        const result = await upscaleImage({ imageDataUri: values.imageDataUri });
+        return { success: result };
+    } catch (error) {
+        console.error(error);
+        return { error: 'Failed to upscale image. Please try again.' };
+    }
+}
+
+export async function handleImageToText(values: { imageDataUri: string }) {
+    try {
+        const result = await imageToText({ imageDataUri: values.imageDataUri });
+        return { success: result };
+    } catch (error) {
+        console.error(error);
+        return { error: 'Failed to extract text from image. Please try again.' };
+    }
+}
+
+export async function handleImageToVideo(values: { imageDataUri: string, prompt: string }) {
+    try {
+        const result = await imageToVideo(values);
+        return { success: result };
+    } catch (error) {
+        console.error(error);
+        return { error: 'Failed to generate video. Please try again.' };
     }
 }
