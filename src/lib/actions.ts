@@ -2,7 +2,7 @@
 
 import { convertCurrency } from '@/ai/flows/currency-conversion-tool';
 import { convertCrypto } from '@/ai/flows/crypto-conversion-tool';
-import { calculatePaycheck } from '@/aiflows/paycheck-calculator-flow';
+import { calculatePaycheck } from '@/ai/flows/paycheck-calculator-flow';
 import { removeBackground } from '@/ai/flows/background-remover-flow';
 import { upscaleImage } from '@/ai/flows/image-upscaler-flow';
 import { imageToText } from '@/ai/flows/image-to-text-flow';
