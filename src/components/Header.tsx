@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Calculator } from 'lucide-react';
+import { KeyRound } from 'lucide-react';
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center gap-3">
             <div className="rounded-lg bg-primary p-2 text-primary-foreground">
-              <Calculator className="h-6 w-6" />
+              <KeyRound className="h-6 w-6" />
             </div>
             <h1 className="font-headline text-2xl font-bold text-foreground">
               FinCalc Pro
