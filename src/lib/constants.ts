@@ -63,6 +63,8 @@ import ImageToJpg from '@/components/calculators/ImageToJpg';
 import ImageUpscaler from '@/components/calculators/ImageUpscaler';
 import ImageToText from '@/components/calculators/ImageToText';
 import ImageToVideo from '@/components/calculators/ImageToVideo';
+import MergePdf from '@/components/calculators/MergePdf';
+import SplitPdf from '@/components/calculators/SplitPdf';
 
 export const calculators = [
     { name: 'Currency', icon: Coins, component: CurrencyConverter, value: 'currency', category: 'financial' },
@@ -127,6 +129,9 @@ export const calculators = [
     { name: 'Image to Text', icon: Text, component: ImageToText, value: 'image-to-text', category: 'image' },
     { name: 'Image to Video', icon: Clapperboard, component: ImageToVideo, value: 'image-to-video', category: 'image' },
     { name: 'Image to PDF', icon: FileType, component: ImageToPdf, value: 'image-to-pdf', category: 'pdf' },
+    { name: 'PDF to JPG', icon: Image, component: ImageToJpg, value: 'pdf-to-jpg', category: 'pdf' },
+    { name: 'Merge PDF', icon: Puzzle, component: MergePdf, value: 'merge-pdf', category: 'pdf' },
+    { name: 'Split PDF', icon: Puzzle, component: SplitPdf, value: 'split-pdf', category: 'pdf' },
 ];
 
 export const categories = [
