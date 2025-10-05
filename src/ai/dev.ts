@@ -9,3 +9,4 @@ import '@/ai/flows/image-upscaler-flow.ts';
 import '@/ai/flows/image-to-text-flow.ts';
 import '@/ai/flows/image-to-video-flow.ts';
 import '@/ai/flows/remove-text-flow.ts';
+import '@/ai/flows/object-remover-flow.ts';

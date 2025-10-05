@@ -1,5 +1,5 @@
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle, Scissors, FileType, FileUp, Text, Clapperboard, RotateCcw, FileCog, Youtube, Trash2, PenSquare, Shield
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle, Scissors, FileType, FileUp, Text, Clapperboard, RotateCcw, FileCog, Youtube, Trash2, PenSquare, Shield, Wand2
 } from 'lucide-react';
 import CurrencyConverter from '@/components/calculators/CurrencyConverter';
 import CryptoConverter from '@/components/calculators/CryptoConverter';
@@ -64,6 +64,7 @@ import ImageUpscaler from '@/components/calculators/ImageUpscaler';
 import ImageToText from '@/components/calculators/ImageToText';
 import ImageToVideo from '@/components/calculators/ImageToVideo';
 import RemoveText from '@/components/calculators/RemoveText';
+import ObjectRemover from '@/components/calculators/ObjectRemover';
 import MergePdf from '@/components/calculators/MergePdf';
 import SplitPdf from '@/components/calculators/SplitPdf';
 import WordToPdf from '@/components/calculators/WordToPdf';
@@ -126,7 +127,11 @@ export const calculators = [
     { name: 'Image Resizer', icon: Crop, component: ImageResizer, value: 'image-resizer', category: 'image' },
     { name: 'Image Compressor', icon: Image, component: ImageCompressor, value: 'image-compressor', category: 'image' },
     { name: 'Background Remover', icon: Scissors, component: BackgroundRemover, value: 'background-remover', category: 'image' },
-    { name: 'Remove Text from Image', icon: Trash2, component: RemoveText, value: 'remove-text', category: 'image' },
+    { name: 'Change Background', icon: Palette, component: BackgroundRemover, value: 'change-background', category: 'image' },
+    { name: 'Magic Eraser', icon: Wand2, component: ObjectRemover, value: 'magic-eraser', category: 'image' },
+    { name: 'Remove People', icon: Users, component: ObjectRemover, value: 'remove-people', category: 'image' },
+    { name: 'Remove Objects', icon: Trash2, component: ObjectRemover, value: 'remove-objects', category: 'image' },
+    { name: 'Remove Text from Image', icon: Text, component: RemoveText, value: 'remove-text-from-image', category: 'image' },
     { name: 'Image to JPG', icon: Image, component: ImageToJpg, value: 'image-to-jpg', category: 'image' },
     { name: 'Image to Text', icon: Text, component: ImageToText, value: 'image-to-text', category: 'image' },
     { name: 'Image to Video', icon: Clapperboard, component: ImageToVideo, value: 'image-to-video', category: 'image' },

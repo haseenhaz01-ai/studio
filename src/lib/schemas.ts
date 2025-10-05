@@ -457,6 +457,11 @@ export const removeTextSchema = z.object({
   image: z.any(),
 });
 
+export const objectRemoverSchema = z.object({
+    image: z.any(),
+    prompt: z.string().min(1, { message: 'Please enter a description of the object to remove.' }),
+});
+
 export const mergePdfSchema = z.object({
   files: z.any().refine(files => files?.length > 1, 'Please select at least two PDF files.'),
 });
