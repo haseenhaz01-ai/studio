@@ -1,5 +1,5 @@
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle, Scissors, FileType, FileUp, Text, Clapperboard
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle, Scissors, FileType, FileUp, Text, Clapperboard, RotateCcw, FileCog
 } from 'lucide-react';
 import CurrencyConverter from '@/components/calculators/CurrencyConverter';
 import CryptoConverter from '@/components/calculators/CryptoConverter';
@@ -69,6 +69,12 @@ import WordToPdf from '@/components/calculators/WordToPdf';
 import PowerpointToPdf from '@/components/calculators/PowerpointToPdf';
 import ExcelToPdf from '@/components/calculators/ExcelToPdf';
 import HtmlToPdf from '@/components/calculators/HtmlToPdf';
+import PdfToJpg from '@/components/calculators/PdfToJpg';
+import PdfToWord from '@/components/calculators/PdfToWord';
+import PdfToPowerpoint from '@/components/calculators/PdfToPowerpoint';
+import PdfToExcel from '@/components/calculators/PdfToExcel';
+import RepairPdf from '@/components/calculators/RepairPdf';
+import RotatePdf from '@/components/calculators/RotatePdf';
 
 export const calculators = [
     { name: 'Currency', icon: Coins, component: CurrencyConverter, value: 'currency', category: 'financial' },
@@ -134,13 +140,18 @@ export const calculators = [
     { name: 'Image to Video', icon: Clapperboard, component: ImageToVideo, value: 'image-to-video', category: 'image' },
     { name: 'Image to PDF', icon: FileType, component: ImageToPdf, value: 'image-to-pdf', category: 'pdf' },
     { name: 'JPG to PDF', icon: FileType, component: ImageToPdf, value: 'jpg-to-pdf', category: 'pdf' },
-    { name: 'PDF to JPG', icon: Image, component: ImageToJpg, value: 'pdf-to-jpg', category: 'pdf' },
     { name: 'Merge PDF', icon: Puzzle, component: MergePdf, value: 'merge-pdf', category: 'pdf' },
     { name: 'Split PDF', icon: Puzzle, component: SplitPdf, value: 'split-pdf', category: 'pdf' },
     { name: 'Word to PDF', icon: FileType, component: WordToPdf, value: 'word-to-pdf', category: 'pdf' },
     { name: 'PowerPoint to PDF', icon: FileType, component: PowerpointToPdf, value: 'powerpoint-to-pdf', category: 'pdf' },
     { name: 'Excel to PDF', icon: FileType, component: ExcelToPdf, value: 'excel-to-pdf', category: 'pdf' },
     { name: 'HTML to PDF', icon: FileType, component: HtmlToPdf, value: 'html-to-pdf', category: 'pdf' },
+    { name: 'PDF to JPG', icon: Image, component: PdfToJpg, value: 'pdf-to-jpg', category: 'pdf' },
+    { name: 'PDF to Word', icon: FileType, component: PdfToWord, value: 'pdf-to-word', category: 'pdf' },
+    { name: 'PDF to PowerPoint', icon: FileType, component: PdfToPowerpoint, value: 'pdf-to-powerpoint', category: 'pdf' },
+    { name: 'PDF to Excel', icon: FileType, component: PdfToExcel, value: 'pdf-to-excel', category: 'pdf' },
+    { name: 'Repair PDF', icon: FileCog, component: RepairPdf, value: 'repair-pdf', category: 'pdf' },
+    { name: 'Rotate PDF', icon: RotateCcw, component: RotatePdf, value: 'rotate-pdf', category: 'pdf' },
 ];
 
 export const categories = [
@@ -263,4 +274,3 @@ export const categories = [
     { value: 'fahrenheit', label: 'Fahrenheit' },
     { value: 'kelvin', label: 'Kelvin' },
   ];
-
