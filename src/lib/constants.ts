@@ -1,5 +1,5 @@
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle, Scissors, FileType, FileUp, Text, Clapperboard, RotateCcw, FileCog, Youtube, Trash2, PenSquare, Shield, Wand2
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle, Scissors, FileType, FileUp, Text, Clapperboard, RotateCcw, FileCog, Youtube, Trash2, PenSquare, Shield, Wand2, Building, Target
 } from 'lucide-react';
 import CurrencyConverter from '@/components/calculators/CurrencyConverter';
 import CryptoConverter from '@/components/calculators/CryptoConverter';
@@ -177,12 +177,12 @@ export const calculators = [
 ];
 
 export const categories = [
-    { name: 'Financial', slug: 'financial', icon: Coins, calculators: calculators.filter(c => c.category === 'financial') },
-    { name: 'Marketing & Web', slug: 'marketing', icon: MousePointerClick, calculators: calculators.filter(c => c.category === 'marketing') },
-    { name: 'Math & General', slug: 'math-general', icon: Calculator, calculators: calculators.filter(c => c.category === 'math-general') },
+    { name: 'Financial', slug: 'financial', icon: Landmark, calculators: calculators.filter(c => c.category === 'financial') },
+    { name: 'Marketing & Web', slug: 'marketing', icon: Target, calculators: calculators.filter(c => c.category === 'marketing') },
+    { name: 'Math & General', slug: 'math-general', icon: Sigma, calculators: calculators.filter(c => c.category === 'math-general') },
     { name: 'Health & Fitness', slug: 'health', icon: HeartPulse, calculators: calculators.filter(c => c.category === 'health') },
     { name: 'Science & Education', slug: 'science-education', icon: FlaskConical, calculators: calculators.filter(c => c.category === 'science-education') },
-    { name: 'Construction & IT', slug: 'construction-it', icon: HardHat, calculators: calculators.filter(c => c.category === 'construction-it') },
+    { name: 'Construction & IT', slug: 'construction-it', icon: Building, calculators: calculators.filter(c => c.category === 'construction-it') },
     { name: 'Image', slug: 'image', icon: Image, calculators: calculators.filter(c => c.category === 'image') },
     { name: 'Tools', slug: 'tools', icon: KeyRound, calculators: calculators.filter(c => c.category === 'tools') },
     { name: 'Clock & Watch', slug: 'clock-watch', icon: Clock, calculators: calculators.filter(c => c.category === 'clock-watch') },
