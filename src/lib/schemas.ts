@@ -460,3 +460,19 @@ export const mergePdfSchema = z.object({
 export const splitPdfSchema = z.object({
     file: z.any().refine(file => file, 'Please select a PDF file.'),
 });
+
+export const wordToPdfSchema = z.object({
+  file: z.any().refine(file => file, 'Please select a Word document.'),
+});
+
+export const powerpointToPdfSchema = z.object({
+  file: z.any().refine(file => file, 'Please select a PowerPoint presentation.'),
+});
+
+export const excelToPdfSchema = z.object({
+  file: z.any().refine(file => file, 'Please select an Excel file.'),
+});
+
+export const htmlToPdfSchema = z.object({
+  source: z.string().min(1, 'Please enter a URL or HTML code.'),
+});

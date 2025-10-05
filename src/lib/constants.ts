@@ -65,6 +65,10 @@ import ImageToText from '@/components/calculators/ImageToText';
 import ImageToVideo from '@/components/calculators/ImageToVideo';
 import MergePdf from '@/components/calculators/MergePdf';
 import SplitPdf from '@/components/calculators/SplitPdf';
+import WordToPdf from '@/components/calculators/WordToPdf';
+import PowerpointToPdf from '@/components/calculators/PowerpointToPdf';
+import ExcelToPdf from '@/components/calculators/ExcelToPdf';
+import HtmlToPdf from '@/components/calculators/HtmlToPdf';
 
 export const calculators = [
     { name: 'Currency', icon: Coins, component: CurrencyConverter, value: 'currency', category: 'financial' },
@@ -128,11 +132,15 @@ export const calculators = [
     { name: 'Image to JPG', icon: Image, component: ImageToJpg, value: 'image-to-jpg', category: 'image' },
     { name: 'Image to Text', icon: Text, component: ImageToText, value: 'image-to-text', category: 'image' },
     { name: 'Image to Video', icon: Clapperboard, component: ImageToVideo, value: 'image-to-video', category: 'image' },
-    { name: 'Image to PDF', icon: FileType, component: ImageToPdf, value: 'image-to-pdf', category: 'image' },
+    { name: 'Image to PDF', icon: FileType, component: ImageToPdf, value: 'image-to-pdf', category: 'pdf' },
     { name: 'JPG to PDF', icon: FileType, component: ImageToPdf, value: 'jpg-to-pdf', category: 'pdf' },
     { name: 'PDF to JPG', icon: Image, component: ImageToJpg, value: 'pdf-to-jpg', category: 'pdf' },
     { name: 'Merge PDF', icon: Puzzle, component: MergePdf, value: 'merge-pdf', category: 'pdf' },
     { name: 'Split PDF', icon: Puzzle, component: SplitPdf, value: 'split-pdf', category: 'pdf' },
+    { name: 'Word to PDF', icon: FileType, component: WordToPdf, value: 'word-to-pdf', category: 'pdf' },
+    { name: 'PowerPoint to PDF', icon: FileType, component: PowerpointToPdf, value: 'powerpoint-to-pdf', category: 'pdf' },
+    { name: 'Excel to PDF', icon: FileType, component: ExcelToPdf, value: 'excel-to-pdf', category: 'pdf' },
+    { name: 'HTML to PDF', icon: FileType, component: HtmlToPdf, value: 'html-to-pdf', category: 'pdf' },
 ];
 
 export const categories = [
@@ -255,3 +263,4 @@ export const categories = [
     { value: 'fahrenheit', label: 'Fahrenheit' },
     { value: 'kelvin', label: 'Kelvin' },
   ];
+
