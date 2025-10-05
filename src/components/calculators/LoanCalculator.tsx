@@ -45,6 +45,7 @@ import {
   Cell,
   Tooltip,
 } from 'recharts';
+import AdPlaceholder from './AdPlaceholder';
 
 type LoanFormValues = z.infer<typeof loanCalculatorSchema>;
 
@@ -245,6 +246,7 @@ export default function LoanCalculator() {
                     </PieChart>
                 </ResponsiveContainer>
               </div>
+              <AdPlaceholder />
             </>
           )}
         </div>
