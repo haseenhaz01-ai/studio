@@ -156,6 +156,15 @@ export const calculators = [
     { name: 'PDF to Excel', icon: FileType, component: PdfToExcel, value: 'pdf-to-excel', category: 'pdf' },
     { name: 'Repair PDF', icon: FileCog, component: RepairPdf, value: 'repair-pdf', category: 'pdf' },
     { name: 'Rotate PDF', icon: RotateCcw, component: RotatePdf, value: 'rotate-pdf', category: 'pdf' },
+    { name: 'Add page numbers', icon: FileType, component: RotatePdf, value: 'add-page-numbers', category: 'pdf' },
+    { name: 'Add watermark', icon: FileType, component: RotatePdf, value: 'add-watermark', category: 'pdf' },
+    { name: 'Crop PDF', icon: Crop, component: RotatePdf, value: 'crop-pdf', category: 'pdf' },
+    { name: 'Edit PDF', icon: FileCog, component: RotatePdf, value: 'edit-pdf', category: 'pdf' },
+    { name: 'Unlock PDF', icon: KeyRound, component: RotatePdf, value: 'unlock-pdf', category: 'pdf' },
+    { name: 'Protect PDF', icon: KeyRound, component: RotatePdf, value: 'protect-pdf', category: 'pdf' },
+    { name: 'Sign PDF', icon: FileType, component: RotatePdf, value: 'sign-pdf', category: 'pdf' },
+    { name: 'Redact PDF', icon: Scissors, component: RotatePdf, value: 'redact-pdf', category: 'pdf' },
+    { name: 'Compare PDF', icon: FileType, component: RotatePdf, value: 'compare-pdf', category: 'pdf' },
 ];
 
 export const categories = [
