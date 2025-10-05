@@ -1,5 +1,5 @@
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle, Scissors, FileType, FileUp, Text, Clapperboard, RotateCcw, FileCog
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle, Scissors, FileType, FileUp, Text, Clapperboard, RotateCcw, FileCog, Youtube
 } from 'lucide-react';
 import CurrencyConverter from '@/components/calculators/CurrencyConverter';
 import CryptoConverter from '@/components/calculators/CryptoConverter';
@@ -75,6 +75,8 @@ import PdfToPowerpoint from '@/components/calculators/PdfToPowerpoint';
 import PdfToExcel from '@/components/calculators/PdfToExcel';
 import RepairPdf from '@/components/calculators/RepairPdf';
 import RotatePdf from '@/components/calculators/RotatePdf';
+import YoutubeThumbnailExtractor from '@/components/calculators/YoutubeThumbnailExtractor';
+import YoutubeTagsExtractor from '@/components/calculators/YoutubeTagsExtractor';
 
 export const calculators = [
     { name: 'Currency', icon: Coins, component: CurrencyConverter, value: 'currency', category: 'financial' },
@@ -95,6 +97,8 @@ export const calculators = [
     { name: 'AdSense', icon: DollarSign, component: AdsenseCalculator, value: 'adsense', category: 'marketing' },
     { name: 'GRP', icon: Tv, component: GrpCalculator, value: 'grp', category: 'marketing' },
     { name: 'AVM', icon: Film, component: AvmCalculator, value: 'avm', category: 'marketing' },
+    { name: 'YT Thumbnail Extractor', icon: Youtube, component: YoutubeThumbnailExtractor, value: 'yt-thumbnail-extractor', category: 'marketing' },
+    { name: 'YT Tags Extractor', icon: Youtube, component: YoutubeTagsExtractor, value: 'yt-tags-extractor', category: 'marketing' },
     { name: 'Standard', icon: Calculator, component: SimpleCalculator, value: 'simple', category: 'math-general' },
     { name: 'Percentage', icon: Percent, component: PercentageCalculator, value: 'percentage', category: 'math-general' },
     { name: 'Printing', icon: Printer, component: PrintingCalculator, value: 'printing', category: 'math-general' },
@@ -117,6 +121,13 @@ export const calculators = [
     { name: 'GPA', icon: GraduationCap, component: GpaCalculator, value: 'gpa', category: 'science-education' },
     { name: 'Concrete', icon: HardHat, component: ConcreteCalculator, value: 'concrete', category: 'construction-it' },
     { name: 'Subnet', icon: Network, component: SubnetCalculator, value: 'subnet', category: 'construction-it' },
+    { name: 'Image Upscaler', icon: FileUp, component: ImageUpscaler, value: 'image-upscaler', category: 'image' },
+    { name: 'Image Resizer', icon: Crop, component: ImageResizer, value: 'image-resizer', category: 'image' },
+    { name: 'Image Compressor', icon: Image, component: ImageCompressor, value: 'image-compressor', category: 'image' },
+    { name: 'Background Remover', icon: Scissors, component: BackgroundRemover, value: 'background-remover', category: 'image' },
+    { name: 'Image to JPG', icon: Image, component: ImageToJpg, value: 'image-to-jpg', category: 'image' },
+    { name: 'Image to Text', icon: Text, component: ImageToText, value: 'image-to-text', category: 'image' },
+    { name: 'Image to Video', icon: Clapperboard, component: ImageToVideo, value: 'image-to-video', category: 'image' },
     { name: 'Password', icon: KeyRound, component: PasswordGenerator, value: 'password-generator', category: 'tools' },
     { name: 'Fancy Fonts', icon: Type, component: FancyFontGenerator, value: 'fancy-font-generator', category: 'tools' },
     { name: 'QR Code', icon: QrCode, component: QrCodeGenerator, value: 'qr-code-generator', category: 'tools' },
@@ -131,13 +142,6 @@ export const calculators = [
     { name: 'Alarm Clock', icon: Bell, component: AlarmClock, value: 'alarm-clock', category: 'clock-watch' },
     { name: 'Metronome', icon: Gauge, component: Metronome, value: 'metronome', category: 'clock-watch' },
     { name: 'Chess Clock', icon: Users, component: ChessClock, value: 'chess-clock', category: 'clock-watch' },
-    { name: 'Image Upscaler', icon: FileUp, component: ImageUpscaler, value: 'image-upscaler', category: 'image' },
-    { name: 'Image Resizer', icon: Crop, component: ImageResizer, value: 'image-resizer', category: 'image' },
-    { name: 'Image Compressor', icon: Image, component: ImageCompressor, value: 'image-compressor', category: 'image' },
-    { name: 'Background Remover', icon: Scissors, component: BackgroundRemover, value: 'background-remover', category: 'image' },
-    { name: 'Image to JPG', icon: Image, component: ImageToJpg, value: 'image-to-jpg', category: 'image' },
-    { name: 'Image to Text', icon: Text, component: ImageToText, value: 'image-to-text', category: 'image' },
-    { name: 'Image to Video', icon: Clapperboard, component: ImageToVideo, value: 'image-to-video', category: 'image' },
     { name: 'Image to PDF', icon: FileType, component: ImageToPdf, value: 'image-to-pdf', category: 'pdf' },
     { name: 'JPG to PDF', icon: FileType, component: ImageToPdf, value: 'jpg-to-pdf', category: 'pdf' },
     { name: 'Merge PDF', icon: Puzzle, component: MergePdf, value: 'merge-pdf', category: 'pdf' },

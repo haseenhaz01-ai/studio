@@ -476,3 +476,7 @@ export const excelToPdfSchema = z.object({
 export const htmlToPdfSchema = z.object({
   source: z.string().min(1, 'Please enter a URL or HTML code.'),
 });
+
+export const youtubeExtractorSchema = z.object({
+  url: z.string().url({ message: "Please enter a valid YouTube URL." }),
+});
