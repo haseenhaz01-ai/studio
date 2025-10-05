@@ -123,10 +123,10 @@ export const calculators = [
     { name: 'Image Resizer', icon: Crop, component: ImageResizer, value: 'image-resizer', category: 'image' },
     { name: 'Image Compressor', icon: Image, component: ImageCompressor, value: 'image-compressor', category: 'image' },
     { name: 'Background Remover', icon: Scissors, component: BackgroundRemover, value: 'background-remover', category: 'image' },
-    { name: 'Image to PDF', icon: FileType, component: ImageToPdf, value: 'image-to-pdf', category: 'pdf' },
     { name: 'Image to JPG', icon: Image, component: ImageToJpg, value: 'image-to-jpg', category: 'image' },
     { name: 'Image to Text', icon: Text, component: ImageToText, value: 'image-to-text', category: 'image' },
     { name: 'Image to Video', icon: Clapperboard, component: ImageToVideo, value: 'image-to-video', category: 'image' },
+    { name: 'Image to PDF', icon: FileType, component: ImageToPdf, value: 'image-to-pdf', category: 'pdf' },
 ];
 
 export const categories = [
@@ -137,9 +137,9 @@ export const categories = [
     { name: 'Science & Education', slug: 'science-education', icon: FlaskConical, calculators: calculators.filter(c => c.category === 'science-education') },
     { name: 'Construction & IT', slug: 'construction-it', icon: HardHat, calculators: calculators.filter(c => c.category === 'construction-it') },
     { name: 'Image', slug: 'image', icon: Image, calculators: calculators.filter(c => c.category === 'image') },
-    { name: 'PDF', slug: 'pdf', icon: FileType, calculators: calculators.filter(c => c.category === 'pdf') },
     { name: 'Tools', slug: 'tools', icon: KeyRound, calculators: calculators.filter(c => c.category === 'tools') },
     { name: 'Clock & Watch', slug: 'clock-watch', icon: Clock, calculators: calculators.filter(c => c.category === 'clock-watch') },
+    { name: 'PDF', slug: 'pdf', icon: FileType, calculators: calculators.filter(c => c.category === 'pdf') },
 ];
 
   export const CURRENCIES = [
