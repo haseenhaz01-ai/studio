@@ -7,6 +7,7 @@ import { removeBackground } from '@/ai/flows/background-remover-flow';
 import { upscaleImage } from '@/ai/flows/image-upscaler-flow';
 import { imageToText } from '@/ai/flows/image-to-text-flow';
 import { imageToVideo } from '@/ai/flows/image-to-video-flow';
+import { removeText } from '@/ai/flows/remove-text-flow';
 import { currencyConversionSchema, paycheckCalculatorSchema, cryptoConversionSchema, backgroundRemoverSchema } from '@/lib/schemas';
 import { z } from 'zod';
 
@@ -114,5 +115,15 @@ export async function handleImageToVideo(values: { imageDataUri: string, prompt:
     } catch (error) {
         console.error(error);
         return { error: 'Failed to generate video. Please try again.' };
+    }
+}
+
+export async function handleRemoveText(values: { imageDataUri: string }) {
+    try {
+        const result = await removeText({ imageDataUri: values.imageDataUri });
+        return { success: result };
+    } catch (error) {
+        console.error(error);
+        return { error: 'Failed to remove text from image. Please try again.' };
     }
 }

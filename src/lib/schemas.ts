@@ -453,6 +453,10 @@ export const imageToVideoSchema = z.object({
     prompt: z.string().min(1, { message: 'Please enter a prompt.' }),
 });
 
+export const removeTextSchema = z.object({
+  image: z.any(),
+});
+
 export const mergePdfSchema = z.object({
   files: z.any().refine(files => files?.length > 1, 'Please select at least two PDF files.'),
 });

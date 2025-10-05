@@ -63,6 +63,7 @@ import ImageToJpg from '@/components/calculators/ImageToJpg';
 import ImageUpscaler from '@/components/calculators/ImageUpscaler';
 import ImageToText from '@/components/calculators/ImageToText';
 import ImageToVideo from '@/components/calculators/ImageToVideo';
+import RemoveText from '@/components/calculators/RemoveText';
 import MergePdf from '@/components/calculators/MergePdf';
 import SplitPdf from '@/components/calculators/SplitPdf';
 import WordToPdf from '@/components/calculators/WordToPdf';
@@ -125,6 +126,7 @@ export const calculators = [
     { name: 'Image Resizer', icon: Crop, component: ImageResizer, value: 'image-resizer', category: 'image' },
     { name: 'Image Compressor', icon: Image, component: ImageCompressor, value: 'image-compressor', category: 'image' },
     { name: 'Background Remover', icon: Scissors, component: BackgroundRemover, value: 'background-remover', category: 'image' },
+    { name: 'Remove Text from Image', icon: Trash2, component: RemoveText, value: 'remove-text', category: 'image' },
     { name: 'Image to JPG', icon: Image, component: ImageToJpg, value: 'image-to-jpg', category: 'image' },
     { name: 'Image to Text', icon: Text, component: ImageToText, value: 'image-to-text', category: 'image' },
     { name: 'Image to Video', icon: Clapperboard, component: ImageToVideo, value: 'image-to-video', category: 'image' },
