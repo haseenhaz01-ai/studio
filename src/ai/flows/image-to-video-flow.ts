@@ -75,7 +75,7 @@ const imageToVideoFlow = ai.defineFlow(
     // The URL from Veo is a temporary download link, we need to fetch it and convert to a data URI.
     const fetch = (await import('node-fetch')).default;
     const videoDownloadResponse = await fetch(
-        `${videoPart.media.url}&key=${process.env.GOOGLE_GENAI_API_KEY}`
+        `${videoPart.media.url}&key=${process.env.GEMINI_API_KEY}`
     );
 
     if (!videoDownloadResponse.ok || !videoDownloadResponse.body) {
