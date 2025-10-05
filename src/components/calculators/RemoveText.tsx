@@ -42,12 +42,12 @@ export default function RemoveText() {
     resolver: zodResolver(removeTextSchema),
   });
   
-  const processImage = useCallback(() => {
-    if (!imageState?.originalSrc) return;
+  const processImage = useCallback((src: string) => {
+    if (!src) return;
 
     setResultState(null);
     startTransition(async () => {
-      const response = await handleRemoveText({ imageDataUri: imageState.originalSrc });
+      const response = await handleRemoveText({ imageDataUri: src });
 
       if (response.error) {
         toast({ variant: 'destructive', title: 'Error', description: response.error });
@@ -56,7 +56,7 @@ export default function RemoveText() {
         setResultState({ processedSrc: response.success.outputImageUri });
       }
     });
-  }, [imageState, toast]);
+  }, [toast]);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -66,12 +66,19 @@ export default function RemoveText() {
         const src = e.target?.result as string;
         setImageState({ originalSrc: src, originalName: file.name });
         setResultState(null);
+        processImage(src);
       };
       reader.readAsDataURL(file);
     } else {
       toast({ variant: 'destructive', title: 'Invalid File', description: 'Please select an image file.' });
     }
   };
+
+  const reprocessImage = () => {
+    if (imageState) {
+        processImage(imageState.originalSrc);
+    }
+  }
 
   return (
     <Card className="mx-auto max-w-4xl">
@@ -112,7 +119,7 @@ export default function RemoveText() {
         )}
       </CardContent>
       <CardFooter className="grid grid-cols-1 md:grid-cols-2 gap-2">
-        <Button onClick={processImage} disabled={!imageState || isPending} className="w-full">
+        <Button onClick={reprocessImage} disabled={!imageState || isPending} className="w-full">
           {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Wand2 className="mr-2 h-4 w-4" />}
           {resultState ? 'Re-process Image' : 'Remove Text'}
         </Button>
