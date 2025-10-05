@@ -4,8 +4,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { SidebarProvider } from '@/components/ui/sidebar';
 
 export const metadata: Metadata = {
-  title: 'FinCalc Pro',
-  description: 'One Page SaaS Finance Calculator',
+  title: 'ILo e Tools',
+  description: 'Your All-in-One Online Tools Hub',
 };
 
 export default function RootLayout({
