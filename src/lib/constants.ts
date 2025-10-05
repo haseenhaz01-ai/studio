@@ -1,5 +1,5 @@
 import {
-  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle, Scissors, FileType, FileUp, Text, Clapperboard, RotateCcw, FileCog, Youtube
+  Coins, Percent, Calculator, PiggyBank, BarChartBig, Archive, MousePointerClick, LogOut, DollarSign, Tv, Scale, WalletCards, Film, ClipboardList, FlaskConical, Printer, LineChart, Sigma, HeartPulse, Receipt, Zap, Ruler, Divide, Thermometer, Landmark, Home, TrendingUp, Shuffle, Footprints, Baby, GraduationCap, HardHat, Network, KeyRound, Image, Crop, Type, QrCode, FileText, ScanSearch, Bitcoin, Palette, Clock, Timer, Globe, Triangle, Users, Play, Bell, Gauge, Puzzle, Scissors, FileType, FileUp, Text, Clapperboard, RotateCcw, FileCog, Youtube, Trash2, PenSquare, Shield
 } from 'lucide-react';
 import CurrencyConverter from '@/components/calculators/CurrencyConverter';
 import CryptoConverter from '@/components/calculators/CryptoConverter';
@@ -128,6 +128,8 @@ export const calculators = [
     { name: 'Image to JPG', icon: Image, component: ImageToJpg, value: 'image-to-jpg', category: 'image' },
     { name: 'Image to Text', icon: Text, component: ImageToText, value: 'image-to-text', category: 'image' },
     { name: 'Image to Video', icon: Clapperboard, component: ImageToVideo, value: 'image-to-video', category: 'image' },
+    { name: 'Signature BG Remover', icon: PenSquare, component: BackgroundRemover, value: 'signature-bg-remover', category: 'image' },
+    { name: 'Logo BG Remover', icon: Shield, component: BackgroundRemover, value: 'logo-bg-remover', category: 'image' },
     { name: 'Password', icon: KeyRound, component: PasswordGenerator, value: 'password-generator', category: 'tools' },
     { name: 'Fancy Fonts', icon: Type, component: FancyFontGenerator, value: 'fancy-font-generator', category: 'tools' },
     { name: 'QR Code', icon: QrCode, component: QrCodeGenerator, value: 'qr-code-generator', category: 'tools' },
