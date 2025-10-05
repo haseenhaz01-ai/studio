@@ -186,7 +186,7 @@ export const categories = [
     { name: 'Image', slug: 'image', icon: Image, calculators: calculators.filter(c => c.category === 'image') },
     { name: 'Tools', slug: 'tools', icon: KeyRound, calculators: calculators.filter(c => c.category === 'tools') },
     { name: 'Clock & Watch', slug: 'clock-watch', icon: Clock, calculators: calculators.filter(c => c.category === 'clock-watch') },
-    { name: 'PDF', slug: 'pdf', icon: FileType, calculators: calculators.filter(c => c.category === 'pdf') },
+    { name: 'PDF', slug: 'pdf', icon: FileText, calculators: calculators.filter(c => c.category === 'pdf') },
 ];
 
   export const CURRENCIES = [
