@@ -16,6 +16,7 @@ const ImageUpscalerInputSchema = z.object({
     .describe(
       "The image to process, as a data URI that must include a MIME type and use Base64 encoding. Expected format: 'data:<mimetype>;base64,<encoded_data>'."
     ),
+  resolution: z.enum(['2k', '4k', '8k', '12k']).describe("The target resolution for the upscaled image."),
 });
 export type ImageUpscalerInput = z.infer<typeof ImageUpscalerInputSchema>;
 
@@ -35,8 +36,8 @@ const imageUpscalerFlow = ai.defineFlow(
     inputSchema: ImageUpscalerInputSchema,
     outputSchema: ImageUpscalerOutputSchema,
   },
-  async ({ imageDataUri }) => {
-    const prompt = `Upscale and enhance the quality of this image. Increase the resolution and clarity while maintaining the original subject and style.`;
+  async ({ imageDataUri, resolution }) => {
+    const prompt = `Upscale and enhance the quality of this image to ${resolution} resolution. Increase the resolution and clarity while maintaining the original subject and style.`;
 
     const { media } = await ai.generate({
       model: 'googleai/gemini-2.5-flash-image-preview',

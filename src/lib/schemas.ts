@@ -441,7 +441,7 @@ export const imageToJpgSchema = z.object({
 });
 
 export const imageUpscalerSchema = z.object({
-  image: z.any(),
+  resolution: z.enum(['2k', '4k', '8k', '12k']),
 });
 
 export const imageToTextSchema = z.object({

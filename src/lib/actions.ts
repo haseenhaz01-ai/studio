@@ -9,7 +9,7 @@ import { imageToText } from '@/ai/flows/image-to-text-flow';
 import { imageToVideo } from '@/ai/flows/image-to-video-flow';
 import { removeText } from '@/ai/flows/remove-text-flow';
 import { removeObject } from '@/ai/flows/object-remover-flow';
-import { currencyConversionSchema, paycheckCalculatorSchema, cryptoConversionSchema, backgroundRemoverSchema } from '@/lib/schemas';
+import { currencyConversionSchema, paycheckCalculatorSchema, cryptoConversionSchema, backgroundRemoverSchema, imageUpscalerSchema } from '@/lib/schemas';
 import { z } from 'zod';
 
 export async function handleCurrencyConversion(values: z.infer<typeof currencyConversionSchema>) {
@@ -89,9 +89,18 @@ export async function handleBackgroundRemoval(values: { imageDataUri: string, ba
     }
 }
 
-export async function handleImageUpscaling(values: { imageDataUri: string }) {
+export async function handleImageUpscaling(values: z.infer<typeof imageUpscalerSchema> & { imageDataUri: string }) {
+    const validatedFields = imageUpscalerSchema.safeParse(values);
+
+    if (!validatedFields.success) {
+      return { error: 'Invalid input.' };
+    }
+
     try {
-        const result = await upscaleImage({ imageDataUri: values.imageDataUri });
+        const result = await upscaleImage({ 
+            imageDataUri: values.imageDataUri,
+            resolution: validatedFields.data.resolution
+         });
         return { success: result };
     } catch (error) {
         console.error(error);
