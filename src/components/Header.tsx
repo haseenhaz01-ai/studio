@@ -11,7 +11,7 @@ const Header = () => {
               <KeyRound className="h-6 w-6" />
             </div>
             <h1 className="font-headline text-2xl font-bold text-foreground">
-              I Love Tools
+              Online Tools Hub
             </h1>
           </Link>
         </div>

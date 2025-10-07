@@ -4,7 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { SidebarProvider } from '@/components/ui/sidebar';
 
 export const metadata: Metadata = {
-  title: 'I Love Tools',
+  title: 'Online Tools Hub',
   description: 'Your All-in-One Online Tools Hub',
 };
 
