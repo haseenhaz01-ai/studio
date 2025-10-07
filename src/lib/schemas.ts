@@ -428,7 +428,7 @@ export const metronomeSchema = z.object({
 });
 
 export const backgroundRemoverSchema = z.object({
-  image: z.any(),
+  imageDataUri: z.string(),
   backgroundColor: z.string().optional(),
 });
 
@@ -441,24 +441,26 @@ export const imageToJpgSchema = z.object({
 });
 
 export const imageUpscalerSchema = z.object({
+  imageDataUri: z.string().optional(), // Make it optional here
   resolution: z.enum(['2k', '4k', '8k', '12k']),
 });
 
+
 export const imageToTextSchema = z.object({
-    image: z.any(),
+    imageDataUri: z.string(),
 });
 
 export const imageToVideoSchema = z.object({
-    image: z.any(),
+    imageDataUri: z.string(),
     prompt: z.string().min(1, { message: 'Please enter a prompt.' }),
 });
 
 export const removeTextSchema = z.object({
-  image: z.any(),
+  imageDataUri: z.string(),
 });
 
 export const objectRemoverSchema = z.object({
-    image: z.any(),
+    imageDataUri: z.string(),
     prompt: z.string().min(1, { message: 'Please enter a description of the object to remove.' }),
 });
 
