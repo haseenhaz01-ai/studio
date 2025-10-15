@@ -37,7 +37,7 @@ const imageUpscalerFlow = ai.defineFlow(
     outputSchema: ImageUpscalerOutputSchema,
   },
   async ({ imageDataUri, resolution }) => {
-    const prompt = `Upscale and enhance the quality of this image to ${resolution} resolution. Increase the resolution and clarity while maintaining the original subject and style.`;
+    const prompt = `Upscale this image to ${resolution}.`;
 
     const { media } = await ai.generate({
       model: 'googleai/gemini-2.5-flash-image-preview',
