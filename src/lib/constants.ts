@@ -79,6 +79,7 @@ import RepairPdf from '@/components/calculators/RepairPdf';
 import RotatePdf from '@/components/calculators/RotatePdf';
 import YoutubeThumbnailExtractor from '@/components/calculators/YoutubeThumbnailExtractor';
 import YoutubeTagsExtractor from '@/components/calculators/YoutubeTagsExtractor';
+import YoutubeTranscriptGenerator from '@/components/calculators/YoutubeTranscriptGenerator';
 
 export const calculators = [
     { name: 'Currency', icon: Coins, component: CurrencyConverter, value: 'currency', category: 'financial' },
@@ -101,6 +102,7 @@ export const calculators = [
     { name: 'AVM', icon: Film, component: AvmCalculator, value: 'avm', category: 'marketing' },
     { name: 'YT Thumbnail Extractor', icon: Youtube, component: YoutubeThumbnailExtractor, value: 'yt-thumbnail-extractor', category: 'marketing' },
     { name: 'YT Tags Extractor', icon: Youtube, component: YoutubeTagsExtractor, value: 'yt-tags-extractor', category: 'marketing' },
+    { name: 'YT Transcript Generator', icon: Youtube, component: YoutubeTranscriptGenerator, value: 'yt-transcript-generator', category: 'marketing' },
     { name: 'Standard', icon: Calculator, component: SimpleCalculator, value: 'simple', category: 'math-general' },
     { name: 'Percentage', icon: Percent, component: PercentageCalculator, value: 'percentage', category: 'math-general' },
     { name: 'Printing', icon: Printer, component: PrintingCalculator, value: 'printing', category: 'math-general' },

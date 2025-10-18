@@ -9,7 +9,8 @@ import { imageToText } from '@/ai/flows/image-to-text-flow';
 import { imageToVideo } from '@/ai/flows/image-to-video-flow';
 import { removeText } from '@/ai/flows/remove-text-flow';
 import { removeObject } from '@/ai/flows/object-remover-flow';
-import { currencyConversionSchema, paycheckCalculatorSchema, cryptoConversionSchema, backgroundRemoverSchema, imageUpscalerSchema, imageToTextSchema, imageToVideoSchema, removeTextSchema, objectRemoverSchema } from '@/lib/schemas';
+import { generateYoutubeTranscript } from '@/ai/flows/youtube-transcript-generator-flow';
+import { currencyConversionSchema, paycheckCalculatorSchema, cryptoConversionSchema, backgroundRemoverSchema, imageUpscalerSchema, imageToTextSchema, imageToVideoSchema, removeTextSchema, objectRemoverSchema, youtubeExtractorSchema } from '@/lib/schemas';
 import { z } from 'zod';
 
 export async function handleCurrencyConversion(values: z.infer<typeof currencyConversionSchema>) {
@@ -89,23 +90,20 @@ export async function handleBackgroundRemoval(values: { imageDataUri: string, ba
     }
 }
 
-export async function handleImageUpscaling(values: { imageDataUri: string; resolution: '2k' | '4k' | '8k' | '12k' }) {
-    const validatedFields = imageUpscalerSchema.safeParse(values);
+export async function handleImageUpscaling(values: z.infer<typeof imageUpscalerSchema>) {
+  const validatedFields = imageUpscalerSchema.safeParse(values);
 
-    if (!validatedFields.success) {
-      return { error: 'Invalid input.' };
-    }
+  if (!validatedFields.success) {
+    return { error: 'Invalid input.' };
+  }
 
-    try {
-        const result = await upscaleImage({ 
-            imageDataUri: values.imageDataUri,
-            resolution: validatedFields.data.resolution
-         });
-        return { success: result };
-    } catch (error) {
-        console.error(error);
-        return { error: 'Failed to upscale image. Please try again.' };
-    }
+  try {
+    const result = await upscaleImage(validatedFields.data);
+    return { success: result };
+  } catch (error) {
+    console.error(error);
+    return { error: 'Failed to upscale image. Please try again.' };
+  }
 }
 
 export async function handleImageToText(values: { imageDataUri: string }) {
@@ -161,5 +159,21 @@ export async function handleRemoveObject(values: { imageDataUri: string, prompt:
     } catch (error) {
         console.error(error);
         return { error: 'Failed to remove object from image. Please try again.' };
+    }
+}
+
+export async function handleYoutubeTranscript(values: z.infer<typeof youtubeExtractorSchema>) {
+    const validatedFields = youtubeExtractorSchema.safeParse(values);
+
+    if (!validatedFields.success) {
+        return { error: 'Invalid input.' };
+    }
+
+    try {
+        const result = await generateYoutubeTranscript(validatedFields.data);
+        return { success: result };
+    } catch (error) {
+        console.error(error);
+        return { error: 'Failed to generate transcript. Please try again.' };
     }
 }
